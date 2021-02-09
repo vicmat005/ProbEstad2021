@@ -3,8 +3,8 @@
 
 1. **Análisis estadístico de datos muestrales**  
 1.1 La población y la muestra.  
-  1.1.1 Relación entre la probabilidad y la estadística.  
-  1.1.2 Clasificaciones de la estadística.  
+  + Relación entre la probabilidad y la estadística.  
+  + Clasificaciones de la estadística.  
 1.2 Estadística descriptiva: Análisis de datos univariados.  
   1.2.1 Tabla de distribución de frecuencias.  
   1.2.2 Histogramas y polígonos de frecuencias.  
