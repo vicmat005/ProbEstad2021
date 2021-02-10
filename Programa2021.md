@@ -61,29 +61,29 @@
  4.6.2 Método de la transformada inversa y comparación con las distribuciones teóricas.  
  4.6.3 Construcción de histogramas.   
  
-5. **Variables aleatorias conjuntas**
-5.1 Variables aleatorias conjuntas discretas: Función de probabilidad conjunta, su definición y propiedades.
-  5.1.1 Funciones marginales de probabilidad.
-  5.1.2 Funciones condicionales de probabilidad.
-5.2 Variables aleatorias conjuntas continuas:
-  5.2.1 Función de densidad conjunta, su definición y propiedades.
-  5.2.2 Funciones marginales de densidad.
-  5.2.3 Funciones condicionales de densidad.
-5.3 Valor esperado de una función de dos o más variables aleatorias.
-5.3.1 Valor esperado condicional.
-5.4 Variables aleatorias independientes.
-  5.4.1 Covariancia y Correlación, y sus propiedades.
-  5.4.2 Variancia de una suma de dos o más variables aleatorias.
-5.5 Distribución normal bivariada.
+5. **Variables aleatorias conjuntas**  
+5.1 Variables aleatorias conjuntas discretas: Función de probabilidad conjunta, su definición y propiedades.  
+  5.1.1 Funciones marginales de probabilidad.  
+  5.1.2 Funciones condicionales de probabilidad.  
+5.2 Variables aleatorias conjuntas continuas:  
+  5.2.1 Función de densidad conjunta, su definición y propiedades.  
+  5.2.2 Funciones marginales de densidad.  
+  5.2.3 Funciones condicionales de densidad.  
+5.3 Valor esperado de una función de dos o más variables aleatorias.  
+5.3.1 Valor esperado condicional.  
+5.4 Variables aleatorias independientes.  
+  5.4.1 Covariancia y Correlación, y sus propiedades.  
+  5.4.2 Variancia de una suma de dos o más variables aleatorias.  
+5.5 Distribución normal bivariada.  
 
-6. **Distribuciones muestrales**
-6.1 El concepto y la definición de muestra aleatoria y estadístico.
-6.2 Muestreo aleatorio simple.
-6.3 Teorema del límite central.
-6.4 Generación de números aleatorios con distribución normal utilizando el teorema del límite central.
-6.5 Distribución de la media muestral.
-6.6 Distribución $\xi^2$-cuadrada. Uso de tablas.
-6.7 Distribución *t*. Uso de tablas.
+6. **Distribuciones muestrales**  
+6.1 El concepto y la definición de muestra aleatoria y estadístico. 
+6.2 Muestreo aleatorio simple.  
+6.3 Teorema del límite central.  
+6.4 Generación de números aleatorios con distribución normal utilizando el teorema del límite central.  
+6.5 Distribución de la media muestral.  
+6.6 Distribución ji-cuadrada. Uso de tablas.  
+6.7 Distribución *t*. Uso de tablas.  
 
-7. **Manejo de datos bivariados**
-7.1 Ajuste de la recta de regresión mediante el modelo de mínimos cuadrados.
+7. **Manejo de datos bivariados**  
+7.1 Ajuste de la recta de regresión mediante el modelo de mínimos cuadrados.  
