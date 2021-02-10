@@ -87,3 +87,4 @@
 
 7. **Manejo de datos bivariados**  
 7.1 Ajuste de la recta de regresión mediante el modelo de mínimos cuadrados.  
+7.2 Definición e interpretación de los coeficientes de correlación lineal y determinación.  
