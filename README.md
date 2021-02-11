@@ -17,7 +17,7 @@ Donde los *obetivos específicos* son que El alumno:
 7. Analizará la relación que existe entre dos variables a partir de la información obtenida por el ajuste de regresión y sus coeficientes de correlación.  
 
 Bibliografía: 
-Hines, W et al. (2008) Probabilidad y estadística para ingeniería, Grupo Editorial Patria, 4a Edisión.
-Daniel, W.W. Biostatistics. A foundation for Analysis in the Health Sciences, Wiley, 9th Edition.
+Hines, W et al. (2008) Probabilidad y estadística para ingeniería, Grupo Editorial Patria, 4a Edisión.  
+Daniel, W.W. Biostatistics. A foundation for Analysis in the Health Sciences, Wiley, 9th Edition.  
 
-El uso del leguage R es obligatorio para el desarrollo de curso y la solucón de las tareas y presentación de los trabajos. El material de clase se desarrollará en RStudio y la última vesrsion de R (del repositorio CRAN).
+El uso del leguage R es obligatorio para el desarrollo de curso y la solucón de las tareas y presentación de los trabajos. El material de clase se desarrollará en RStudio y la última vesrsion de R (del repositorio CRAN).  
