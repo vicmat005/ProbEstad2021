@@ -6,6 +6,7 @@ Profesor: Fernando A Barrios, PhD
 Curso 2021-II, 15 de febrero de 2021 al 11 de junio de 2021.  
 
 El **objetivo general** de esta materia está descrito en el programa de la licenciatura como que: El alumno aplicará los conceptos y la metodología básicos de la teoría de la probabilidad y la estadística, para analizar algunos experimentos aleatorios que ocurren en la naturaleza y la sociedad, resaltando los correspondientes a la ingeniería.  
+
 Donde los *obetivos específicos* son que El alumno:    
 1. Describirá los datos de una muestra y obtendrá las medidas descriptivas más significativas.  
 2. Comprenderá el concepto de probabilidad, así como los teoremas en los que se basa esta teoría.  
