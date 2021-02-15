@@ -1,18 +1,18 @@
-#Presentación  
-
-##Probabilidad y Estadística  
-##Dr. Fernando A Barrios  
+# Presentación  
+## Probabilidad y Estadística  
+## Dr. Fernando A Barrios  
 barrios@inb.unam.mx  
-##Instituto de Neurobiología, UNAM  
+## Instituto de Neurobiología, UNAM  
 
-El [Programa original](fabarrios.github.io/ProbEstad2021/ProgramaOriginal.md) de la clase se puede checar en la liga, este programa en forma muy general se
+El 
+[Programa original](fabarrios.github.io/ProbEstad2021/ProgramaOriginal.md)
+de la clase se puede checar en la liga, este programa en forma muy general se
 seguirá.
 
-##Calificaciones  
+## Calificaciones  
 
 Se tiene pensado tres elementos básicos de evaluación; *participación en clase, exámenes parciales y un proyecto final*. Estos elementos de evaluación 
 tendrán los siguientes valores:  
-
 - Participación en clase, 30%  
 - Exámenes parciales, 30%  
 - Proyecto final, 40%  
@@ -22,7 +22,7 @@ una atención y desarrollo muy importantes, es un sistema que cuenta con una can
 Contar con experiencia en modelos de software compartido en la actualidad considero es una herramienta básica de trabajo que se debe desarrollar.  
 
 Hablemos de que tecnología de cómputo tienen, con que recursos cuentan.  
-1.	Tecnología de software  
-2.	Discutir R en la tecnología que tienen (hablar del uso de UBUNTU)  
-3.	Hablar de sistemas de control de versión (versión control, source control, distributed source control) git  
-4.	GitHub y mi cuenta. El depósito de fuentes ProbEstad2021  
+1. Tecnología de software  
+2. Discutir R en la tecnología que tienen (hablar del uso de UBUNTU)  
+3. Hablar de sistemas de control de versión (versión control, source control, distributed source control) git  
+4. GitHub y mi cuenta. El depósito de fuentes ProbEstad2021  
