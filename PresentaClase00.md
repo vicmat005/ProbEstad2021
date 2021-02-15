@@ -5,7 +5,7 @@ barrios@inb.unam.mx
 ## Instituto de Neurobiología, UNAM  
 
 El 
-[Programa original](fabarrios.github.io/ProbEstad2021/ProgramaOriginal.md)
+[Programa original](https://fabarrios.github.io/ProbEstad2021/ProgramaOriginal.md)
 de la clase se puede checar en la liga, este programa en forma muy general se
 seguirá.
 
