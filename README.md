@@ -10,7 +10,7 @@ Juriquilla, UNAM. 2021-II
 ### barrios@inb.unam.mx  
 ## Instituto de Neurobiología, UNAM  
 
-[Programa original](https://fabarrios.github.io/ProbEstad2021/ProgramaOriginal.md)  
+
 
 ## Calificaciones  
 
@@ -25,3 +25,6 @@ El uso del sistema de cómputo estadístico (lenguaje) R durante el curso es obl
 académico, el sistema R ha ganado una atención y desarrollo muy importantes, es un sistema que cuenta con una cantidad muy extensa de herramientas, 
 desarrollos y proyectos públicos.  Contar con experiencia en modelos de software compartido en la actualidad considero es una herramienta básica de 
 trabajo que se debe desarrollar y cultivar.
+
+El [programa original](https://fabarrios.github.io/ProbEstad2021/ProgramaOriginal.md) de este curso se encuentra en la giga y pueden revisarlo 
+como una referencia general de los temas que se planean cubrir.
