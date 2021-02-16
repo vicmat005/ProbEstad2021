@@ -1,0 +1,65 @@
+---
+title: "Estadística Descriptiva"
+author: "F. A. Barrios<br>Instituto de Neurobiología UNAM<br>"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::material:
+    highlight: kate
+  description: "to prepare ProbEstad2021 presentations"
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+# Estadística Descriptiva
+
+En esta clase revisaremos el concepto de estadística descriptiva (Daniel W.W. 2009, Biostatistics, 9th). Y también tomaremos varias ideas y ejemplos del libro de Estadística con R de Verzani (Verzani, J. 2005, UsingR)
+
+Una de las primeras dosas que es indispena=sable hacer al iniciar el sistema R es determinar cuan es el directorio de trabajo y si se van a uasr algunas librerías hay que cargargarlas.  En este caso usaremos una librería muy popular, tidyverse, que se usa para una multitud de cosas ya que es un sub-set de librerias que en conjunto cuentan con una conjunto de funciones extraodinarios.
+
+```{r}
+# setwd("~/Dropbox/GiHub/ProbEstad2021")
+# To set the working directory at the user dir
+library(tidyverse)
+library(multcomp)
+library(UsingR)
+```
+Iniciaremos con unos ejemplos muy cimpoes de funciones ya integradas en R de carácter muuy general.  Empezando por cargars una serie de datos, inicaremos usando una serie de datos de la cantidad de ballenas que llegaron a la playa en el estado de Texas por año en la década de los 90's.
+
+```{r}
+# Whale beaching per year in Texas durnog the 1990's
+# create a vector
+whales <- c(74, 122, 235, 111, 292, 111, 211, 133, 156, 79)
+#
+whales # pint the variable whales
+
+sum(whales)
+
+length(whales)
+#
+sum(whales)/length(whales)
+#
+mean(whales)
+#
+sort(whales)
+min(whales)
+max(whales)
+
+range(whales)
+# cumulative sum of a vector
+cumsum(whales)
+```
