@@ -20,4 +20,4 @@ Bibliografía:
 Hines, W. et al. (2008) Probabilidad y estadística para ingeniería, Grupo Editorial Patria, 4a Edición.  
 Daniel, W.W. Biostatistics. A Foundation for Analysis in the Health Sciences, Wiley, 9th Edition.  
 
-El uso del leguage R es obligatorio para el desarrollo del curso y la solución de las tareas y presentación de los trabajos. El material de clase se desarrollará en RStudio y la última vesrsion de R (del repositorio CRAN).  
+El uso del lenguage R es obligatorio para el desarrollo del curso y la solución de las tareas y presentación de los trabajos. El material de clase se desarrollará en RStudio y la última version de R (del repositorio CRAN).  
