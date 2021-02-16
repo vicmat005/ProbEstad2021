@@ -11,7 +11,7 @@
   1.2.3 Medidas de tendencia central, dispersión y asimetría.  
 1.3 Uso de equipo de cómputo el sistema R
 
-2. **Fundamentos de la teoría de la probabilidad**
+2. **Fundamentos de la teoría de la probabilidad**  
 2.1 Definición de experimentos deterministas y aleatorios.  
   2.1.1 Espacio muestral de un experimento aleatorio.  
   2.1.2 Eventos discretos y continuos.  
