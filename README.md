@@ -3,6 +3,8 @@
 ## ENES Juriquilla, Universidad Nacional Autónoma de México  
 
 Profesor: Fernando A Barrios, PhD  
+barrios@inb.unam.mx  
+
 Curso 2021-II, 15 de febrero de 2021 al 11 de junio de 2021.  
 Bibliografía:  
 Daniel, W.W. (2009) Biostatistics. A Foundation for Analysis in the Health Sciences, Wiley, 9th Edition.  
