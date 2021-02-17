@@ -4,20 +4,10 @@
 
 Profesor: Fernando A Barrios, PhD  
 Curso 2021-II, 15 de febrero de 2021 al 11 de junio de 2021.  
-
-El **objetivo general** de esta materia está descrito en el programa de la licenciatura como que: El alumno aplicará los conceptos y la metodología básicos de la teoría de la probabilidad y la estadística, para analizar algunos experimentos aleatorios que ocurren en la naturaleza y la sociedad, resaltando los correspondientes a la ingeniería.  
-
-Donde los *obetivos específicos* son el alumno:    
-1. Describirá los datos de una muestra y obtendrá las medidas descriptivas más significativas.  
-2. Comprenderá el concepto de probabilidad, así como los teoremas en los que se basa esta teoría.  
-3. Conocerá el concepto de variable aleatoria, y podrá analizar el comportamiento probabilista de la variable, a través de su distribución y sus características numéricas.  
-4. Identificará algunas de las distribuciones más utilizadas y seleccionará la más adecuada para analizar algún fenómeno aleatorio en particular.  
-5. Conocerá el concepto de variable aleatoria conjunta y podrá analizar el comportamiento probabilista, conjunta e individualmente, de las variables a través de su distribución, e identificará relaciones de dependencia entre dichas variables.  
-6. Identificará las distribuciones de algunos estadísticos que se utilizan en el muestreo.  
-7. Analizará la relación que existe entre dos variables a partir de la información obtenida por el ajuste de regresión y sus coeficientes de correlación.  
-
 Bibliografía:  
-Hines, W. et al. (2008) Probabilidad y estadística para ingeniería, Grupo Editorial Patria, 4a Edición.  
-Daniel, W.W. Biostatistics. A Foundation for Analysis in the Health Sciences, Wiley, 9th Edition.  
+Daniel, W.W. (2009) Biostatistics. A Foundation for Analysis in the Health Sciences, Wiley, 9th Edition.  
+Verzani, J. (2005) Using R for Introductory Statistics, Chapman & Hall/CRC.
 
-El uso del lenguage R es obligatorio para el desarrollo del curso y la solución de las tareas y presentación de los trabajos. El material de clase se desarrollará en RStudio y la última version de R (del repositorio CRAN).  
+El **objetivo general** de esta materia es que: El alumno aplicará los conceptos y la metodología básicos de la teoría de la probabilidad y la estadística, para analizar algunos experimentos aleatorios que ocurren en la naturaleza y la sociedad, resaltando los correspondientes a estudios biomédicos.  El uso del lenguage R es obligatorio para el desarrollo del curso, la solución de las tareas y presentación de los trabajos. El material de clase se desarrollará en RStudio y la última version de R (del repositorio [CRAN](https://cran.r-project.org/) ).  
+
+Tema 1 [Estadística Descriptiva](https://fabarrios.github.io/ProbEstad2021/EstadDescrip/EstadDescrip.html).
