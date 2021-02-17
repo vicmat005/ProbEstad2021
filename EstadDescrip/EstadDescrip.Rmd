@@ -29,23 +29,24 @@ opts_knit$set(width=75)
 
 En esta clase revisaremos el concepto de estadística descriptiva (Daniel W.W. 2009, Biostatistics, 9th). Y también tomaremos varias ideas y ejemplos del libro de Estadística con R de Verzani (Verzani, J. 2005, UsingR)
 
-Una de las primeras dosas que es indispena=sable hacer al iniciar el sistema R es determinar cuan es el directorio de trabajo y si se van a uasr algunas librerías hay que cargargarlas.  En este caso usaremos una librería muy popular, tidyverse, que se usa para una multitud de cosas ya que es un sub-set de librerias que en conjunto cuentan con una conjunto de funciones extraodinarios.
+Una de las primeras dosas que es indispensable hacer al iniciar el sistema R es determinar cuan es el directorio de trabajo y si se van a uasr algunas librerías hay que cargargarlas.  En este caso usaremos una librería muy popular, tidyverse, que se usa para una multitud de cosas ya que es un sub-set de librerías que en conjunto cuentan con un conjunto de funciones extraordinarias.
 
 ```{r}
-# setwd("~/Dropbox/GiHub/ProbEstad2021")
-# To set the working directory at the user dir
+setwd("~/Dropbox/GitHub/ProbEstad2021")
+# To set the working directory realtive to the user's dir
+
 library(tidyverse)
 library(multcomp)
 library(UsingR)
 ```
-Iniciaremos con unos ejemplos muy cimpoes de funciones ya integradas en R de carácter muuy general.  Empezando por cargars una serie de datos, inicaremos usando una serie de datos de la cantidad de ballenas que llegaron a la playa en el estado de Texas por año en la década de los 90's.
+Iniciaremos con unos ejemplos muy simples de funciones ya integradas en R de carácter muy general.  Empezando por cargar una serie de números, usando una serie de datos de la cantidad de ballenas que llegaron a la playa en el estado de Texas por año, en la década de los 90's.
 
 ```{r}
-# Whale beaching per year in Texas durnog the 1990's
+# Whale beaching per year in Texas during the 1990's
 # create a vector
 whales <- c(74, 122, 235, 111, 292, 111, 211, 133, 156, 79)
 #
-whales # pint the variable whales
+whales # print the variable whales
 
 sum(whales)
 
@@ -54,12 +55,20 @@ length(whales)
 sum(whales)/length(whales)
 #
 mean(whales)
-#
+```
+Como se puede ver con simples comandos se pueden estimar "estadísticas" de los datos.  Un mecanismo para describir una series de *datos crudos* es el ordenamiento, es desir si yo tengo un conjunto de datos numéricos una técnica para describirlos es iniciar por ordenarlos. En los tiempos anteriores a las computadoras esto tomaria un esfuerso, pero en la catualidad se hace por una solicitud de ordemanuento, en el R existe un comando que hace esto en un paso, tambien es por medio de una comando que se peude encotrar el mínimo o el máximo.
+
+```{r}
 sort(whales)
 min(whales)
 max(whales)
+```
 
+Y de esta colección de comandos se tienen el rango y la suma cumulativa.  Pero uno de os comandos más útiles puedes ser el summary, que nos entrega una serie de parámetros de la variable, y vale la pena mencionar que a este comando se le puede pasar una estructura que entregará la misma serie de parámetros para cada variable de la estructura.
+
+```{r}
 range(whales)
 # cumulative sum of a vector
 cumsum(whales)
+summary(whales)
 ```

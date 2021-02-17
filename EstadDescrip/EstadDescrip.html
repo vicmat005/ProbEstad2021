@@ -7,7 +7,7 @@
 
         <meta name="author" content="F. A. Barrios Instituto de Neurobiología UNAM " />
     
-        <meta name="date" content="2021-02-15" />
+        <meta name="date" content="2021-02-16" />
     
     <title>Estadística Descriptiva</title>
     <!-- Material Design fonts -->
@@ -194,7 +194,7 @@
 	  	  <div id="header">
 	    <h1 class="title">Estadística Descriptiva</h1>
 	    	    	    	    <h4 class="author">F. A. Barrios<br>Instituto de Neurobiología UNAM<br></h4>
-	    	    	    	    <h4 class="date">2021-02-15</h4>
+	    	    	    	    <h4 class="date">2021-02-16</h4>
 	    	  </div>
 	  	</div>
       </div>
@@ -222,18 +222,19 @@
 	    <div id="estadística-descriptiva" class="section level1">
      <h1>Estadística Descriptiva</h1>
      <p>En esta clase revisaremos el concepto de estadística descriptiva (Daniel W.W. 2009, Biostatistics, 9th). Y también tomaremos varias ideas y ejemplos del libro de Estadística con R de Verzani (Verzani, J. 2005, UsingR)</p>
-     <p>Una de las primeras dosas que es indispena=sable hacer al iniciar el sistema R es determinar cuan es el directorio de trabajo y si se van a uasr algunas librerías hay que cargargarlas. En este caso usaremos una librería muy popular, tidyverse, que se usa para una multitud de cosas ya que es un sub-set de librerias que en conjunto cuentan con una conjunto de funciones extraodinarios.</p>
-     <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd(&quot;~/Dropbox/GiHub/ProbEstad2021&quot;)</span></span>
-     <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To set the working directory at the user dir</span></span>
-     <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-     <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
-     <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span></code></pre></div>
-     <p>Iniciaremos con unos ejemplos muy cimpoes de funciones ya integradas en R de carácter muuy general. Empezando por cargars una serie de datos, inicaremos usando una serie de datos de la cantidad de ballenas que llegaron a la playa en el estado de Texas por año en la década de los 90’s.</p>
-     <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Whale beaching per year in Texas durnog the 1990&#39;s</span></span>
+     <p>Una de las primeras dosas que es indispensable hacer al iniciar el sistema R es determinar cuan es el directorio de trabajo y si se van a uasr algunas librerías hay que cargargarlas. En este caso usaremos una librería muy popular, tidyverse, que se usa para una multitud de cosas ya que es un sub-set de librerías que en conjunto cuentan con un conjunto de funciones extraordinarias.</p>
+     <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Dropbox/GitHub/ProbEstad2021/DataSets&quot;</span>)</span>
+     <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To set the working directory realtive to the user&#39;s dir</span></span>
+     <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+     <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+     <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+     <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span></code></pre></div>
+     <p>Iniciaremos con unos ejemplos muy simples de funciones ya integradas en R de carácter muy general. Empezando por cargar una serie de números, usando una serie de datos de la cantidad de ballenas que llegaron a la playa en el estado de Texas por año, en la década de los 90’s.</p>
+     <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Whale beaching per year in Texas during the 1990&#39;s</span></span>
      <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create a vector</span></span>
      <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>whales <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">74</span>, <span class="dv">122</span>, <span class="dv">235</span>, <span class="dv">111</span>, <span class="dv">292</span>, <span class="dv">111</span>, <span class="dv">211</span>, <span class="dv">133</span>, <span class="dv">156</span>, <span class="dv">79</span>)</span>
      <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-     <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>whales <span class="co"># pint the variable whales</span></span></code></pre></div>
+     <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>whales <span class="co"># print the variable whales</span></span></code></pre></div>
      <pre><code> [1]  74 122 235 111 292 111 211 133 156  79</code></pre>
      <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(whales)</span></code></pre></div>
      <pre><code>[1] 1524</code></pre>
@@ -245,18 +246,22 @@
      <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
      <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(whales)</span></code></pre></div>
      <pre><code>[1] 152.4</code></pre>
-     <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-     <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(whales)</span></code></pre></div>
+     <p>Como se puede ver con simples comandos se pueden estimar “estadísticas” de los datos. Un mecanismo para describir una series de <em>datos crudos</em> es el ordenamiento, es desir si yo tengo un conjunto de datos numéricos una técnica para describirlos es iniciar por ordenarlos. En los tiempos anteriores a las computadoras esto tomaria un esfuerso, pero en la catualidad se hace por una solicitud de ordemanuento, en el R existe un comando que hace esto en un paso, tambien es por medio de una comando que se peude encotrar el mínimo o el máximo.</p>
+     <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(whales)</span></code></pre></div>
      <pre><code> [1]  74  79 111 111 122 133 156 211 235 292</code></pre>
      <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(whales)</span></code></pre></div>
      <pre><code>[1] 74</code></pre>
      <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(whales)</span></code></pre></div>
      <pre><code>[1] 292</code></pre>
+     <p>Y de esta colección de comandos se tienen el rango y la suma cumulativa. Pero uno de os comandos más útiles puedes ser el summary, que nos entrega una serie de parámetros de la variable, y vale la pena mencionar que a este comando se le puede pasar una estructura que entregará la misma serie de parámetros para cada variable de la estructura.</p>
      <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(whales)</span></code></pre></div>
      <pre><code>[1]  74 292</code></pre>
      <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cumulative sum of a vector</span></span>
      <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(whales)</span></code></pre></div>
      <pre><code> [1]   74  196  431  542  834  945 1156 1289 1445 1524</code></pre>
+     <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(whales)</span></code></pre></div>
+     <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+        74.0   111.0   127.5   152.4   197.2   292.0 </code></pre>
      </div>
 	  </div>
 
