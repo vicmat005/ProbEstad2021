@@ -1,5 +1,6 @@
 # Probabilidad y Estadística  
-## Licenciatura en Órtesis y Prótesis  ENES Juriquilla, Universidad Nacional Autónoma de México  
+## Licenciatura en Órtesis y Prótesis  
+## ENES Juriquilla, Universidad Nacional Autónoma de México  
 
 Profesor: Fernando A Barrios, PhD  
 barrios@inb.unam.mx  
