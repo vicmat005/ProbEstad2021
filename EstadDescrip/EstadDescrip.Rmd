@@ -89,7 +89,7 @@ La necesidad de desarrollar estimaciones estadísticas está motivada por la nec
 
 **Fuentes externas**.  En ocasiones se cuenta ya con datos de situaciones que se quieren estudiar y se pueden extraer datos de dichos estudios anteriores, para deducir información. Ejemplos pueden ser publicaciones anteriores, entre otros.  
 
-## Definiciones  
+## Población y Muestas  
 
 **Población**. Es el grupo completo de sujetos para los que se cumple alguna ley o regla. Por ejemplo: la población de todos los estudiantes, es decir todos aquellos sujetos que se dedican al estudio como actividad principal. Pero esta población se puede describir en forma más específica, por ejemplo: todos los estudiantes de licenciatura, o todos los estudiantes de escuelas técnicas. Pero hacer un estudio que nos permita concluir algo de toda la población sería necesario hacer la medida en toda la población, y esto limitaría seriamente nuestra capacidad de hacer estudios. Ya que la población podría además incluir a todos los miembros pasados, futuros y presentes, lo que en principio haría la población infinita. Por lo tanto para poder hacer un estudio y se toma una medida parcial de la población, o se a un su-grupo de la población que se quiere estudiar, un muestra de la población, y se asignan las medidas de dicha muestra como representantes de las que se obtendrían de la población completa.  
 
