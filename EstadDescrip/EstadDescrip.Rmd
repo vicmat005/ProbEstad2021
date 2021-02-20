@@ -28,7 +28,7 @@ opts_knit$set(width=75)
 
 En esta clase revisaremos el concepto de estadística descriptiva (Daniel W.W. 2009, Biostatistics, 9th). Y también tomaremos varias ideas y ejemplos del libro de Estadística con R de Verzani (Verzani, J. 2005, UsingR)
 
-Una de las primeras cosas que es indispensable hacer al iniciar el sistema R es determinar cual es el directorio de trabajo y si se van a usar algunas librerías hay que cargarlas.  En este caso usaremos una librería muy popular, tidyverse, que se usa para una multitud de cosas ya que es un sub-set de librerías que en conjunto cuentan con una gran cantidad de funciones de uso común.
+Una de las primeras cosas que es indispensable hacer al iniciar el sistema R es determinar cual es el directorio de trabajo y si se van a usar algunas librerías hay que cargarlas.  En este caso usaremos una librería muy popular, `tidyverse` que se usa para una multitud de cosas ya que es un sub-set de librerías que en conjunto cuentan con una gran cantidad de funciones de uso común.
 
 ```{r}
 setwd("~/Dropbox/GitHub/ProbEstad2021")
@@ -63,7 +63,7 @@ min(whales)
 max(whales)
 ```
 
-Y de esta colección de comandos se tienen el rango y la suma acumulada.  Pero uno de los comandos más útiles puede ser el vervatim summary, que nos entrega una serie de parámetros de la variable, y vale la pena mencionar que a este comando se le puede pasar una estructura que entregará la misma serie de parámetros para cada variable de la estructura.
+Y de esta colección de instrucciones se tienen el rango y la suma acumulada.  Pero uno de los comandos más útiles puede ser el `summary`, que nos entrega una serie de parámetros de la variable, y vale la pena mencionar que a esta funciona se le puede pasar una estructura que entregará la misma serie de parámetros para cada variable de la estructura, y muchas otras estucturas de R, como veremos posteriormente.
 
 ```{r}
 range(whales)
@@ -117,20 +117,29 @@ La *inferencia estadística* es el proceso por el cual se puede llegar a conclus
 
 # Agrupamiento de Datos
 Para iniciar el estudio de una muestra de datos se pueden hacer algunos procesos que nos permitan hacer una serie de *Medidas Descriptivas* de los datos que se obtuvieron a traves de una muestra tomada de una población.  
-Como ya lo expusimos en el ejemplo del número de ballenas que llegaron a las playas del estado de Texas en la década de los 90's. uno de los pazos iniciales que se puede hacer para entender una conjunto de datos medidos es hacer una arreglo ordenado de los datos que tenemos.  En el ejemplo a continuación vamos a usar una muestra de un estudio de sujetos que dejaron de fumar, se listan las edades a las que dejaron de ser fumadores.  En el estado que está la lista al cargarse, datos *crudos (raw data)*, encontramos que si nos preguntaran cual es la edad mayor y menor de cuando este grupo de sujetos dejó de fumar nos tomaría algún esfuerzo, sin embargo si cargamos los datos en un vector (arreglo unidimensional) y lo ordenamos bastará con ver el primer y último elementos para saber cual es el mínimo y máximo del grupo de edades.   
+Como ya lo expusimos en el ejemplo del número de ballenas que llegaron a las playas del estado de Texas en la década de los 90's. uno de los pasos iniciales que se puede hacer para entender un conjunto de datos medidos es hacer una arreglo ordenado de los datos que tenemos.  En el ejemplo a continuación vamos a usar una muestra de un estudio de sujetos que dejaron de fumar, se listan las edades a las que dejaron de ser fumadores.  La lista al cargarse, no está ordenada ni se han manipulado los datos y por lo tanto se acostumbra decir que los datos están *crudos (raw data)*, encontramos que si nos preguntaran cual es la edad mayor y menor de cuando este grupo de sujetos dejó de fumar nos tomaría algún esfuerzo, sin embargo si cargamos los datos en un vector (arreglo unidimensional) y lo ordenamos bastará con ver el primer y último elementos para saber cual es el mínimo y máximo del grupo de edades.   
 
 ```{r}
-edad <- read_csv("DataSets/ch02_all/EXA_C02_S02_01.csv")
-edad
+Fuma <- read_csv("DataSets/ch02_all/EXA_C02_S02_01.csv")
+Fuma
 #
-ord_edad <- sort(edad$Age)
-ord_edad
+ord_Fuma <- sort(Fuma$Age)
+ord_Fuma
+tail(ord_Fuma)
 #
-summary(edad)
+summary(Fuma)
+```
+Otra forma muy útil de visualizar un conjunto de datos es el diagrama de tallo y hojas, este se diagrama en R se estima con el comando `stem()`, otra función de utilidad es hacer una tabla de frecuencias con `table()` y esta función se usa para *preparar* los datos en un variable para hace una gráfica de barras por ejemplo, `barplot(table(Fuma$Age, col = "red"))` pero una de las funciones más útiles para generar graficas es el histograma, en R `hist()`, (claro que hay toda una gama de  posibilidades en ggplot para hacer histogramas).  Y un histograma con el polinomio de frecuencias graficado soobre el histograma, para usar `simple.freqpoly()` es necesario tener cargada la librería de UsingR.
+
+```{r}
+stem(Fuma$Age)
+table(Fuma$Age)
+barplot(table(Fuma$Age), col = "red")
+DOTplot(Fuma$Age)
 #
-stem(edad$Age)
-hist(edad$Age)
+hist(Fuma$Age)
 #
-hist(edad$Age, prob=TRUE)
+hist(Fuma$Age, prob=TRUE)
+simple.freqpoly(Fuma$Age)
 ```
 
