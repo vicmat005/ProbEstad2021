@@ -13,5 +13,5 @@ Verzani, J. (2005) Using R for Introductory Statistics, Chapman & Hall/CRC.
 El **objetivo general** de esta materia es que: El alumno aplicará los conceptos y la metodología básicos de la teoría de la probabilidad y la estadística, para analizar algunos experimentos aleatorios que ocurren en la naturaleza y la sociedad, resaltando los correspondientes a estudios biomédicos.  
 El uso del lenguage R es obligatorio para el desarrollo del curso, la solución de las tareas y presentación de los trabajos. El material de clase se desarrollará en [RStudio](https://rstudio.com/products/rstudio/) y la última versión de R (del repositorio [CRAN](https://cran.r-project.org/) ).  
 
-Tema 1 [Estadística Descriptiva](https://fabarrios.github.io/ProbEstad2021/EstadDescrip/EstadDescrip.html).
+Tema 1 [Estadística Descriptiva](https://fabarrios.github.io/ProbEstad2021/EstadDescrip/EstadDescrip.html).  
 Tarea 1 [Tarea 01 Estadística Descriptiva](https://fabarrios.github.io/ProbEstad2021/HW/HW_01.dm).
