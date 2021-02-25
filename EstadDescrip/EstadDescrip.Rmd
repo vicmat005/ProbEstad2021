@@ -143,3 +143,38 @@ hist(Fuma$Age, prob=TRUE)
 simple.freqpoly(Fuma$Age)
 ```
 
+## Medidas de tendencia central
+
+Hay varios casos que necesitan una mejor descripción que las que dan las distribuciones de frecuencia, y es necesario obtener otro tipo de medidas como un número, llamadas *medidas descriptivas*, estas medidas se calculan de una muestra.  
+
+**Definicinones**  
+1. Una medida descriptiva que de calcula a partir de los datos de una muestra es una *estadística*.  
+2. Una medida descriptiva que se calcula a partir de los datos de una población se llama *parámetro*.  
+
+Existen varia medidas descriptivas, nosotros solo cubriremos las *medidas de tendencia central* y las *medidas de dispersión*.  
+Las tres medidas de tendencia central más comunes son el *promedio* la *media* y la *moda*.  
+
+## Promedio  
+
+**Promedio aritmético** La medida de tendencia central más conocida es el promedio aritmético o media, y se distingue por que puede ser estimado. Para generalizar al promedio se define el promedio general como la suma de los elementos de conjunto a describir dibididos entre el número total de ellos. Si los elemtos de la variable aleatoria a describir se denotan por $x_i$ cib la letra $i$ como índice de referencia de los $N$ como el número total de valores distintos. Para una *población* la letra $\mu$ denota el promedio de la población, con fórmula
+$$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
+
+Sabemos que hacer una evaluación de un parámetro de toda la población puede ser imposible, por lo que se toma una muestra de la población y se evalúa el promedio de la muestra cómo una estadística para describir por el parámetro promedio. Y se define el promedio de la muestra de n elementos $x_i$ cómo
+$$ \bar{x} = \frac{\sum_{i=1}^{n} x}{n} $$
+Propiedades de promedio  
+1. Es único, para una serie de datos dados hay un y solo un promedio.  
+2. Es simple, el significado del promedio es fácil de entender y fácil de calcular.  
+3. Como cada elemento de la muestra entra en la estimación del promedio, este depende de cada valor. Es decir que los valores extremos tienen una influencia sobre el valor estimado, y en algunos casos distorsionar el valor estimado.  
+
+## Media  
+La media de una muestra finita es el valor que divide a la muestra en dos partes iguales, de tal forma que el número de valores mayores a la media es igual al número de valores menores a ella. Muestras impares la media es exactamente el valor central mientras que el muestras pares hay dos medias centrales y la media estimada es el promedio de estos dos valores.  
+Propiedades de la Media  
+1. Es única, como con el promedio para una muestra existe solo una media.  
+2. Es simple, la media es fácil de calcular.  
+3. No es drasticamente influenciada por los valores extremos, como lo es el promedio. 
+
+## Moda
+La moda de una muestra de datos es el valor más común, el que ocurre más frecuentemente en la muestra. Si todos los valores de una muestra son distintos la muestra no tiene moda (se puede estimar).
+
+3
+
