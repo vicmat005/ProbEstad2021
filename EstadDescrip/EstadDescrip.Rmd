@@ -143,7 +143,7 @@ hist(Fuma$Age, prob=TRUE)
 simple.freqpoly(Fuma$Age)
 ```
 
-## Medidas de tendencia central
+# Medidas de tendencia central
 
 Hay varios casos que necesitan una mejor descripción que las que dan las distribuciones de frecuencia, y es necesario obtener otro tipo de medidas como un número, llamadas *medidas descriptivas*, estas medidas se calculan de una muestra.  
 
@@ -171,10 +171,13 @@ La media de una muestra finita es el valor que divide a la muestra en dos partes
 Propiedades de la Media  
 1. Es única, como con el promedio para una muestra existe solo una media.  
 2. Es simple, la media es fácil de calcular.  
-3. No es drasticamente influenciada por los valores extremos, como lo es el promedio. 
+3. No es drasticamente influenciada por los valores extremos, como lo es el promedio.  
 
-## Moda
-La moda de una muestra de datos es el valor más común, el que ocurre más frecuentemente en la muestra. Si todos los valores de una muestra son distintos la muestra no tiene moda (se puede estimar).
+## Moda  
+La moda de una muestra de datos es el valor más común, el que ocurre más frecuentemente en la muestra. Si todos los valores de una muestra son distintos la muestra no tiene moda (se puede estimar).  
 
-3
+Una distribución se puede clasificar si es simétrica o asimétrica. Se dice que si el histograma de una distribución no es simétrico la distribución esta *sesgada* (skewed) si la tendencia de las barras del histograma está cargada a la derecha se dice que está sesgada positivamente y si es para la izquierda se dice que está sesgada negativamente.  
+
+$$ Skewness = \frac{\sqrt{n}\sum_{i=1}^{n}(x_i - \bar{x})^3}{(n-1)\sqrt{n-1}s^3} $$
+
 
