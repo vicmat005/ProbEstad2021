@@ -7,7 +7,7 @@
 
         <meta name="author" content="F. A. Barrios ENES Juriquilla, UNAM " />
     
-        <meta name="date" content="2021-02-24" />
+        <meta name="date" content="2021-03-01" />
     
     <title>I Estadística Descriptiva</title>
     <!-- Material Design fonts -->
@@ -194,7 +194,7 @@
 	  	  <div id="header">
 	    <h1 class="title">I Estadística Descriptiva</h1>
 	    	    	    	    <h4 class="author">F. A. Barrios<br>ENES Juriquilla, UNAM<br></h4>
-	    	    	    	    <h4 class="date">2021-02-24</h4>
+	    	    	    	    <h4 class="date">2021-03-01</h4>
 	    	  </div>
 	  	</div>
       </div>
@@ -211,6 +211,7 @@
           <li><a href="#definiciones">Definiciones</a></li>
           <li><a href="#agrupamiento-de-datos">Agrupamiento de Datos</a></li>
           <li><a href="#medidas-de-tendencia-central">Medidas de tendencia central</a></li>
+          <li><a href="#medidas-de-dispersión">Medidas de dispersión</a></li>
           </ul>
 	</div>
       </nav>
@@ -392,27 +393,68 @@
      2. Una medida descriptiva que se calcula a partir de los datos de una población se llama <em>parámetro</em>.</p>
      <p>Existen varia medidas descriptivas, nosotros solo cubriremos las <em>medidas de tendencia central</em> y las <em>medidas de dispersión</em>.<br />
      Las tres medidas de tendencia central más comunes son el <em>promedio</em> la <em>media</em> y la <em>moda</em>.</p>
-     <div id="promedio" class="section level2">
-     <h2>Promedio</h2>
+     <div id="promedio-media" class="section level2">
+     <h2>Promedio (Media)</h2>
      <p><strong>Promedio aritmético</strong> La medida de tendencia central más conocida es el promedio aritmético o media, y se distingue por que puede ser estimado. Para generalizar al promedio se define el promedio general como la suma de los elementos de conjunto a describir dibididos entre el número total de ellos. Si los elemtos de la variable aleatoria a describir se denotan por <span class="math inline">\(x_i\)</span> cib la letra <span class="math inline">\(i\)</span> como índice de referencia de los <span class="math inline">\(N\)</span> como el número total de valores distintos. Para una <em>población</em> la letra <span class="math inline">\(\mu\)</span> denota el promedio de la población, con fórmula <span class="math display">\[ \mu = \frac{\sum_{i=1}^{N} x_i}{N} \]</span></p>
      <p>Sabemos que hacer una evaluación de un parámetro de toda la población puede ser imposible, por lo que se toma una muestra de la población y se evalúa el promedio de la muestra cómo una estadística para describir por el parámetro promedio. Y se define el promedio de la muestra de n elementos <span class="math inline">\(x_i\)</span> cómo <span class="math display">\[ \bar{x} = \frac{\sum_{i=1}^{n} x}{n} \]</span> Propiedades de promedio<br />
      1. Es único, para una serie de datos dados hay un y solo un promedio.<br />
      2. Es simple, el significado del promedio es fácil de entender y fácil de calcular.<br />
      3. Como cada elemento de la muestra entra en la estimación del promedio, este depende de cada valor. Es decir que los valores extremos tienen una influencia sobre el valor estimado, y en algunos casos distorsionar el valor estimado.</p>
      </div>
-     <div id="media" class="section level2">
-     <h2>Media</h2>
+     <div id="mediana" class="section level2">
+     <h2>Mediana</h2>
      <p>La media de una muestra finita es el valor que divide a la muestra en dos partes iguales, de tal forma que el número de valores mayores a la media es igual al número de valores menores a ella. Muestras impares la media es exactamente el valor central mientras que el muestras pares hay dos medias centrales y la media estimada es el promedio de estos dos valores.<br />
      Propiedades de la Media<br />
      1. Es única, como con el promedio para una muestra existe solo una media.<br />
      2. Es simple, la media es fácil de calcular.<br />
-     3. No es drasticamente influenciada por los valores extremos, como lo es el promedio.</p>
+     3. No es drásticamente influenciada por los valores extremos, como lo es el promedio.</p>
      </div>
      <div id="moda" class="section level2">
      <h2>Moda</h2>
      <p>La moda de una muestra de datos es el valor más común, el que ocurre más frecuentemente en la muestra. Si todos los valores de una muestra son distintos la muestra no tiene moda (se puede estimar).</p>
-     <p>Una distribución se puede clasificar si es simétrica o asimétrica. Se dice que si el histograma de una distribución no es simétrico la distribución esta <em>sesgada</em> (skewed) si la tendencia de las barras del histograma está cargada a la derecha se dice que está sesgada positivamente y si es para la izquierda se dice que está sesgada negativamente.</p>
-     <p><span class="math display">\[ Skewness = \frac{\sqrt{n}\sum_{i=1}^{n}(x_i - \bar{x})^3}{(n-1)\sqrt{n-1}s^3} \]</span></p>
+     <p>Una distribución se puede clasificar si es simétrica o asimétrica. Se dice que si el histograma de una distribución no es simétrico la distribución esta <em>sesgada</em> (skewed) si la tendencia de las barras del histograma está cargada a la derecha se dice que está sesgada de forma positiva y si es para la izquierda se dice que está sesgada de forma negativa.</p>
+     <p><span class="math display">\[ Skewness = \frac{\sqrt{n}\sum_{i=1}^n(x_i-\bar{x})^3}{(\sum_{i=1}^n(x_i-\bar{x})^2)^{3/2}} =
+         \frac{\sqrt{n}\sum_{i=1}^{n}(x_i - \bar{x})^3}{(n-1)\sqrt{n-1}s^3} \]</span></p>
+     </div>
+     </div>
+     <div id="medidas-de-dispersión" class="section level1">
+     <h1>Medidas de dispersión</h1>
+     <p>La dispersión en una serie de medidas nos hable de una variación en los valores que las medidas toman. Entre otros términos que se usan para referirse a la dispersión de datos son, variación, expansión.</p>
+     <div id="rango" class="section level2">
+     <h2>Rango</h2>
+     <p>Una forma de hablar de la dispersión de datos es dar el rango de los valores que toma toda la muestra y si el valor mínimo los es <span class="math inline">\(x_L\)</span> y el máximo del los valores es <span class="math inline">\(X_M\)</span> el rango <span class="math inline">\(R\)</span> se estima cómo</p>
+     <p><span class="math display">\[ R = x_M - x_L \]</span></p>
+     </div>
+     <div id="varianza" class="section level2">
+     <h2>Varianza</h2>
+     <p>Cuando las observaciones de un rango de valores están cercanas a su <em>media</em> (promedio) la dispersión es menor que si este rango de valores se encuentra alejado de la <em>media</em>, esta dispersión se mide por la <em>varianza</em> y en el caso de la muestra, la varianza de la muestra se le identifica con <span class="math inline">\(s^2\)</span> con la formula</p>
+     <p><span class="math display">\[ s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1} \]</span></p>
+     </div>
+     <div id="grados-de-libertad" class="section level2">
+     <h2>Grados de libertad</h2>
+     <p>La razon por la que dividimos por <span class="math inline">\(n-1\)</span> refiere a lo que se conoce como <em>grados de libertad</em>, el razonamiento es que estamos estimando la suma de la desviación de los valores de la muestra a su promedio que deben sumar cero, se usa la cantidad <span class="math inline">\(n-1\)</span> e lugar de <span class="math inline">\(n\)</span> para usar la varianza en otros procedimientos para hacer inferencias (se usa la media). Cuando se estima la varianza de la población que tiene <span class="math inline">\(N\)</span> valores los valores son los mismos solo que se usa <span class="math inline">\(\mu\)</span> de la población y la varianza se denota por <span class="math inline">\(\sigma^2\)</span> y la definición de la varianza de la población es</p>
+     <p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N} \]</span></p>
+     </div>
+     <div id="desviación-estándard" class="section level2">
+     <h2>Desviación estándard</h2>
+     <p>Como las unidades de la varianza están al cuadrado, es una medida que no está expresada ne las unidades oroginales de las medidas de la muestra y puede ser difícil de entender, para definir la dispersión en las unidades originales de la muestra se toma la raíz cuadrada de la varinaza y se define como la desviación estándard<br />
+     <span class="math display">\[ s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}} \]</span> <strong>El coeficiente de variación</strong> se puede usar como una medida de comparación, y se define como</p>
+     <p><span class="math display">\[ C.V. = \frac{s}{\bar{x}} (100)\% \]</span></p>
+     </div>
+     <div id="percentiles-y-cuartiles" class="section level2">
+     <h2>Percentiles y cuartiles</h2>
+     <p>La media y la mediana son casos especiales de un familia de parámetros conocidos por <em>parámetros de localidad</em>, estas medidas se describen así por que pueden usarse para designar ciertas posiciones dentro del rango de la variable.<br />
+     <strong>Definición</strong> Dadas una serie de observaciones (muestra) <span class="math inline">\(x_1, x_2, x_3, \dots, x_n\)</span> el <em>p_esimo</em> porcentaje <em>P</em> es el valor de <span class="math inline">\(X\)</span> tal que el <em>p</em> porciento o menos de las observaciones de la muestra son menores que <em>P</em> y <span class="math inline">\((100-p)\)</span> porciento o menos de las observaciones son mayores que <em>P</em>. Subscripts en <em>P</em> permiten distinguir a que porcentaje representa. El <span class="math inline">\(25^o\)</span> porcentaje se refiere al primer cuartil (cuarto) <span class="math inline">\(Q_1\)</span>, el <span class="math inline">\(50^o\)</span> porcentaje (la mediana) se le conoce como el segundo cuartil <span class="math inline">\(Q_2\)</span> y el <span class="math inline">\(75^o\)</span> porcentaje es el tercer cuartil <span class="math inline">\(Q_3\)</span> las equaciones para las veriables den cada cuartil para n observaciones en la muestra son</p>
+     <p><span class="math display">\[ Q_1 = \frac{n+1}{4} observaciones ordenadas \]</span></p>
+     <p><span class="math display">\[ Q_2 = \frac{2(n+1)}{4} = \frac{n+1}{2} observaciones ordenadas \]</span> <span class="math display">\[ Q_3 = \frac{3(n+1)}{4} observaciones ordenadas \]</span></p>
+     <p><strong>Rango intercuartil</strong>definido por IQR (por las siglas en inglés) es la diferencia entre el tercer cuartil y el primer cuartil</p>
+     <p><span class="math display">\[ IQR = Q_3 - Q_1 \]</span> ## Kurtosis</p>
+     <p>Así como describimos las careacterísticas de simetría por la idea de sesgo, la dispersión se puede describir en términos de kurtosis.<br />
+     <strong>Definición</strong> Kurtosis is una medida del grado de tan afilada o aplanada es la distribución de nuestros datos, comparado con la distribución normal, cuya distribución está caracterizada por una forma de campana. Tres carácterísticas, Mesokurtica (muy similar a la normal), Leptokurtica con un pico muy pronunciado en la media y Platikurtica, muy ancha con solo un pico pequeño en la media.</p>
+     <p><span class="math display">\[ Kurtosis = \frac{n\sum_{i=1}^{n}(x_i-\bar{x})^4}{(\sum_{i=1}^{n}(x_i-\bar{x})^2)^2}-3 
+        = \frac{n\sum_{i=1}^{n}(x_i-\bar{x})^4}{(n-1)^2s^4}-3 \]</span></p>
+     <p><strong>Gráfica de caja</strong> (Box-plot, Box-and-Whisker plot), una herramienta muy útil para describir datos aleatorios es la gráfica de caja. Se representa a la variable en algún eje, y se dibuja una caja que un extremo representa el primer cuartil <span class="math inline">\(Q_1\)</span> y el otro extremo el tercer cuartil <span class="math inline">\(Q_3\)</span> la caja se divide en dos con una linea que represetna a la mediana <span class="math inline">\(Q_2\)</span>, dos líneas se extienden de la caja una llegan hasta el valor más pequeño y la otra al valor más grande, sin considerar valores <em>extremos</em> (outliers).</p>
+     <p><strong>Valor extremo</strong> un valor <em>extremo</em> (outlier) es una observación cuyo valor, x, exede el valor del tercer cuartil <span class="math inline">\(Q_3\)</span> por una magnitud mayor a <span class="math inline">\(1.5(IQR)\)</span> o menor al primer cuartil <span class="math inline">\(Q_1\)</span> por una cantidad mayor a <span class="math inline">\(1.5(IQR)\)</span>, esto es una observación de <span class="math inline">\(x&gt;Q_3 + 1.5(IQR)\)</span> o una observación de <span class="math inline">\(x &lt; Q_1-1.5(IQR)\)</span>.</p>
      </div>
      </div>
 	  </div>

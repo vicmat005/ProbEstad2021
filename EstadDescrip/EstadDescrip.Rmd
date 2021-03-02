@@ -37,6 +37,7 @@ setwd("~/Dropbox/GitHub/ProbEstad2021")
 library(tidyverse)
 library(multcomp)
 library(UsingR)
+
 ```
 Iniciaremos con unos ejemplos muy simples de funciones ya integradas en R de carácter muy general.  Empezando por cargar una serie de números, usando una serie de datos de la cantidad de ballenas que llegaron a la playa en el estado de Texas, E.E.U.U. por año, en la década de los 90's.
 
@@ -154,7 +155,7 @@ Hay varios casos que necesitan una mejor descripción que las que dan las distri
 Existen varia medidas descriptivas, nosotros solo cubriremos las *medidas de tendencia central* y las *medidas de dispersión*.  
 Las tres medidas de tendencia central más comunes son el *promedio* la *media* y la *moda*.  
 
-## Promedio  
+## Promedio (Media)
 
 **Promedio aritmético** La medida de tendencia central más conocida es el promedio aritmético o media, y se distingue por que puede ser estimado. Para generalizar al promedio se define el promedio general como la suma de los elementos de conjunto a describir dibididos entre el número total de ellos. Si los elemtos de la variable aleatoria a describir se denotan por $x_i$ cib la letra $i$ como índice de referencia de los $N$ como el número total de valores distintos. Para una *población* la letra $\mu$ denota el promedio de la población, con fórmula
 $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
@@ -166,18 +167,75 @@ Propiedades de promedio
 2. Es simple, el significado del promedio es fácil de entender y fácil de calcular.  
 3. Como cada elemento de la muestra entra en la estimación del promedio, este depende de cada valor. Es decir que los valores extremos tienen una influencia sobre el valor estimado, y en algunos casos distorsionar el valor estimado.  
 
-## Media  
+## Mediana  
 La media de una muestra finita es el valor que divide a la muestra en dos partes iguales, de tal forma que el número de valores mayores a la media es igual al número de valores menores a ella. Muestras impares la media es exactamente el valor central mientras que el muestras pares hay dos medias centrales y la media estimada es el promedio de estos dos valores.  
 Propiedades de la Media  
 1. Es única, como con el promedio para una muestra existe solo una media.  
 2. Es simple, la media es fácil de calcular.  
-3. No es drasticamente influenciada por los valores extremos, como lo es el promedio.  
+3. No es drásticamente influenciada por los valores extremos, como lo es el promedio.  
 
 ## Moda  
 La moda de una muestra de datos es el valor más común, el que ocurre más frecuentemente en la muestra. Si todos los valores de una muestra son distintos la muestra no tiene moda (se puede estimar).  
 
-Una distribución se puede clasificar si es simétrica o asimétrica. Se dice que si el histograma de una distribución no es simétrico la distribución esta *sesgada* (skewed) si la tendencia de las barras del histograma está cargada a la derecha se dice que está sesgada positivamente y si es para la izquierda se dice que está sesgada negativamente.  
+Una distribución se puede clasificar si es simétrica o asimétrica. Se dice que si el histograma de una distribución no es simétrico la distribución esta *sesgada* (skewed) si la tendencia de las barras del histograma está cargada a la derecha se dice que está sesgada de forma positiva y si es para la izquierda se dice que está sesgada de forma negativa.  
 
-$$ Skewness = \frac{\sqrt{n}\sum_{i=1}^{n}(x_i - \bar{x})^3}{(n-1)\sqrt{n-1}s^3} $$
+$$ Skewness = \frac{\sqrt{n}\sum_{i=1}^n(x_i-\bar{x})^3}{(\sum_{i=1}^n(x_i-\bar{x})^2)^{3/2}} =
+    \frac{\sqrt{n}\sum_{i=1}^{n}(x_i - \bar{x})^3}{(n-1)\sqrt{n-1}s^3} $$
+
+# Medidas de dispersión  
+
+La dispersión en una serie de medidas nos hable de una variación en los valores que las medidas toman. Entre otros términos que se usan para referirse a la dispersión de datos son, variación, expansión.  
+
+## Rango  
+Una forma de hablar de la dispersión de datos es dar el rango de los valores que toma toda la muestra y si el valor mínimo los es $x_L$ y el máximo del los valores es $X_M$ el rango $R$ se estima cómo  
+
+$$ R = x_M - x_L $$
+
+## Varianza  
+
+Cuando las observaciones de un rango de valores están cercanas a su *media* (promedio) la dispersión es menor que si este rango de valores se encuentra alejado de la *media*, esta dispersión se mide por la *varianza* y en el caso de la muestra, la varianza de la muestra se le identifica con $s^2$ con la formula  
+
+$$ s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1} $$
+
+
+## Grados de libertad  
+
+La razon por la que dividimos por $n-1$ refiere a lo que se conoce como *grados de libertad*, el razonamiento es que estamos estimando la suma de la desviación de los valores de la muestra a su promedio que deben sumar cero, se usa la cantidad $n-1$ e lugar de $n$ para usar la varianza en otros procedimientos para hacer inferencias (se usa la media). Cuando se estima la varianza de la población que tiene $N$ valores los valores son los mismos solo que se usa $\mu$ de la población y la varianza se denota por $\sigma^2$ y la definición de la varianza de la población es
+
+$$ \sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N} $$
+
+## Desviación estándard  
+
+Como las unidades de la varianza están al cuadrado, es una medida que no está expresada ne las unidades oroginales de las medidas de la muestra y puede ser difícil de entender, para definir la dispersión en las unidades originales de la muestra se toma la raíz cuadrada de la varinaza y se define como la desviación estándard  
+$$ s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}} $$
+**El coeficiente de variación** se puede usar como una medida de comparación, y se define como  
+
+$$ C.V. = \frac{s}{\bar{x}} (100)\% $$
+
+## Percentiles y cuartiles  
+
+La media y la mediana son casos especiales de un familia de parámetros conocidos por *parámetros de localidad*, estas medidas se describen así por que pueden usarse para designar ciertas posiciones dentro del rango de la variable.  
+**Definición** Dadas una serie de observaciones (muestra) $x_1, x_2, x_3, \dots, x_n$ el *p_esimo* porcentaje *P* es el valor de $X$ tal que el *p* porciento o menos de las observaciones de la muestra son menores que *P* y $(100-p)$ porciento o menos de las observaciones son mayores que *P*.  Subscripts en *P* permiten distinguir a que porcentaje representa.  El $25^o$ porcentaje se refiere al primer cuartil (cuarto) $Q_1$, el $50^o$ porcentaje (la mediana) se le conoce como el segundo cuartil $Q_2$ y el $75^o$ porcentaje es el tercer cuartil $Q_3$ las equaciones para las veriables den cada cuartil para n observaciones en la muestra son  
+
+$$ Q_1 = \frac{n+1}{4} observaciones ordenadas $$
+
+$$ Q_2 = \frac{2(n+1)}{4} = \frac{n+1}{2} observaciones ordenadas $$
+$$ Q_3 = \frac{3(n+1)}{4} observaciones ordenadas $$
+
+**Rango intercuartil**definido por IQR (por las siglas en inglés) es la diferencia entre el tercer cuartil y el primer cuartil  
+
+$$ IQR = Q_3 - Q_1 $$
+## Kurtosis  
+
+Así como describimos las careacterísticas de simetría por la idea de sesgo, la dispersión se puede describir en términos de kurtosis.  
+**Definición** Kurtosis is una medida del grado de tan afilada o aplanada es la distribución de nuestros datos, comparado con la distribución normal, cuya distribución está caracterizada por una forma de campana. Tres carácterísticas, Mesokurtica (muy similar a la normal), Leptokurtica con un pico muy pronunciado en la media y Platikurtica, muy ancha con solo un pico pequeño en la media.  
+
+$$ Kurtosis = \frac{n\sum_{i=1}^{n}(x_i-\bar{x})^4}{(\sum_{i=1}^{n}(x_i-\bar{x})^2)^2}-3 
+   = \frac{n\sum_{i=1}^{n}(x_i-\bar{x})^4}{(n-1)^2s^4}-3 $$
+   
+
+**Gráfica de caja** (Box-plot, Box-and-Whisker plot), una herramienta muy útil para describir datos aleatorios es la gráfica de caja. Se representa a la variable en algún eje, y se dibuja una caja que un extremo representa el primer cuartil $Q_1$ y el otro extremo el tercer cuartil $Q_3$ la caja se divide en dos con una linea que represetna a la mediana $Q_2$, dos líneas se extienden de la caja una llegan hasta el valor más pequeño y la otra al valor más grande, sin considerar valores *extremos* (outliers).  
+
+**Valor extremo** un valor *extremo* (outlier) es una observación cuyo valor, x, exede el valor del tercer cuartil $Q_3$ por una magnitud mayor a $1.5(IQR)$ o menor al primer cuartil $Q_1$ por una cantidad mayor a $1.5(IQR)$, esto es una observación de $x>Q_3 + 1.5(IQR)$ o una observación de $x < Q_1-1.5(IQR)$.  
 
 
