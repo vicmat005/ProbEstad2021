@@ -149,6 +149,7 @@ simple.freqpoly(Fuma$Age)
 Hay varios casos que necesitan una mejor descripción que las que dan las distribuciones de frecuencia, y es necesario obtener otro tipo de medidas como un número, llamadas *medidas descriptivas*, estas medidas se calculan de una muestra.  
 
 **Definicinones**  
+
 1. Una medida descriptiva que de calcula a partir de los datos de una muestra es una *estadística*.  
 2. Una medida descriptiva que se calcula a partir de los datos de una población se llama *parámetro*.  
 
@@ -187,12 +188,11 @@ $$ Skewness = \frac{\sqrt{n}\sum_{i=1}^n(x_i-\bar{x})^3}{(\sum_{i=1}^n(x_i-\bar{
 La dispersión en una serie de medidas nos hable de una variación en los valores que las medidas toman. Entre otros términos que se usan para referirse a la dispersión de datos son, variación, expansión.  
 
 ## Rango  
-Una forma de hablar de la dispersión de datos es dar el rango de los valores que toma toda la muestra y si el valor mínimo los es $x_L$ y el máximo del los valores es $X_M$ el rango $R$ se estima cómo  
+Una forma de hablar de la dispersión de datos es dar el rango de los valores que toma toda la muestra y si el valor mínimo los es $x_L$ y el máximo del los valores es $X_H$ el rango $R$ se estima cómo  
 
 $$ R = x_M - x_L $$
 
 ## Varianza  
-
 Cuando las observaciones de un rango de valores están cercanas a su *media* (promedio) la dispersión es menor que si este rango de valores se encuentra alejado de la *media*, esta dispersión se mide por la *varianza* y en el caso de la muestra, la varianza de la muestra se le identifica con $s^2$ con la formula  
 
 $$ s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1} $$
