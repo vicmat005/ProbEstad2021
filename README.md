@@ -15,3 +15,5 @@ El uso del lenguage R es obligatorio para el desarrollo del curso, la solución 
 
 Tema 1 [Estadística Descriptiva](https://fabarrios.github.io/ProbEstad2021/EstadDescrip/EstadDescrip.html).  
 Tarea 1 [Tarea 01 Estadística Descriptiva](https://fabarrios.github.io/ProbEstad2021/HW/HW_01/HW_01.html).
+
+Tema 2 [Probabilidad](https://fabarrios.github.io/ProbEstad2021/Probabilidad/Probabilidad.html).
