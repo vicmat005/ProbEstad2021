@@ -7,7 +7,7 @@
 
         <meta name="author" content="F.A. Barrios" />
     
-        <meta name="date" content="2021-03-03" />
+        <meta name="date" content="2021-03-04" />
     
     <title>Probabilidad</title>
 
@@ -139,7 +139,7 @@
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> F.A. Barrios</p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2021-03-03</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2021-03-04</p>
           </div>
    </div>
      
@@ -180,7 +180,7 @@ Si definimos <span class="math inline">\(P(E)\)</span> como la “Probabilidad d
   \verb+Total+ &amp; 141 &amp; 177 &amp; 318
 \end{array} \]</span></p>
 <p><strong>Pregunta</strong> si tomamos a una persona de este grupo, cual es la probabilidad de que esta persona tenga 18 años o menor?</p>
-<p><strong>Respuesta</strong> Este es una grupo de 318 sujetos (muestra) y de la muestra completa de 18 o menores son 141 (como menores y 18 es excluyente de mayores de 18), la probabilidad es numero de sujetos en (debut Temprano)/total de sujetos de la muestra <span class="math display">\[ P(E) =141/318 = 0.4434 \]</span></p>
+<p><strong>Respuesta</strong> Este es una grupo de 318 sujetos (muestra) y de la muestra completa de 18 o menores son 141 (como menores y 18 es excluyente de mayores a 18), la probabilidad es numero de sujetos en (debut Temprano)/total de sujetos de la muestra <span class="math display">\[ P(E) =141/318 = 0.4434 \]</span></p>
 </div>
 <div id="probabilidad-condicional" class="section level2">
 <h2>Probabilidad Condicional</h2>
@@ -191,15 +191,15 @@ Si definimos <span class="math inline">\(P(E)\)</span> como la “Probabilidad d
 </div>
 <div id="probabilidad-conjunta" class="section level2">
 <h2>Probabilidad conjunta</h2>
-<p>Algunas veces se quiere estimar la probabilidad de escojer a un sujeto de una muestra pero que tenga dos características de la muestra (se no son mutuamente excluyentes) y es el caso de la <em>probabilidad conjunta</em><br />
+<p>Algunas veces se quiere estimar la probabilidad de escoger a un sujeto de una muestra pero que tenga dos características de la muestra (se no son mutuamente excluyentes) y es el caso de la <em>probabilidad conjunta</em><br />
 <strong>Pregunta</strong> Cual es la probabilidad de escoger a un sujeto de los 318 que pertenece a la clasificación debut Temprano (18 años o menos) <span class="math inline">\((E)\)</span> y que es de una familia que no tiene historial de Trastornos Afectivos <span class="math inline">\((A)\)</span><br />
 <strong>Repuesta</strong> La probabilidad que estamos buscando se escribe cómo <span class="math inline">\(P(E \cap A)\)</span> que significa <em>E y A</em> (intersección) <span class="math inline">\(E \cap A\)</span> indica la <em>condición conjunta</em> de las dos condiciones <span class="math inline">\(E\)</span> y <span class="math inline">\(A\)</span> de la selección de TODA la muestra (318), la “intersección de la columna E y el renglón A de toda la muestra”<br />
-<span class="math display">\[ P(E \cap A) = 28/318 = 0.881\]</span></p>
+<span class="math display">\[ P(E \cap A) = 28/318 = 0.0881\]</span></p>
 </div>
 <div id="regla-de-la-multiplicación" class="section level2">
 <h2>Regla de la multiplicación</h2>
 <p>Se puede estimar la probabilidad conjunta del producto de una probabilidad marginal adecuada con una probabilidad condicional adecuada, que se conoce como la regla de multiplicación.</p>
-<p>Se quiere calcular la probabilidad conjunta de debut a temprana edad <span class="math inline">\((E)\)</span> y la falta de historial familiar de Trastornos Afectivos <span class="math inline">\((A)\)</span> a partir de probabilidades marginales. Sabemos que la probabilidad marginal <span class="math inline">\(P(E) = 141/318 = .4434\)</span> y la probabilidad condicional <span class="math inline">\(P(A \cap E) = 28/141 = .1986\)</span> que son probabilidades marginales muy adecuadas por que <span class="math inline">\(P(E \cap A) = P(E)P(A \mid E) = (.4434)(.1986) = .0881\)</span> que es el resultado que ya habíamos calculado pero usando probabilidades marginales.<br />
+<p>Se quiere calcular la probabilidad conjunta de debut temprano <span class="math inline">\((E)\)</span> y la falta de historial familiar de Trastornos Afectivos <span class="math inline">\((A)\)</span> a partir de probabilidades marginales. Sabemos que la probabilidad marginal <span class="math inline">\(P(E) = 141/318 = .4434\)</span> y la probabilidad condicional <span class="math inline">\(P(A \cap E) = 28/141 = .1986\)</span> que son probabilidades marginales muy adecuadas por que <span class="math inline">\(P(E \cap A) = P(E)P(A \mid E) = (.4434)(.1986) = .0881\)</span> que es el resultado que ya habíamos calculado pero usando probabilidades marginales.<br />
 En general se tiene que<br />
 <span class="math display">\[ P(A \cap B) = P(B)P(A \mid B),\hspace{10pt} si P(B) \neq 0\]</span></p>
 <p><span class="math display">\[ P(A \cap B) = P(A)P(B \mid A),\hspace{10pt} si P(A) \neq 0\]</span></p>
@@ -214,7 +214,7 @@ En general se tiene que<br />
 <strong>Definición</strong> Dados dos eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, la probabilidad de que el evento <span class="math inline">\(A\)</span>, o el evento <span class="math inline">\(B\)</span>, o los dos ocurran es igual a la probabilidad de que el evento <span class="math inline">\(A\)</span> ocurra más la probabilidad de que el evento <span class="math inline">\(B\)</span> ocurra, menos la probabilidad de que los eventos ocurran en forma simultanea.<br />
 <span class="math display">\[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]</span></p>
 <p>Cuando los eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> no pueden ocurrir de forma simultanea, <span class="math inline">\(P(A \cap B)\)</span> es llamado “O exclusivo” y <span class="math inline">\(P(A \cup B) = 0\)</span></p>
-<p><strong>Ejemplo</strong> Si seleccionamos de forma aleatoria de los 318 sujetos de la <strong>Tabla 1</strong>, cual es la probabilidad de que esta persona pertenezca al grupo de debut temprano de Trastornos Afectivos <span class="math inline">\((E)\)</span> o pertensca al grupo de familia sin historial de Trastornos Afectivos <span class="math inline">\((A)\)</span> o ambos?</p>
+<p><strong>Ejemplo</strong> Si seleccionamos de forma aleatoria de los 318 sujetos de la <strong>Tabla 1</strong>, cual es la probabilidad de que esta persona pertenezca al grupo de debut temprano de Trastornos Afectivos <span class="math inline">\((E)\)</span> o pertenezca al grupo de familia sin historial de Trastornos Afectivos <span class="math inline">\((A)\)</span> o ambos?</p>
 <p>La probabilidad que estamos buscando es <span class="math inline">\(P(E \cup A)\)</span>, por la regla de la adición es igual a <span class="math inline">\(P(E \cup A) = P(E) + P(A) - P(E \cap A)\)</span>, sabemos que <span class="math inline">\(P(E) = 141/318 = .4434\)</span> y ya calculamos <span class="math inline">\(P(E \cap A) = 28/318 = .0881\)</span> y directo de la Tabla 1, <span class="math inline">\(P(A) = 63/318 = .1981\)</span>, y sustituyendo en la ecuación<br />
 <span class="math display">\[P(E \cup A) = .4434 + .1981 - .0881 = .5534\]</span></p>
 <div id="eventos-independientes" class="section level3">

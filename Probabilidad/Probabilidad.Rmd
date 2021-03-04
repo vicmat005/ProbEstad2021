@@ -58,7 +58,7 @@ $$\begin{array}{lccc}
 
 **Pregunta** si tomamos a una persona de este grupo, cual es la probabilidad de que esta persona tenga 18 años o menor?  
 
-**Respuesta** Este es una grupo de 318 sujetos (muestra) y de la muestra completa de 18 o menores son 141 (como menores y 18 es excluyente de mayores de 18), la probabilidad es numero de sujetos en (debut Temprano)/total de sujetos de la muestra
+**Respuesta** Este es una grupo de 318 sujetos (muestra) y de la muestra completa de 18 o menores son 141 (como menores y 18 es excluyente de mayores a 18), la probabilidad es numero de sujetos en (debut Temprano)/total de sujetos de la muestra
 $$ P(E) =141/318 = 0.4434 $$  
 
 ## Probabilidad Condicional  
@@ -68,16 +68,16 @@ Cuando la probabilidad se calcula con la frecuencia de un sub-grupo del total de
 $$P(A \mid E) = 28/141 = .1986$$  
 
 ## Probabilidad conjunta  
-Algunas veces se quiere estimar la probabilidad de escojer a un sujeto de una muestra pero que tenga dos características de la muestra (se no son mutuamente excluyentes) y es el caso de la *probabilidad conjunta*  
+Algunas veces se quiere estimar la probabilidad de escoger a un sujeto de una muestra pero que tenga dos características de la muestra (se no son mutuamente excluyentes) y es el caso de la *probabilidad conjunta*  
 **Pregunta** Cual es la probabilidad de escoger a un sujeto de los 318 que pertenece a la clasificación debut Temprano (18 años o menos) $(E)$ y que es de una familia que no tiene historial de Trastornos Afectivos $(A)$  
 **Repuesta** La probabilidad que estamos buscando se escribe cómo $P(E \cap A)$ que significa *E y A* (intersección) $E \cap A$ indica la *condición conjunta* de las dos condiciones $E$ y $A$ de la selección de TODA la muestra (318), la "intersección de la columna E y el renglón A de toda la muestra"  
-$$ P(E \cap A) = 28/318 = 0.881$$  
+$$ P(E \cap A) = 28/318 = 0.0881$$  
 
 ## Regla de la multiplicación  
 
 Se puede estimar la probabilidad conjunta del producto de una probabilidad marginal adecuada con una probabilidad condicional adecuada, que se conoce como la regla de multiplicación.  
 
-Se quiere calcular la probabilidad conjunta de debut a temprana edad $(E)$ y la falta de historial familiar de Trastornos Afectivos $(A)$ a partir de probabilidades marginales. Sabemos que la probabilidad marginal $P(E) = 141/318 = .4434$ y la probabilidad condicional $P(A \cap E) = 28/141 = .1986$ que son probabilidades marginales muy adecuadas por que $P(E \cap A) = P(E)P(A \mid E) = (.4434)(.1986) = .0881$ que es el resultado que ya habíamos calculado pero usando probabilidades marginales.  
+Se quiere calcular la probabilidad conjunta de debut temprano $(E)$ y la falta de historial familiar de Trastornos Afectivos $(A)$ a partir de probabilidades marginales. Sabemos que la probabilidad marginal $P(E) = 141/318 = .4434$ y la probabilidad condicional $P(A \cap E) = 28/141 = .1986$ que son probabilidades marginales muy adecuadas por que $P(E \cap A) = P(E)P(A \mid E) = (.4434)(.1986) = .0881$ que es el resultado que ya habíamos calculado pero usando probabilidades marginales.  
 En general se tiene que  
 $$ P(A \cap B) = P(B)P(A \mid B),\hspace{10pt} si P(B) \neq 0$$  
 
@@ -96,7 +96,7 @@ $$ P(A \cup B) = P(A) + P(B) - P(A \cap B) $$
 
 Cuando los eventos $A$ y $B$ no pueden ocurrir de forma simultanea, $P(A \cap B)$ es llamado "O exclusivo" y $P(A \cup B) = 0$  
 
-**Ejemplo** Si seleccionamos de forma aleatoria de los 318 sujetos de la **Tabla 1**, cual es la probabilidad de que esta persona pertenezca al grupo de debut temprano de Trastornos Afectivos $(E)$ o pertensca al grupo de familia sin historial de Trastornos Afectivos $(A)$ o ambos?  
+**Ejemplo** Si seleccionamos de forma aleatoria de los 318 sujetos de la **Tabla 1**, cual es la probabilidad de que esta persona pertenezca al grupo de debut temprano de Trastornos Afectivos $(E)$ o pertenezca al grupo de familia sin historial de Trastornos Afectivos $(A)$ o ambos?  
 
 La probabilidad que estamos buscando es $P(E \cup A)$, por la regla de la adición es igual a $P(E \cup A) = P(E) + P(A) - P(E \cap A)$, sabemos que $P(E) = 141/318 = .4434$ y ya calculamos $P(E \cap A) = 28/318 = .0881$ y directo de la Tabla 1, $P(A) = 63/318 = .1981$, y sustituyendo en la ecuación  
 $$P(E \cup A) = .4434 + .1981 - .0881 = .5534$$
