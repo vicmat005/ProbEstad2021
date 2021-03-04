@@ -3,9 +3,9 @@ title: "I Estadística Descriptiva"
 author: "F. A. Barrios<br>ENES Juriquilla, UNAM<br>"
 date: "`r Sys.Date()`"
 output:
-  rmdformats::material:
+  rmdformats::readthedown:
     highlight: kate
-description: "to prepare ProbEstad2021 presentations"
+  description: "to prepare ProbEstad2021 presentations"
 ---
 
 ```{r setup, include=FALSE}
@@ -35,7 +35,7 @@ setwd("~/Dropbox/GitHub/ProbEstad2021")
 # To set the working directory realtive to the user's dir
 
 library(tidyverse)
-library(multcomp)
+library(fdth)
 library(UsingR)
 
 ```
@@ -217,14 +217,15 @@ $$ C.V. = \frac{s}{\bar{x}} (100)\% $$
 La media y la mediana son casos especiales de un familia de parámetros conocidos por *parámetros de localidad*, estas medidas se describen así por que pueden usarse para designar ciertas posiciones dentro del rango de la variable.  
 **Definición** Dadas una serie de observaciones (muestra) $x_1, x_2, x_3, \dots, x_n$ el *p_esimo* porcentaje *P* es el valor de $X$ tal que el *p* porciento o menos de las observaciones de la muestra son menores que *P* y $(100-p)$ porciento o menos de las observaciones son mayores que *P*.  Subscripts en *P* permiten distinguir a que porcentaje representa.  El $25^o$ porcentaje se refiere al primer cuartil (cuarto) $Q_1$, el $50^o$ porcentaje (la mediana) se le conoce como el segundo cuartil $Q_2$ y el $75^o$ porcentaje es el tercer cuartil $Q_3$ las equaciones para las veriables den cada cuartil para n observaciones en la muestra son  
 
-$$ Q_1 = \frac{n+1}{4} observaciones ordenadas $$
+$$ Q_1 = \frac{n+1}{4} \hspace{10pt}observaciones \hspace{10pt}ordenadas $$
 
-$$ Q_2 = \frac{2(n+1)}{4} = \frac{n+1}{2} observaciones ordenadas $$
-$$ Q_3 = \frac{3(n+1)}{4} observaciones ordenadas $$
+$$ Q_2 = \frac{2(n+1)}{4} = \frac{n+1}{2} \hspace{10pt}observaciones \hspace{10pt}ordenadas $$
+$$ Q_3 = \frac{3(n+1)}{4} \hspace{10pt}observaciones \hspace{10pt}ordenadas $$
 
 **Rango intercuartil**definido por IQR (por las siglas en inglés) es la diferencia entre el tercer cuartil y el primer cuartil  
 
-$$ IQR = Q_3 - Q_1 $$
+$$ IQR = Q_3 - Q_1 $$  
+
 ## Kurtosis  
 
 Así como describimos las careacterísticas de simetría por la idea de sesgo, la dispersión se puede describir en términos de kurtosis.  
