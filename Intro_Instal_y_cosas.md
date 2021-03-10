@@ -24,12 +24,17 @@ En mi página de GitHub hay una copia del manual de introducción a R en españo
 
 La realidad es que al ser un proyecto global, el material de trabajo y ayuda para R por lo general está en R, es decir el
 material es en su gran mayoría en inglés, por lo que los invitamos a hacer un esfuerso para trabajar los materiales
-relacionados a R, uno de estos sitios sin duda es la mísma págia de CRAN
+relacionados a R, uno de estos sitios sin duda es la mísma págia de CRAN  
 
 https://cran.r-project.org/  
 
+Esta página de R-coder está muy buena y muy adecuada para el nivel del curso que estamos dando, se las recomiendo mucho: https://r-coder.com/r-introduction/ Continuaré revisando material en la red para hacer recomendaciones en este sitio. Les sugiero que también usdetes hagan búsquedas de material referente a R.  Hay una cantidad muy importante de información y ejemplos del uso de R.  
+
+Por ejemplo una página muy interesante para aprender a hacer gráficas con `ggplot` es:   
+
+http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html  
 
 ## Libro del curso  
 
-El curso no tiene un libor de texto, pero en lo general pienso seguir las ideas del libor de W.W. Daniel, Biostatistics, 9th edition. En particular por 
-los ejercicios y ejemplos, que tienen una bunea relación de temas relacionados con los problemas relacionados con los temas de órtesis y prótesis.  
+El curso no tiene un libro de texto, pero en lo general pienso seguir las ideas del libor de W.W. Daniel, Biostatistics, 9th edition. En particular por los ejercicios y ejemplos, que tienen una bunea cantidad de temas relacionados con los problemas biológicos y ejemplos con temas que encontrarán de interés.  También hay material que pueden accesar y si lo encuentran de interes pueden pagar su acceso libre, como el libro de R: https://livebook.manning.com/book/r-in-action-third-edition/copyright-2020-manning-publications/v-8/5  
+
