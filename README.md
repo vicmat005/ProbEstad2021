@@ -20,3 +20,5 @@ Tarea 1 [Tarea 01 Estadística Descriptiva](https://fabarrios.github.io/ProbEsta
 
 Tema 2 [Probabilidad](https://fabarrios.github.io/ProbEstad2021/Probabilidad/Probabilidad.html).  
 Tarea 2 [Tarea 02 Probabilidad](https://fabarrios.github.io/ProbEstad2021/HW/HW_02/HW_02.html).  
+
+Tema 3 [Distribuciones de Probabilidad](https://fabarrios.github.io/ProbEstad2021/DistribProb/DistribProb.html).
