@@ -1,6 +1,7 @@
 #
 #  Ejemplo para graficar la función Normal
-# definicion de la funcion normal
+
+#  definición de la función normal
 f_norm <- function(x){
   return((1/sqrt(2*pi)*exp((-x**2)/2)))
 }
