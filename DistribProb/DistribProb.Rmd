@@ -163,3 +163,63 @@ En donde $\lambda$ es el parámetro de la distribución y es el número promedio
 La distribución de Poisson se usa como modelo para describir cuando los ensayos de los eventos (o entidades) están distribuidas aleatoriamente en le tiempo o espacio.  
 
 En R la distribución de Poisson es ejecutada por los comandos `dpois, ppois, qpois, y rpois`
+
+**Ejemplo** En un estudio de anafilaxis entre pacientes que expuestos a anestesia con rocuronio bromuro, laake y Rottingen encontraron que los casos de anafilaxis siguen una distribución de Poissson con $\lambda = 12$ incidentes por año en Noruega. Encuentre la probabilidad de que en el año siguiente a este estudio, en paciente que fueron anestesiados por rocuronio bromuro,se darán exactamente tres casos de anafilaxis.  
+*respuesta* La respuesta es $P(X=3)@ en una distribución de poisson. En R dpois(3, 12)  
+```{r}
+dpois(3, 12)
+```
+
+**Ejemplo** del mismo ejemplo anterior cual es la probabilidad de que por lo menos tres pacientes in el año siguiente al estudio experimenten anafilaxis si rocuronio bromuro es usan para anestesia.  
+*respuesta* Por lo menos tres es $P(X \geq 3)$ se necesita calcular el complemento de $P(X \geq 3)$ entonces es $1 - P(X \leq 2)$  
+```{r}
+(1 - ppois(2, 12))
+
+ppois(2 ,12, lower.tail = FALSE)
+```
+
+Podemos concluir de este ejemplo que para probabilidades complementarias en R podemos suponer: `(1 - ppois(x, l, lower.tail = TRUE) = ppois(x, l, lower.tail = FALSE)`  
+
+**Ejemplo** En un estudio de un organismo acuático, una gran cantidad de muestras son tomadas de un estanque de agua, y el número de organismos del estudio son estimados.  El promedio deorganismos fue determinado en dos.  Suponiendo que el número de organismos sigue una distribución de Poisson, encuentre la probabilidad de que en la siguiente muestra contenga uno o menos organismos?.  
+*respuesta* estamos estimando $P(X \leq 1)$
+```{r}
+
+ppois(1, 2)
+```
+
+**Ejemplo** del ejemplo encuentra la probabilidad de que en la sigiente muestra del estanque, está contenga exactamente tre organismos.  
+*respuesta* necesitamos estimar $P(X=3)$  
+```{r}
+dpois(3,2)
+```
+
+# Distribución Normal  
+**Definición** Una funcinon positiva definida $f(x)$ es llamada una distribución de probabilidad (función de densidad de probabilidad) de la variable aleatoria continua $X$ si el total del área bajo la curva (entre la curva y el eje de las $x$) es igual a $1$ y el área parcial abajo de la curva entre los puntos $x=a$ y $x=b$ y el eje de las $x$ es la probabilidad de que $X$ esté entre $a$ y $b$.  
+La distribución *normal*, o la distribución de Gauss está definida por  
+$$ f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^\frac{-(x-\mu)^2}{2\sigma^2} \hspace {20pt} -\infty < x < \infty $$
+en la ecuación anterior $\pi$ y $e$ son los múneros irracionales iguales a $3.141516 \dots$ y $2.71828 \dots$.  Los dos parámetros de la distribución son $\mu$, el promedio y $\sigma$ la desviación estándar.  
+
+## Propiedades de la distribución normal  
+1. Es simétrica al rededor de la media $\mu$, la curva a cada lado del valor $x=\mu$ es una imagen de espejo de la otra mitad.  
+2. La media, la mediana y la moda son iguales.  
+3. El total del área bajo la curva de la campana de gauss es igual a la unidad de área.  
+4. Si se dibujan dos líneas verticales a una distancia de la desviación estándar de la media $\mu$, esto es $\mu - \sigma$ y en $\mu + \sigma$ esto englobaría el 68% del área bajo la curva. y a dos veces $\sigma$ el 95%.  
+5. La distribución normal está completamente descrita por los parámetros de la media $\mu$ y la desviación estándar $\sigma$.  
+
+## La distribución normal estándar  
+Es la distribución que esta cnetrada al cero $\mu = 0$ y con desviación estándar igual a 1, $\sigma = 1$, creando la variabla aleatoria estandarizada    
+
+$$ z = (x - \mu)/\sigma $$  
+resultando en la distribución normal estándar  
+$$ f(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}, \hspace{20pt} -\infty < z < \infty $$  
+
+En R la función `dnorm, pnorm, qnorm y rnorm` nos estima una distribución normal estándar $(\mu = 0 \; y \; \sigma = 1)$ Y podemos estimar $P(X=z) = dnorm(z)$ por ejemplo.  
+
+**ejemplo** cuan es la probabilidad de que z tomado al azar esté entre $-2.55$ y $2.55$   
+*respuesta* estamos canculando la probabilidad de $P(-2.55 < z < 2.55) = P(X \leq 2.55) - P(X \leq -2.55)$  
+```{r}
+pnorm(2.55) - pnorm(-2.55)
+```
+
+
+

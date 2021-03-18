@@ -7,7 +7,7 @@
 
         <meta name="author" content="F. A. Barrios ENES Juriquilla, UNAM " />
     
-        <meta name="date" content="2021-03-15" />
+        <meta name="date" content="2021-03-17" />
     
     <title>Distribuciones de Probabilidad</title>
 
@@ -207,11 +207,16 @@
       <ul>
       <li><a href="#proceso-de-poisson">Proceso de Poisson</a></li>
       </ul></li>
+      <li><a href="#distribución-normal">Distribución Normal</a>
+      <ul>
+      <li><a href="#propiedades-de-la-distribución-normal">Propiedades de la distribución normal</a></li>
+      <li><a href="#la-distribución-normal-estándar">La distribución normal estándar</a></li>
+      </ul></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> F. A. Barrios<br>ENES Juriquilla, UNAM<br></p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2021-03-15</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2021-03-17</p>
           </div>
    </div>
      
@@ -340,6 +345,57 @@ Para calcular la función de probabilidad binomial para un conjunto de valores, 
 </ol>
 <p>La distribución de Poisson se usa como modelo para describir cuando los ensayos de los eventos (o entidades) están distribuidas aleatoriamente en le tiempo o espacio.</p>
 <p>En R la distribución de Poisson es ejecutada por los comandos <code>dpois, ppois, qpois, y rpois</code></p>
+<p><strong>Ejemplo</strong> En un estudio de anafilaxis entre pacientes que expuestos a anestesia con rocuronio bromuro, laake y Rottingen encontraron que los casos de anafilaxis siguen una distribución de Poissson con <span class="math inline">\(\lambda = 12\)</span> incidentes por año en Noruega. Encuentre la probabilidad de que en el año siguiente a este estudio, en paciente que fueron anestesiados por rocuronio bromuro,se darán exactamente tres casos de anafilaxis.<br />
+<em>respuesta</em> La respuesta es $P(X=3)@ en una distribución de poisson. En R dpois(3, 12)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="dv">3</span>, <span class="dv">12</span>)</span></code></pre></div>
+<pre><code>[1] 0.001769533</code></pre>
+<p><strong>Ejemplo</strong> del mismo ejemplo anterior cual es la probabilidad de que por lo menos tres pacientes in el año siguiente al estudio experimenten anafilaxis si rocuronio bromuro es usan para anestesia.<br />
+<em>respuesta</em> Por lo menos tres es <span class="math inline">\(P(X \geq 3)\)</span> se necesita calcular el complemento de <span class="math inline">\(P(X \geq 3)\)</span> entonces es <span class="math inline">\(1 - P(X \leq 2)\)</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="dv">2</span>, <span class="dv">12</span>))</span></code></pre></div>
+<pre><code>[1] 0.9994777</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="dv">2</span> ,<span class="dv">12</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>[1] 0.9994777</code></pre>
+<p>Podemos concluir de este ejemplo que para probabilidades complementarias en R podemos suponer: <code>(1 - ppois(x, l, lower.tail = TRUE) = ppois(x, l, lower.tail = FALSE)</code></p>
+<p><strong>Ejemplo</strong> En un estudio de un organismo acuático, una gran cantidad de muestras son tomadas de un estanque de agua, y el número de organismos del estudio son estimados. El promedio deorganismos fue determinado en dos. Suponiendo que el número de organismos sigue una distribución de Poisson, encuentre la probabilidad de que en la siguiente muestra contenga uno o menos organismos?.<br />
+<em>respuesta</em> estamos estimando <span class="math inline">\(P(X \leq 1)\)</span></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>[1] 0.4060058</code></pre>
+<p><strong>Ejemplo</strong> del ejemplo encuentra la probabilidad de que en la sigiente muestra del estanque, está contenga exactamente tre organismos.<br />
+<em>respuesta</em> necesitamos estimar <span class="math inline">\(P(X=3)\)</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="dv">3</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>[1] 0.180447</code></pre>
+</div>
+</div>
+<div id="distribución-normal" class="section level1">
+<h1>Distribución Normal</h1>
+<p><strong>Definición</strong> Una funcinon positiva definida <span class="math inline">\(f(x)\)</span> es llamada una distribución de probabilidad (función de densidad de probabilidad) de la variable aleatoria continua <span class="math inline">\(X\)</span> si el total del área bajo la curva (entre la curva y el eje de las <span class="math inline">\(x\)</span>) es igual a <span class="math inline">\(1\)</span> y el área parcial abajo de la curva entre los puntos <span class="math inline">\(x=a\)</span> y <span class="math inline">\(x=b\)</span> y el eje de las <span class="math inline">\(x\)</span> es la probabilidad de que <span class="math inline">\(X\)</span> esté entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.<br />
+La distribución <em>normal</em>, o la distribución de Gauss está definida por<br />
+<span class="math display">\[ f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^\frac{-(x-\mu)^2}{2\sigma^2} \hspace {20pt} -\infty &lt; x &lt; \infty \]</span> en la ecuación anterior <span class="math inline">\(\pi\)</span> y <span class="math inline">\(e\)</span> son los múneros irracionales iguales a <span class="math inline">\(3.141516 \dots\)</span> y <span class="math inline">\(2.71828 \dots\)</span>. Los dos parámetros de la distribución son <span class="math inline">\(\mu\)</span>, el promedio y <span class="math inline">\(\sigma\)</span> la desviación estándar.</p>
+<div id="propiedades-de-la-distribución-normal" class="section level2">
+<h2>Propiedades de la distribución normal</h2>
+<ol style="list-style-type: decimal">
+<li>Es simétrica al rededor de la media <span class="math inline">\(\mu\)</span>, la curva a cada lado del valor <span class="math inline">\(x=\mu\)</span> es una imagen de espejo de la otra mitad.<br />
+</li>
+<li>La media, la mediana y la moda son iguales.<br />
+</li>
+<li>El total del área bajo la curva de la campana de gauss es igual a la unidad de área.<br />
+</li>
+<li>Si se dibujan dos líneas verticales a una distancia de la desviación estándar de la media <span class="math inline">\(\mu\)</span>, esto es <span class="math inline">\(\mu - \sigma\)</span> y en <span class="math inline">\(\mu + \sigma\)</span> esto englobaría el 68% del área bajo la curva. y a dos veces <span class="math inline">\(\sigma\)</span> el 95%.<br />
+</li>
+<li>La distribución normal está completamente descrita por los parámetros de la media <span class="math inline">\(\mu\)</span> y la desviación estándar <span class="math inline">\(\sigma\)</span>.</li>
+</ol>
+</div>
+<div id="la-distribución-normal-estándar" class="section level2">
+<h2>La distribución normal estándar</h2>
+<p>Es la distribución que esta cnetrada al cero <span class="math inline">\(\mu = 0\)</span> y con desviación estándar igual a 1, <span class="math inline">\(\sigma = 1\)</span>, creando la variabla aleatoria estandarizada</p>
+<p><span class="math display">\[ z = (x - \mu)/\sigma \]</span><br />
+resultando en la distribución normal estándar<br />
+<span class="math display">\[ f(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}, \hspace{20pt} -\infty &lt; z &lt; \infty \]</span></p>
+<p>En R la función <code>dnorm, pnorm, qnorm y rnorm</code> nos estima una distribución normal estándar <span class="math inline">\((\mu = 0 \; y \; \sigma = 1)\)</span> Y podemos estimar <span class="math inline">\(P(X=z) = dnorm(z)\)</span> por ejemplo.</p>
+<p><strong>ejemplo</strong> cuan es la probabilidad de que z tomado al azar esté entre <span class="math inline">\(-2.55\)</span> y <span class="math inline">\(2.55\)</span><br />
+<em>respuesta</em> estamos canculando la probabilidad de <span class="math inline">\(P(-2.55 &lt; z &lt; 2.55) = P(X \leq 2.55) - P(X \leq -2.55)\)</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">2.55</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">2.55</span>)</span></code></pre></div>
+<pre><code>[1] 0.9892277</code></pre>
 </div>
 </div>
 </div>
