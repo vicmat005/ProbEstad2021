@@ -13,3 +13,15 @@ curve(f_norm, # función Normal estándar que definí arriba
   xlab = "z = (x - pormedio)/s.d.",
   main = "Funcion Normal Estándard")
 
+# Ahora usando la funcion qnorm de R tambien se estima la
+# gráfica de la función.
+curve(dnorm, # usando el generador Normal de R en x
+      from = -3.5, # desde z = -3.5
+      to = 3.5, # a z = 3.5
+      main = "Distribución Normal usando dnorm")
+
+
+curve(pnorm, # usando el generador pnorm (dist acumulada a x)
+      from = -3.5, # desde z = -3.5
+      to = 3.5, # a z = 3.5
+      main = "Distribución Normal frecuencia acumulada usando pnorm")
