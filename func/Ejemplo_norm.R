@@ -20,7 +20,7 @@ curve(dnorm, # usando el generador Normal de R en x
       to = 3.5, # a z = 3.5
       main = "Distribución Normal usando dnorm")
 
-
+# Fracuencia normal acumulada usando pnorm
 curve(pnorm, # usando el generador pnorm (dist acumulada a x)
       from = -3.5, # desde z = -3.5
       to = 3.5, # a z = 3.5
