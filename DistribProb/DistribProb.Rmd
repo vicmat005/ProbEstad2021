@@ -203,23 +203,46 @@ en la ecuación anterior $\pi$ y $e$ son los múneros irracionales iguales a $3.
 1. Es simétrica al rededor de la media $\mu$, la curva a cada lado del valor $x=\mu$ es una imagen de espejo de la otra mitad.  
 2. La media, la mediana y la moda son iguales.  
 3. El total del área bajo la curva de la campana de gauss es igual a la unidad de área.  
-4. Si se dibujan dos líneas verticales a una distancia de la desviación estándar de la media $\mu$, esto es $\mu - \sigma$ y en $\mu + \sigma$ esto englobaría el 68% del área bajo la curva. y a dos veces $\sigma$ el 95%.  
+4. Si se dibujan dos líneas verticales a una distancia de la desviación estándar de la media $\mu$, esto es $\mu - \sigma$ y en $\mu + \sigma$ esto englobaría el 68% del área bajo la curva, y a dos veces $\sigma$ el 95%.  
 5. La distribución normal está completamente descrita por los parámetros de la media $\mu$ y la desviación estándar $\sigma$.  
+```{r}
+curve(dnorm, from = -4., to = 4., main = "Distribución Normal y d.s. = 1, 2, 3")
+abline(v=0)
+abline(v=1, col = 3, lty = 2)
+abline(v=-1, col = 3, lty = 2)
+abline(v=2, col = 2, lty = 2)
+abline(v=-2, col = 2, lty = 2)
+abline(v=3, col = 4, lty = 2)
+abline(v=-3, col = 4, lty = 2)
+```
 
 ## La distribución normal estándar  
-Es la distribución que esta cnetrada al cero $\mu = 0$ y con desviación estándar igual a 1, $\sigma = 1$, creando la variabla aleatoria estandarizada    
-
+Es la distribución que esta centrada al cero $\mu = 0$ y con desviación estándar igual a 1, $\sigma = 1$, creando la variable aleatoria estandarizada    
 $$ z = (x - \mu)/\sigma $$  
 resultando en la distribución normal estándar  
 $$ f(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}, \hspace{20pt} -\infty < z < \infty $$  
 
 En R la función `dnorm, pnorm, qnorm y rnorm` nos estima una distribución normal estándar $(\mu = 0 \; y \; \sigma = 1)$ Y podemos estimar $P(X=z) = dnorm(z)$ por ejemplo.  
 
-**ejemplo** cuan es la probabilidad de que z tomado al azar esté entre $-2.55$ y $2.55$   
-*respuesta* estamos canculando la probabilidad de $P(-2.55 < z < 2.55) = P(X \leq 2.55) - P(X \leq -2.55)$  
+Para ver el efecto del cambio en la desviación estándar (s.d.) a promedio $\mu = 0$ constante, que efecto tiene en la gráfica de la función de probabilidad normal dichos cambios?  Iniciando con una distribución para $\sigma = 1$ en negro y después $\sigma = 1.25, 1.5, 1.75$.
+```{r}
+curve(dnorm(x, sd = 1), from = -3.5, to = 3.5, main = "Distribución Normal a diferentes d.s.")
+abline(v=0, lty = 2)
+curve(dnorm(x, sd = 1.25), from = -3.5, to = 3.5, col = 2, add = TRUE)
+abline(v=1.25, col = 2)
+abline(v=-1.25, col = 2)
+curve(dnorm(x, sd = 1.5), from = -3.5, to = 3.5, col = 3, add = TRUE)
+abline(v=1.5, col = 3)
+abline(v=-1.5, col = 3)
+curve(dnorm(x, sd = 1.75), from = -3.5, to = 3.5, col = 4, add = TRUE)
+abline(v=1.75, col = 4)
+abline(v=-1.75, col = 4)
+```
+
+**ejemplo** cual es la probabilidad de que z tomado al azar esté entre $-2.55$ y $2.55$?    
+*respuesta* estamos calculando la probabilidad de $P(-2.55 < z < 2.55) = P(X \leq 2.55) - P(X \leq -2.55)$  
 ```{r}
 pnorm(2.55) - pnorm(-2.55)
 ```
-
 
 
