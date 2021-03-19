@@ -243,6 +243,10 @@ abline(v=-1.75, col = 4)
 *respuesta* estamos calculando la probabilidad de $P(-2.55 < z < 2.55) = P(X \leq 2.55) - P(X \leq -2.55)$  
 ```{r}
 pnorm(2.55) - pnorm(-2.55)
+
+curve(dnorm, from = -4.5, to = 4.5, main = "Distribución Normal Estándar")
+abline(v=-2.55, lty = 2)
+abline(v=2.55, lty = 2)
 ```
 
 
