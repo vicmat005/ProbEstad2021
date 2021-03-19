@@ -8,7 +8,7 @@ f_norm <- function(x){
 # Para graficar con una línea
 curve(f_norm, # función Normal estándar que definí arriba
   from = -3.5, # Desde z = -3.5
-  to = 3,  # Hasta z = 3.5
+  to = 3.5,  # Hasta z = 3.5
   ylab = "Probabilidad",
   xlab = "z = (x - pormedio)/s.d.",
   main = "Funcion Normal Estándard")
