@@ -22,3 +22,4 @@ Tema 2 [Probabilidad](https://fabarrios.github.io/ProbEstad2021/Probabilidad/Pro
 Tarea 2 [Tarea 02 Probabilidad](https://fabarrios.github.io/ProbEstad2021/HW/HW_02/HW_02.html).  
 
 Tema 3 [Distribuciones de Probabilidad](https://fabarrios.github.io/ProbEstad2021/DistribProb/DistribProb.html).
+Tarea 3 [Tarea 03 Distribución Normal](https://fabarrios.github.io/ProbEstad2021/HW/HW_03/HW_03.html).
