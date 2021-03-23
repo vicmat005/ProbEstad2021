@@ -1,0 +1,39 @@
+---
+title: "Distribucion de Muestreo"
+author: "F. A. Barrios<br>ENES Juriquilla, UNAM<br>"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+# Distribucion de Muestras  
+La distribución de todos los valores posibles que puede tomar una "estadística", construidos a partir de muestras del mismo tamaño de nuestra extraídas al azar de la misma población, es llamado la distribución de muestreo de esa "estadística".  
+
+## Construcción de una distibución de muestras  
+Una distribución de muestreo se puede construir empiricamente a partir de un muestreo discreto, de una población finita, de la siguiente forma  
+1. De una población finita de tamaño $N$, se extraen todas las muestras posibles de tamaño $n$.  
+2. La estadística de interés se estima en cada una de estas muestras.
+3. En una lista se compilan todos los valores de la estadística obtenidos y todas las frecuencias de los valores obtenidos  
+
+## Características de una distribución de muestras  
+Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su *promedio*, su *varianza*, y su *forma funcional*
+
+## La distribusión de muestra del promedio  
+El promedio de la 
