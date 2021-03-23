@@ -239,7 +239,9 @@ abline(v=1.75, col = 4)
 abline(v=-1.75, col = 4)
 ```
 
-**ejemplo** cual es la probabilidad de que z tomado al azar esté entre $-2.55$ y $2.55$?    
+## Aplicaciones de la distribución normal  
+
+**Ejemplo** cual es la probabilidad de que z tomado al azar esté entre $-2.55$ y $2.55$?    
 *respuesta* estamos calculando la probabilidad de $P(-2.55 < z < 2.55) = P(X \leq 2.55) - P(X \leq -2.55)$  
 ```{r}
 pnorm(2.55) - pnorm(-2.55)
@@ -249,4 +251,62 @@ abline(v=-2.55, lty = 2)
 abline(v=2.55, lty = 2)
 ```
 
+**Ejemplo** Diskin et al. estudiaron los metabolitos presentes en el aliento, tales como amonio, acetona, isopreno, etanol, y acetaldehído en cinco sujetos en un periodo de 30 días. Se tomaron muestras diarias de aliento en la mañana temprano y se analizaron en el laboratorio. Para el sujeto A, mujer de 27 años, la concentración de amonio en partes por billón, ppb, siguieron una distribución normal por los treinta días con promedio 491 y desviación estándar 119. Cual es la probabilidad de que en un día tomado al azar, el amonio presente en su aliento tenga una concentración entre 292 y 649 ppb?  
+*respuesta* hay que recordar que este tipo de problemas se resolvía usando tablas de una distribución normal estándar $(\mu = 0 \; y \; \sigma = 1)$, y para poder hace ruso de dichas tablas era necesario transformar los puntos de interés a la escala de $z$, $z = (x - \mu)/\sigma$, pero con el uso de un programa como R que en el que podemos estimar el valor de $p$ para cualquier valor de $x$, lo que nos están preguntando es  
+$$ P(292 \leq x \leq 649) $$
+```{r}
+curve(dnorm(x , mean = 491, sd = 119), from = 150, to = 850)
+abline(v=292, col = 2)
+abline(v=649, col = 2)
+#
+pnorm(649, mean = 491, sd = 119, lower.tail = TRUE) - pnorm(292, mean = 491, sd = 119, lower.tail = TRUE)
+```
+
+Si usaramos una distribución normal estándar, primero tenemos que convertir $P(292 \leq x \leq 649)$ a la escala de $z$ usando $\mu = 491 \; y \; \sigma = 119$ en  
+$$ z = \frac{(x - \mu)}{\sigma} $$
+por lo tanto $P(292 \leq x \leq 649)$ es :  
+$$ P(\frac{292 - 491}{119} \leq z \leq \frac{649 - 491}{119})$$
+$$P(-1.67 \leq z \leq 1.33)$$
+```{r}
+pnorm((649-491)/119, lower.tail = TRUE) - pnorm((292-491)/119, lower.tail = TRUE)
+```
+que nos da la misma repuesta para la probabilidad de que el valor de la concentración de amonio esté en el rango mencionado.  
+De este **mismo ejemplo**, para otro sujeto hombre de 29 años de edad de el mismo estudio de Diskin et al., los niveles de acetona en su aliento, estuvieron normalmente distribuidos con promedio de 870 y desviación estándar de 221 ppb, encuentre la probabilidad de que en un día cualquiera su nivel de acetona esté  
+(a) Entre 600 y 1000 ppb  
+(b) Sobre 900 ppb  
+(c) Por debajo de 500 ppb  
+(d) Entre 900 y 1100 ppb  
+*respuesta* (a) nos pide $P(600 \leq x \leq 1000)$  
+```{r}
+curve(dnorm(x , mean = 870, sd = 211), from = 300, to = 1400)
+abline(v=600, col = 2)
+abline(v=1000, col = 2)
+#
+pnorm(1000, mean = 870, sd = 211, lower.tail = TRUE) - pnorm(600, mean = 870, sd = 211, lower.tail = TRUE)
+```
+
+Para (b) la repuesta es $P(x > 900)$ de 900 a la derecha de la gráfica.  
+```{r}
+curve(dnorm(x , mean = 870, sd = 211), from = 300, to = 1400)
+abline(v=900, col = 4, lty = 2)
+pnorm(900, mean = 870, sd = 211, lower.tail = FALSE)
+```
+Para (c) la repuesta es $P(500 \leq x)$  
+```{r}
+pnorm(500, mean = 870, sd = 211, lower.tail = TRUE)
+# Calculando como complemento de probabilidad
+1 - pnorm(500, mean = 870, sd = 211, lower.tail = FALSE)
+# Para una normal estándar (mean = 0, s.d. = 1)
+pnorm((500-870)/211, lower.tail = TRUE)
+```
+
+
+Y para (d) la respuesta es $P(900 \leq x \leq 1100)$ 
+
+```{r}
+pnorm(1100, mean = 870, sd = 211, lower.tail = TRUE) - pnorm(900, mean = 870, sd = 211, lower.tail = TRUE)
+```
+
+
+   
 
