@@ -35,5 +35,18 @@ Una distribución de muestreo se puede construir empiricamente a partir de un mu
 ## Características de una distribución de muestras  
 Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su *promedio*, su *varianza*, y su *forma funcional*
 
-## La distribusión de muestra del promedio  
-El promedio de la 
+## La distribución de muestras del promedio: promedio  
+El promedio de muestras es  
+$$\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}$$
+## La distribución de muestras del promedio: varianza
+La varianza del promedio de muestra  
+$$ {\sigma_{\bar{x}}^2} = \frac{\sum{(\bar{x}_i}-\mu_{\bar x})^2}{N^n} $$
+La raiz cuadrada de la varinaza de la distribución de muestras, $\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}$ es llamada el error estándar del promedio o simplemente el *error estandar*.  
+
+
+
+
+
+
+
+
