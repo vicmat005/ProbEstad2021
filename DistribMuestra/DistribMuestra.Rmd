@@ -32,16 +32,33 @@ Una distribución de muestreo se puede construir empiricamente a partir de un mu
 2. La estadística de interés se estima en cada una de estas muestras.
 3. En una lista se compilan todos los valores de la estadística obtenidos y todas las frecuencias de los valores obtenidos  
 
+##Teoría del Muestreo  
+**Definición** Se dice que las variables aleatorias $X_1, X_2, \dots, X_n$ cuya función de densidad de probabilidad conjunta es $f(x_1, x_2, \dots, x_n))$ y cuya funciones particulares de densidad son $f_1(x_1), f_2(x_2), \dots, f_n(x_n)$ son *independientes* siempre y cuando 
+$$ f(x_1, x_2, \cdots, x_n) = f_1(x_1)f_2(x_2)\cdots f_n(x_n)$$
+
 ## Características de una distribución de muestras  
-Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su *promedio*, su *varianza*, y su *forma funcional*
+Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su *promedio*, su *varianza*, y su *forma funcional*.  Representemos por $f(x)$ la funcion de densidad de la variable aleatoria continua $X$ y por $n$ el tamaño de la puestra que se toma.Los valores muestrales que se resultantes se designan mediante los símbolos $x'_1, x'_2, \dots, x'_n$, Si se extrajera una segunda muestra de tamaño $n$ entonces a los valores muestrales resultantes se le designa por $x''_1, x''_2, \dots, x''_n$ y de igual forma para las restantes muestras. Estos valores los podemos representar en una tabla por convenniencia
+$$\begin{array}{cccc}
+  x'_1 & x'_2 & \dots & x'_n \\
+  x''_1  & x''_2 & \dots & x''_n \\
+  x'''_1 & x'''_2 & \dots & x'''_n \\
+  \vdots & \vdots & \vdots & \vdots \\
+  \bar{x}_1 & \bar{x}_2 & \cdots & \bar{x}_n \\
+\end{array} $$
 
 ## La distribución de muestras del promedio: promedio  
+
 El promedio de muestras es  
 $$\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}$$
-## La distribución de muestras del promedio: varianza
+
+##  La distribución de muestras del promedio: varianza  
+
 La varianza del promedio de muestra  
 $$ {\sigma_{\bar{x}}^2} = \frac{\sum{(\bar{x}_i}-\mu_{\bar x})^2}{N^n} $$
-La raiz cuadrada de la varinaza de la distribución de muestras, $\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}$ es llamada el error estándar del promedio o simplemente el *error estandar*.  
+La raíz cuadrada de la varinaza de la distribución de muestras, $\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}$ es llamada el error estándar del promedio o simplemente el *error estándar*.  
+
+
+
 
 
 

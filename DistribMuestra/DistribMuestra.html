@@ -130,6 +130,7 @@
       <li><a href="#construcción-de-una-distibución-de-muestras">Construcción de una distibución de muestras</a></li>
       <li><a href="#características-de-una-distribución-de-muestras">Características de una distribución de muestras</a></li>
       <li><a href="#la-distribución-de-muestras-del-promedio-promedio">La distribución de muestras del promedio: promedio</a></li>
+      <li><a href="#la-distribución-de-muestras-del-promedio-varianza">La distribución de muestras del promedio: varianza</a></li>
       </ul></li>
       </ul>
     </div>
@@ -153,16 +154,28 @@
 <p>Una distribución de muestreo se puede construir empiricamente a partir de un muestreo discreto, de una población finita, de la siguiente forma<br />
 1. De una población finita de tamaño <span class="math inline">\(N\)</span>, se extraen todas las muestras posibles de tamaño <span class="math inline">\(n\)</span>.<br />
 2. La estadística de interés se estima en cada una de estas muestras. 3. En una lista se compilan todos los valores de la estadística obtenidos y todas las frecuencias de los valores obtenidos</p>
+<p>##Teoría del Muestreo<br />
+<strong>Definición</strong> Se dice que las variables aleatorias <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> cuya función de densidad de probabilidad conjunta es <span class="math inline">\(f(x_1, x_2, \dots, x_n))\)</span> y cuya funciones particulares de densidad son <span class="math inline">\(f_1(x_1), f_2(x_2), \dots, f_n(x_n)\)</span> son <em>independientes</em> siempre y cuando <span class="math display">\[ f(x_1, x_2, \cdots, x_n) = f_1(x_1)f_2(x_2)\cdots f_n(x_n)\]</span></p>
 </div>
 <div id="características-de-una-distribución-de-muestras" class="section level2">
 <h2>Características de una distribución de muestras</h2>
-<p>Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su <em>promedio</em>, su <em>varianza</em>, y su <em>forma funcional</em></p>
+<p>Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su <em>promedio</em>, su <em>varianza</em>, y su <em>forma funcional</em>. Representemos por <span class="math inline">\(f(x)\)</span> la funcion de densidad de la variable aleatoria continua <span class="math inline">\(X\)</span> y por <span class="math inline">\(n\)</span> el tamaño de la puestra que se toma.Los valores muestrales que se resultantes se designan mediante los símbolos <span class="math inline">\(x&#39;_1, x&#39;_2, \dots, x&#39;_n\)</span>, Si se extrajera una segunda muestra de tamaño <span class="math inline">\(n\)</span> entonces a los valores muestrales resultantes se le designa por <span class="math inline">\(x&#39;&#39;_1, x&#39;&#39;_2, \dots, x&#39;&#39;_n\)</span> y de igual forma para las restantes muestras. Estos valores los podemos representar en una tabla por convenniencia <span class="math display">\[\begin{array}{cccc}
+  x&#39;_1 &amp; x&#39;_2 &amp; \dots &amp; x&#39;_n \\
+  x&#39;&#39;_1  &amp; x&#39;&#39;_2 &amp; \dots &amp; x&#39;&#39;_n \\
+  x&#39;&#39;&#39;_1 &amp; x&#39;&#39;&#39;_2 &amp; \dots &amp; x&#39;&#39;&#39;_n \\
+  \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+  \bar{x}_1 &amp; \bar{x}_2 &amp; \cdots &amp; \bar{x}_n \\
+\end{array} \]</span></p>
 </div>
 <div id="la-distribución-de-muestras-del-promedio-promedio" class="section level2">
 <h2>La distribución de muestras del promedio: promedio</h2>
 <p>El promedio de muestras es<br />
-<span class="math display">\[\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}\]</span> ## La distribución de muestras del promedio: varianza La varianza del promedio de muestra<br />
-<span class="math display">\[ {\sigma_{\bar{x}}^2} = \frac{\sum{(\bar{x}_i}-\mu_{\bar x})^2}{N^n} \]</span> La raiz cuadrada de la varinaza de la distribución de muestras, <span class="math inline">\(\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}\)</span> es llamada el error estándar del promedio o simplemente el <em>error estandar</em>.</p>
+<span class="math display">\[\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}\]</span></p>
+</div>
+<div id="la-distribución-de-muestras-del-promedio-varianza" class="section level2">
+<h2>La distribución de muestras del promedio: varianza</h2>
+<p>La varianza del promedio de muestra<br />
+<span class="math display">\[ {\sigma_{\bar{x}}^2} = \frac{\sum{(\bar{x}_i}-\mu_{\bar x})^2}{N^n} \]</span> La raíz cuadrada de la varinaza de la distribución de muestras, <span class="math inline">\(\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}\)</span> es llamada el error estándar del promedio o simplemente el <em>error estándar</em>.</p>
 </div>
 </div>
 </div>
