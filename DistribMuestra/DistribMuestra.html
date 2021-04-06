@@ -7,7 +7,7 @@
 
         <meta name="author" content="F. A. Barrios ENES Juriquilla, UNAM " />
     
-        <meta name="date" content="2021-03-25" />
+        <meta name="date" content="2021-04-05" />
     
     <title>Distribucion de Muestreo</title>
 
@@ -25,6 +25,75 @@
         <script src="data:application/javascript;base64,JCggZG9jdW1lbnQgKS5yZWFkeShmdW5jdGlvbigpIHsKCiAgICAvLyBGaXggZm9yIGRvdHMgaW4gbGV2ZWwgMSBhbmQgbGV2ZWwgMiB0aXRsZXMKICAgICQoJ2JvZHkgLnNlY3Rpb24ubGV2ZWwxJykuZWFjaChmdW5jdGlvbiAoKSB7CiAgICAgICQodGhpcykuYXR0cigiaWQiLCAkKHRoaXMpLmF0dHIoImlkIikucmVwbGFjZSgvXC4vZywgIi0iKSk7CiAgICB9KTsKICAgICQoJ2JvZHkgLnNlY3Rpb24ubGV2ZWwyJykuZWFjaChmdW5jdGlvbiAoKSB7CiAgICAgICQodGhpcykuYXR0cigiaWQiLCAkKHRoaXMpLmF0dHIoImlkIikucmVwbGFjZSgvXC4vZywgIi0iKSk7CiAgICB9KTsKICAgICQoJyN0b2MgdWwgbGkgYScpLmVhY2goZnVuY3Rpb24gKCkgewogICAgICAkKHRoaXMpLmF0dHIoImhyZWYiLCAkKHRoaXMpLmF0dHIoImhyZWYiKS5yZXBsYWNlKC9cLi9nLCAiLSIpKTsKICAgIH0pOwoKICAgIC8vIFNoaWZ0IG5hdiBpbiBtb2JpbGUgd2hlbiBjbGlja2luZyB0aGUgbWVudS4KICAgICQoZG9jdW1lbnQpLm9uKCdjbGljaycsICJbZGF0YS10b2dnbGU9J3d5LW5hdi10b3AnXSIsIGZ1bmN0aW9uKCkgewogICAgICAkKCJbZGF0YS10b2dnbGU9J3d5LW5hdi1zaGlmdCddIikudG9nZ2xlQ2xhc3MoInNoaWZ0Iik7CiAgICB9KTsKICAgIC8vIENsb3NlIG1lbnUgd2hlbiB5b3UgY2xpY2sgYSBsaW5rLgogICAgJChkb2N1bWVudCkub24oJ2NsaWNrJywgIiN0b2MgdWwgbGkgYSIsIGZ1bmN0aW9uKCkgewogICAgICAkKCJbZGF0YS10b2dnbGU9J3d5LW5hdi1zaGlmdCddIikucmVtb3ZlQ2xhc3MoInNoaWZ0Iik7CiAgICB9KTsKICAgIC8vIENsb3NlIG1lbnUgd2hlbiB5b3UgY2xpY2sgb24gbWFpbiBjb250ZW50CiAgICAkKGRvY3VtZW50KS5vbignY2xpY2snLCAiI21haW4sICNoZWFkZXIiLCBmdW5jdGlvbigpIHsKICAgICAgJCgiW2RhdGEtdG9nZ2xlPSd3eS1uYXYtc2hpZnQnXSIpLnJlbW92ZUNsYXNzKCJzaGlmdCIpOwogICAgfSk7CgogICAgLy8gTWFrZSB0YWJsZXMgcmVzcG9uc2l2ZQogICAgJCgiI21haW4gdGFibGUiKS53cmFwKCI8ZGl2IGNsYXNzPSd0YWJsZS13cmFwcGVyJz48L2Rpdj4iKTsKCiAgICAvLyBTY3JvbGxTcHkgYWxzbyByZXF1aXJlcyB0aGF0IHdlIHVzZSBhIEJvb3RzdHJhcCBuYXYgY29tcG9uZW50LgogICAgJCgnI3RvYyB1bCcpLmZpcnN0KCkuYWRkQ2xhc3MoJ25hdicpOwogICAgJCgnYm9keScpLnNjcm9sbHNweSh7dGFyZ2V0OiAnI3RvYyd9KTsKCiAgICAvLyBhZGQgc3RpY2t5IHRhYmxlIGhlYWRlcnMKICAgIC8vJCgndGFibGUnKS5zdGlja3lUYWJsZUhlYWRlcnMoKTsKCn0pOwo="></script>
     
     
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          background-color: #ffffff;
+          color: #a0a0a0;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+      div.sourceCode
+        { color: #1f1c1b; background-color: #ffffff; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span { color: #1f1c1b; } /* Normal */
+      code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+      code span.an { color: #ca60ca; } /* Annotation */
+      code span.at { color: #0057ae; } /* Attribute */
+      code span.bn { color: #b08000; } /* BaseN */
+      code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+      code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #924c9d; } /* Char */
+      code span.cn { color: #aa5500; } /* Constant */
+      code span.co { color: #898887; } /* Comment */
+      code span.cv { color: #0095ff; } /* CommentVar */
+      code span.do { color: #607880; } /* Documentation */
+      code span.dt { color: #0057ae; } /* DataType */
+      code span.dv { color: #b08000; } /* DecVal */
+      code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+      code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+      code span.fl { color: #b08000; } /* Float */
+      code span.fu { color: #644a9b; } /* Function */
+      code span.im { color: #ff5500; } /* Import */
+      code span.in { color: #b08000; } /* Information */
+      code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+      code span.op { color: #1f1c1b; } /* Operator */
+      code span.ot { color: #006e28; } /* Other */
+      code span.pp { color: #006e28; } /* Preprocessor */
+      code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+      code span.sc { color: #3daee9; } /* SpecialChar */
+      code span.ss { color: #ff5500; } /* SpecialString */
+      code span.st { color: #bf0303; } /* String */
+      code span.va { color: #0057ae; } /* Variable */
+      code span.vs { color: #bf0303; } /* VerbatimString */
+      code span.wa { color: #bf0303; } /* Warning */
+    </style>
     
     
     <!-- tabsets -->
@@ -136,7 +205,7 @@
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> F. A. Barrios<br>ENES Juriquilla, UNAM<br></p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2021-03-25</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2021-04-05</p>
           </div>
    </div>
      
@@ -151,15 +220,17 @@
 <p>La distribución de todos los valores posibles que puede tomar una “estadística”, construidos a partir de muestras del mismo tamaño de nuestra extraídas al azar de la misma población, es llamado la distribución de muestreo de esa “estadística”.</p>
 <div id="construcción-de-una-distibución-de-muestras" class="section level2">
 <h2>Construcción de una distibución de muestras</h2>
-<p>Una distribución de muestreo se puede construir empiricamente a partir de un muestreo discreto, de una población finita, de la siguiente forma<br />
+<p>Una distribución de muestreo se puede construir empíricamente a partir de un muestreo discreto, de una población finita, de la siguiente forma<br />
 1. De una población finita de tamaño <span class="math inline">\(N\)</span>, se extraen todas las muestras posibles de tamaño <span class="math inline">\(n\)</span>.<br />
 2. La estadística de interés se estima en cada una de estas muestras. 3. En una lista se compilan todos los valores de la estadística obtenidos y todas las frecuencias de los valores obtenidos</p>
 <p>##Teoría del Muestreo<br />
-<strong>Definición</strong> Se dice que las variables aleatorias <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> cuya función de densidad de probabilidad conjunta es <span class="math inline">\(f(x_1, x_2, \dots, x_n))\)</span> y cuya funciones particulares de densidad son <span class="math inline">\(f_1(x_1), f_2(x_2), \dots, f_n(x_n)\)</span> son <em>independientes</em> siempre y cuando <span class="math display">\[ f(x_1, x_2, \cdots, x_n) = f_1(x_1)f_2(x_2)\cdots f_n(x_n)\]</span></p>
+<strong>Definición</strong> Se dice que las variables aleatorias <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> cuya función de densidad de probabilidad conjunta es <span class="math inline">\(f(x_1, x_2, \dots, x_n))\)</span> y cuya funciones particulares de densidad son <span class="math inline">\(f_1(x_1), f_2(x_2), \dots, f_n(x_n)\)</span> son <em>independientes</em> siempre y cuando<br />
+<span class="math display">\[ f(x_1, x_2, \cdots, x_n) = f_1(x_1)f_2(x_2)\cdots f_n(x_n)\]</span></p>
 </div>
 <div id="características-de-una-distribución-de-muestras" class="section level2">
 <h2>Características de una distribución de muestras</h2>
-<p>Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su <em>promedio</em>, su <em>varianza</em>, y su <em>forma funcional</em>. Representemos por <span class="math inline">\(f(x)\)</span> la funcion de densidad de la variable aleatoria continua <span class="math inline">\(X\)</span> y por <span class="math inline">\(n\)</span> el tamaño de la puestra que se toma.Los valores muestrales que se resultantes se designan mediante los símbolos <span class="math inline">\(x&#39;_1, x&#39;_2, \dots, x&#39;_n\)</span>, Si se extrajera una segunda muestra de tamaño <span class="math inline">\(n\)</span> entonces a los valores muestrales resultantes se le designa por <span class="math inline">\(x&#39;&#39;_1, x&#39;&#39;_2, \dots, x&#39;&#39;_n\)</span> y de igual forma para las restantes muestras. Estos valores los podemos representar en una tabla por convenniencia <span class="math display">\[\begin{array}{cccc}
+<p>Por lo general se está interesado en estimar tres parámetros de una distribución de muestras: su <em>promedio</em>, su <em>varianza</em>, y su <em>forma funcional</em>. Representemos por <span class="math inline">\(f(x)\)</span> la funcion de densidad de la variable aleatoria continua <span class="math inline">\(X\)</span> y por <span class="math inline">\(n\)</span> el tamaño de la muestra que se toma.Los valores muestrales que se resultantes se designan mediante los símbolos <span class="math inline">\(x&#39;_1, x&#39;_2, \dots, x&#39;_n\)</span>, Si se extrajera una segunda muestra de tamaño <span class="math inline">\(n\)</span> entonces a los valores muestrales resultantes se le designa por <span class="math inline">\(x&#39;&#39;_1, x&#39;&#39;_2, \dots, x&#39;&#39;_n\)</span> y de igual forma para las restantes muestras. Estos valores los podemos representar en una tabla por conveniencia<br />
+<span class="math display">\[\begin{array}{cccc}
   x&#39;_1 &amp; x&#39;_2 &amp; \dots &amp; x&#39;_n \\
   x&#39;&#39;_1  &amp; x&#39;&#39;_2 &amp; \dots &amp; x&#39;&#39;_n \\
   x&#39;&#39;&#39;_1 &amp; x&#39;&#39;&#39;_2 &amp; \dots &amp; x&#39;&#39;&#39;_n \\
@@ -170,12 +241,37 @@
 <div id="la-distribución-de-muestras-del-promedio-promedio" class="section level2">
 <h2>La distribución de muestras del promedio: promedio</h2>
 <p>El promedio de muestras es<br />
-<span class="math display">\[\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}\]</span></p>
+<span class="math display">\[\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}\]</span> Las propiedades de de la distribución del promedio de muestras de una distribución normal, supongamos que X (la población de dónde se hace el muestreo) tiene una distribución normal con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2/n\)</span>. Consideremos una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> de esta población normal, la media de dicha muestra,<br />
+<span class="math display">\[ \bar{X}=\frac{1}{n}(X_1 + \dots +X_n) \]</span> será una variable aleatoria por que las <span class="math inline">\(X_1, X_2, \dots,X_n\)</span> correspondientes a las <span class="math inline">\(n\)</span> pruebas de la nuestra son variables aleatorias.</p>
+<p>Puesto que muchas variables experimentales pueden tener distribuciones que no son normales, es importante saber si las propiedades del promedio de las medias de muestreo (y sus propiedades de la varianza) pueden ser descritas. Se puede destacar que sin importar cuál sea el tipo de distribución que tenga pa población <span class="math inline">\(X\)</span>, siempre que existan su media y su varianza, la distribución de <span class="math inline">\(\bar{X}\)</span> tenderá a la distribución normal cuando <span class="math inline">\(n \rightarrow \infty\)</span> , que es lo que se conoce como el <em>Teorema Central del Límite</em><br />
+<strong>Teorema central del límite:</strong> Si <span class="math inline">\(X\)</span> es una variable aleatoria con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2\)</span>, la variable aleatoria <span class="math inline">\(Z=(\bar{X} - \mu)\sqrt{n}/\sigma\)</span> tiene una distribución que se aproxima a la distribución normal normalizada (tipificada) cuando <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
 </div>
 <div id="la-distribución-de-muestras-del-promedio-varianza" class="section level2">
 <h2>La distribución de muestras del promedio: varianza</h2>
-<p>La varianza del promedio de muestra<br />
-<span class="math display">\[ {\sigma_{\bar{x}}^2} = \frac{\sum{(\bar{x}_i}-\mu_{\bar x})^2}{N^n} \]</span> La raíz cuadrada de la varinaza de la distribución de muestras, <span class="math inline">\(\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}\)</span> es llamada el error estándar del promedio o simplemente el <em>error estándar</em>.</p>
+<p>Y se sigue que: Si <span class="math inline">\(X\)</span> tiene una distribución normal con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2\)</span> y se toma una muestra aleatoria de tamaño <span class="math inline">\(n\)</span>, la media muestral <span class="math inline">\(\bar{X}\)</span> tendrá una distribución normal con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2/n\)</span></p>
+<p>Es decir<br />
+<span class="math display">\[ \sigma_{\bar{X}}^2 = \frac{1}{n^2}\sum_{i=1}^{n}\sigma^2 = \frac{\sigma^2}{n} \]</span> La varianza del promedio de muestra<br />
+<span class="math display">\[ {\sigma_{\bar{x}}^2} = \frac{\sum{(\bar{x}_i}-\mu_{\bar x})^2}{N^n} = \frac{\sigma^2}{n}\]</span> La raíz cuadrada de la varinaza de la distribución de muestras, <span class="math inline">\(\sqrt{\sigma_{\bar{x}}^2} = \sigma_{\bar{x}}/\sqrt{n}\)</span> es llamada el error estándar del promedio o simplemente el <strong>error estándar</strong>.</p>
+<p><em>Cuando el muestreo se hace sin remplazo</em> de una población finita, la distribución de <span class="math inline">\(\bar{X}\)</span> tendrá una promedio <span class="math inline">\(\mu\)</span> y varianza<br />
+<span class="math display">\[ \sigma_{\bar{X}}^2 = \frac{\sigma^2}{n} \frac{N - n}{N -1} \]</span> (con corrección para una población finita)</p>
+<p><em>En resumen</em> La distribución de muestreo para <span class="math inline">\(\bar{X}\)</span> es:<br />
+1. El muestreo de una población distribuida normalmente con varianza de la población conocida:<br />
+a) <span class="math inline">\(\mu_{\bar{X}} = \mu\)</span><br />
+b) <span class="math inline">\(\sigma_{\bar{X}} = \sigma/\sqrt{n}\)</span><br />
+c) La distribución de <span class="math inline">\(\bar{X}\)</span> es normal<br />
+2. El muestreo es de una población con una distribución no-normal con varinza conocida:<br />
+a) <span class="math inline">\(\mu_{\bar{X}} = \mu\)</span><br />
+b) <span class="math inline">\(\sigma_{\bar{X}} = \sigma/\sqrt{n}\)</span> cuando <span class="math inline">\(n/N \leq .05\)</span> y <span class="math inline">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \sqrt{\frac{N - n}{N -1}}\)</span>, de otra forma.<br />
+c) La distribución de <span class="math inline">\(\bar{X}\)</span> es aproximadamente normal.</p>
+<p>##Ejemplos Supongamos que de una determinada población humana grande, la longitud del cráneo está distribuida en forma normal con promedio de 185.6 mm y desviación estándar de 12.7 mm. Cual es la probabilidad de que una muestra aleatoria de esta población de 10 sujetos resulte con un promedio de mayor a 190mm?<br />
+Se usa la transformada a <span class="math inline">\(z = \frac{\bar{X}-\mu_{\bar{X}}}{\sigma/\sqrt{n}}\)</span> y nos preguntan por la probabilidad de <span class="math inline">\(P(X \geq 190mm)\)</span> para una distribución con <span class="math inline">\(\mu_{\bar{X}} = 185.6mm\)</span> y una desviación estándar <span class="math inline">\(\sigma = 12.7mm\)</span> que resulta en una desviación muestral de <span class="math inline">\(\sigma_{\bar{X}} = \sigma/\sqrt{n}\)</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(x &gt;= 190)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">190</span>, <span class="at">mean =</span> <span class="fl">185.6</span>, <span class="at">sd =</span> (<span class="fl">12.7</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>)), <span class="at">lower.tail =</span> <span class="cn">FALSE</span> )</span></code></pre></div>
+<pre><code>[1] 0.1366286</code></pre>
+<p>Si el promedio y la desviación estándar para los valores de hierro en suero de hombres sanos es de <span class="math inline">\(120\)</span> y <span class="math inline">\(15 \mu g\)</span> por <span class="math inline">\(100ml\)</span>, respectivamente, cual es la probabilidad de que una muestra al azar de 50 hombres normales sanos resulte en un promedio entre 115 y 125 micro gramos por <span class="math inline">\(100ml\)</span>?<br />
+La respuesta es la diferencia de las probabilidades de <span class="math inline">\(X\)</span> menor o igual a <span class="math inline">\(125\)</span> y <span class="math inline">\(X\)</span> menor o igual a <span class="math inline">\(115\)</span>, es decir <span class="math inline">\(P(X\leq 125) - P(X \leq 115)\)</span> claro que con la distribución normal con la desviación estándar escalada a la muestra de <span class="math inline">\(n=50\)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">125</span>, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> (<span class="dv">15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)), <span class="at">lower.tail =</span> <span class="cn">TRUE</span> ) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">115</span>, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> (<span class="dv">15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)), <span class="at">lower.tail =</span> <span class="cn">TRUE</span> )</span></code></pre></div>
+<pre><code>[1] 0.9815779</code></pre>
 </div>
 </div>
 </div>
