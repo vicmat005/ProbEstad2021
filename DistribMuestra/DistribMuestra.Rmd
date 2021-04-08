@@ -1,5 +1,5 @@
 ---
-title: "Distribucion de Muestreo"
+title: "4 Distribucion de Muestreo"
 author: "F. A. Barrios<br>ENES Juriquilla, UNAM<br>"
 date: "`r Sys.Date()`"
 output:
@@ -52,7 +52,7 @@ El promedio de muestras es
 $$\mu_\bar{x} = \frac{\sum{\bar{x_i}}}{N^n}$$
 Las propiedades de de la distribución del promedio de muestras de una distribución normal, supongamos que X (la población de dónde se hace el muestreo) tiene una distribución normal con media $\mu$ y varianza $\sigma^2/n$. Consideremos una muestra aleatoria de tamaño $n$ de esta población normal, la media de dicha muestra,  
 $$ \bar{X}=\frac{1}{n}(X_1 + \dots +X_n) $$
-será una variable aleatoria por que las $X_1, X_2, \dots,X_n$ correspondientes a las $n$ pruebas de la nuestra son variables aleatorias.
+será una variable aleatoria por que las $X_1, X_2, \dots,X_n$ correspondientes a las $n$ pruebas de la nuestra son variables aleatorias.  Para un muestreo de una población de $N$ sujetos que no presenta una distribución normal, para numerar todas las posibles muestras de $n$ elementos sin reemplazo se enumeran por la combinatoria de $_{N}C_{n} = \frac{N!}{n!(N-n)!}$ con fórmula para el promedio dada por $\mu_{\bar{X}} = \frac{\sum{\bar{X_i}}}{_{N}C_{n}}$
 
 Puesto que muchas variables experimentales pueden tener distribuciones que no son normales, es importante saber si las propiedades del promedio de las medias de muestreo (y sus propiedades de la varianza) pueden ser descritas. Se puede destacar que sin importar cuál sea el tipo de distribución que tenga pa población $X$, siempre que existan su media y su varianza, la distribución de $\bar{X}$ tenderá a la distribución normal cuando $n \rightarrow \infty$ , que es lo que se conoce como el *Teorema Central del Límite*  
 
@@ -97,12 +97,53 @@ pnorm(125, mean = 120, sd = (15/sqrt(50)), lower.tail = TRUE ) - pnorm(115, mean
 ```
 
 
+## Distribución de la diferencia del promedio de dos muestras
 
+Es común que en estudios de la ciencia médica se tenga interés en estimar la distribución de la diferencia del promedio de dos poblaciones distintas, un de ellas puede representar a un grupo de sujetos bajos un tratamiento y la otra población otro grupo de sujetos con un tratamiento distinto y que quiere estudiar si son iguales.  Para construir las muestras se usa el mismo procedimiento que para la distribución del promedio de una muestra. Para una de las muestras, la muestra de la población 1, se tiene una población de $N_1$ sujetos y todas las posibles muestras de tamaño $n_1$ que están numeradas por la combinatoria $_{N_1}C_{n_1}$, e igual para la población 2 de $N_2$ y con muestras de tamaño $n_2$, el posible número de nuestras sin reemplazo está dado por $_{N_2}C_{n_2}$ y con fórmulas para sus promedios  
 
+$$ \mu_{\bar{X_{i}}} = \frac{\sum{\bar{X_i}}}{_{N_i}C_{n_i}},$$
+$$ \sigma_{\bar{X_i}}^2 = \frac{\sum{(\bar{X_i} - \mu_{\bar{X_i}})^2}}{_{N_i}C_{n_i}} $$
 
+de dichas formulas podemos concluir que la diferencia de los promedios de las muestras es igual a $\mu_1 - \mu_2$ y la varianza es $(\sigma_1^2/n_1) + (\sigma_2^2/n_2)$ de donde se deduce que el error estándar de la diferencia de las medias es $\sqrt{(\sigma_1^2/n_1) + (\sigma_2^2/n_2)}$.  Como la varianza general depende de las contribuciones de las dos muestras, la varianza muestral siempre se suma, es decir los errores parciales siempre se suman. Se supone que las distribuciones de las muestras son independientes.  
+La transformación a una normal tipificada para transformar a la variable $z$ es  
+$$ z = \frac{ (\bar{X_1} - \bar{X_2}) - (\mu_1 - \mu_2) }{ \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } } $$
 
+## Distribución de la proporción muestral  
 
+Para una proporción $p$ medida de una población, se hace una estimación de las proporciones para una serie de muestras de tamaño $n$ y se calcula el promedio de las proporciones (observadas) $\hat{p}$.  Si el número de muestras es grande la distribución de la proporciones de las muestras es aproximadamente normalmente distribuida por virtud el teorema del valor central y el promedio de las proporciones $\mu_{\hat{p}}$ tenderá al valor de todas las posibles proporciones medidas de las muestras, la proporción $p$ y la varianza de la distribución $\sigma_{\hat{p}}^2$ sera igual a $pq/n$ con $q = (1-p)$y la transformada a $z$ es  
+$$ z = \frac{ \hat{p} - p }{ \sqrt{ \frac{p(1-p)}{n} } } $$
 
+**Corrección para continuidad** La aproximación a la normalidad es mejorada con un ajuste para que una distribución discreta se ajuste con una continua. Se usan las transformaciones a  
 
+$$ z_c = \frac{ \frac{x + .5}{n} - p}{ \sqrt{pq/n} }, \; para \; x < np $$  
+y  
+
+$$ z_c = \frac{ \frac{x - .5}{n} - p}{ \sqrt{pq/n} }, \; para \; x > np $$  
+
+## Ejemplos  
+
+1. Supongamos que tenemos dos poblaciones de individuos, la primera (1) tiene una condición que se considera  está relacionada con retraso mental, y la otra población (2) no experimenta dicha condición. La distribución de las calificaciones de inteligencia de ambas poblaciones se cree que están distribuidas de forma aproximadamente normal con desviación estándar de 20.  Suponga que se toma una muestra de 15 individuos de cada población y se estima el promedio de las calificaciones de inteligencia iguales a $X_1 = 92$ y $X_2 = 105$.  Si no hay una diferencia en las calificaciones verdaderas de las dos poblaciones, cuál es la probabilidad de observar una diferencia tan grande o mayor a $(X_1 - X_2)$?  
+*Respuesta* Si no hay diferencia entre los promedios de la población, la probabilidad de obtener la diferencia entre los promedios muestrales tan grande o más de 13, es  
+```{r}
+pnorm((92 - 105), mean = 0, sd = sqrt(20^2/15 + 20^2/15), lower.tail = TRUE)
+```
+
+2. Suponga que se ah establecido que que para cierto tipo de usuario la longitud promedio de una visita a domicilio por un enfermero de salud pública es de 45 minutos con una desviación estándar de 15 minutos, y para un segundo tipo de usuario el promedio de la visita domiciliaria es de 30 minutos de duración con desviación estándar de 20 minutos.  Su un enfermero hace 35 visitas aleatorias a usuarios del primer tipo y 40 a usuarios del segundo tipo, cual es la probabilidad que el promedio de tiempo de visita domiciliaria entre los dos grupos sea de 20 o más minutos?  
+*Respuesta*  
+```{r}
+pnorm( 20, mean = (45 - 30), sd = sqrt(15^2/35 + 20^2/40), lower.tail = FALSE)
+```
+
+3. Resultados de la Encuesta Nacional de Salud y Nutrición, 1999-2000 (NHANES), mostraron que el 31 por ciento de los adultos estadounidenses de edades entre 20-74 son obesos (obesidad está definida con un índice de masa corporal mayor o igual a 30.0). Designaremos a esta proporción de la población como $p=.31$. Si de forma aleatoria seleccionamos a 150 individuos de esta población, cual es la probabilidad de que la proporción de la muestra que son obesos sea tan grande o más como .40?  
+*Respuesta* Nos piden $\hat{p} \geq .40$  $\hat{p} = .40$ y $p=.31$ con $\sigma_{\hat{p}}^2 = p(1-p)/n$  
+```{r}
+pnorm(.40, mean = .31, sd = sqrt(.31*.69/150), lower.tail = FALSE)
+```
+
+4. En un estudio del cuidado médico en mujeres afroamericanas de bajos recursos, se encontró que solo el 51 por ciento de estas mujeres contaron con cuidados prenatales adecuados. Supongamos que para una población similar de mujeres afroamericanas de bajos recursos el 51 por ciento tuvieron cuidados médicos adecuados, si 200 mujeres de esta población son seleccionadas al azar, cual es la probabilidad de que menos del 45 por ciento haya recibido cuidado prenatal adecuado?  
+*Respuesta* Nos preguntan la probabilidad de $P(\hat{p} \leq .45)$  
+```{r}
+pnorm(.45, mean = .51, sd = sqrt(.51*.49/200), lower.tail = TRUE)
+```
 
 
