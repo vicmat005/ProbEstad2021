@@ -120,6 +120,17 @@ y
 
 $$ z_c = \frac{ \frac{x - .5}{n} - p}{ \sqrt{pq/n} }, \; para \; x > np $$  
 
+## Distribución de la muestra para la diferencia entre las proporciones de dos muestras.  
+
+Las características de la distribución para la diferencia $\hat{p_1} - \hat{p_2}$ se puede resumir de la siguiente forma; si muestras aleatorias independientes de tamaños $n_1$ y $n_2$, de variables (dicotómicas) son tomadas de dos poblaciones en donde las proporciones observadas de interés en cada población son $p_1$ y $p_2$, respectivamente, la distribución de la diferencia entre las proporciones, $\hat{p_1}-\hat{p_2}$, es aproximadamente normal con promedio  
+$$ \mu_{\hat{p_1}-\hat{p_2}} = p_1 - p_2 $$
+y varianza  
+$$ \sigma_{\hat{p_1}-\hat{p_2}}^2 = \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n-2} $$
+Para $n_1$ y $n_2$ grandes. Se consideran valores de $n$ para el muestreo tales que $n_1p_1, n_2p_2, n_1(1-p_1)$, y, $n_2(1-p_2)$ sean todas mayores que 5.  
+Para la construcción de la variable $z$ se tiene la transformación siguiente  
+$$ z = \frac{(\hat{p_1}-\hat{p_2})-(p_1 - p_2)}{\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}} $$  
+Si se hace un cálculo usando directamente la función `pnorm` de R, cómo puedo checar el resultado? Una posible forma es hacer la estimación de $z$ siguiendo la fórmula indicada dependiendo el problema, y sabemos que `pnorm(z)` por definición nos estimará $P(x \leq z)$, "cómo si fuera sacada directamente de una tabla", y se puede usar esta probabilidad o $(1 - p)$ dependiendo los que nos pregunta el problema, y este resuldado debe checar con el que se estima directamente.
+
 ## Ejemplos  
 
 1. Supongamos que tenemos dos poblaciones de individuos, la primera (1) tiene una condición que se considera  está relacionada con retraso mental, y la otra población (2) no experimenta dicha condición. La distribución de las calificaciones de inteligencia de ambas poblaciones se cree que están distribuidas de forma aproximadamente normal con desviación estándar de 20.  Suponga que se toma una muestra de 15 individuos de cada población y se estima el promedio de las calificaciones de inteligencia iguales a $X_1 = 92$ y $X_2 = 105$.  Si no hay una diferencia en las calificaciones verdaderas de las dos poblaciones, cuál es la probabilidad de observar una diferencia tan grande o mayor a $(X_1 - X_2)$?  
@@ -147,3 +158,8 @@ pnorm(.45, mean = .51, sd = sqrt(.51*.49/200), lower.tail = TRUE)
 ```
 
 
+5. La encuesta Nacional de Salud de 1999, liberada en el 2003, se reportó que el 28 por ciento de los sujetos que se auto-identificaron como blancos, dijeron haber experimentado dolor de espalda baja durante los tres meses anteriores a la encuesta. Entre los sujetos de origen Hispano, 21 por ciento reportaron dolor de espalda baja. Supongamos que .28 y .21 son las proporciones de que las respectivas razas reporten dolor de espalda baja en los Estado Unidos.  Cual es la probabilidad de que muestras aleatorias independientes de 100 sujetos tomados de cada población resulten en una diferencia $\hat{p_1}-\hat{p_2}$ tan grande o más que .10?  
+*Respuesta* La diferencia de los promedios de la población $\mu_{\hat{p_1} - \hat{p_2}} = .28 -.21 = .07$ y nos preguntan $P(\hat{p_1}-\hat{p_2} \geq .01)$  
+```{r}
+pnorm(.10, mean = (.28-.21), sd = sqrt((.28)*(.72)/100 + (.21)*(.79)/100), lower.tail = FALSE)
+```
