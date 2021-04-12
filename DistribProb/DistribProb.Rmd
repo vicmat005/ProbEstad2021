@@ -165,7 +165,7 @@ La distribución de Poisson se usa como modelo para describir cuando los ensayos
 En R la distribución de Poisson es ejecutada por los comandos `dpois, ppois, qpois, y rpois`
 
 **Ejemplo** En un estudio de anafilaxis entre pacientes que expuestos a anestesia con rocuronio bromuro, laake y Rottingen encontraron que los casos de anafilaxis siguen una distribución de Poissson con $\lambda = 12$ incidentes por año en Noruega. Encuentre la probabilidad de que en el año siguiente a este estudio, en paciente que fueron anestesiados por rocuronio bromuro,se darán exactamente tres casos de anafilaxis.  
-*respuesta* La respuesta es $P(X=3)@ en una distribución de poisson. En R dpois(3, 12)  
+*respuesta* La respuesta es $P(X=3)$ en una distribución de poisson. En R dpois(3, 12)  
 ```{r}
 dpois(3, 12)
 ```
@@ -197,7 +197,7 @@ dpois(3,2)
 **Definición** Una funcinon positiva definida $f(x)$ es llamada una distribución de probabilidad (función de densidad de probabilidad) de la variable aleatoria continua $X$ si el total del área bajo la curva (entre la curva y el eje de las $x$) es igual a $1$ y el área parcial abajo de la curva entre los puntos $x=a$ y $x=b$ y el eje de las $x$ es la probabilidad de que $X$ esté entre $a$ y $b$.  
 La distribución *normal*, o la distribución de Gauss está definida por  
 $$ f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^\frac{-(x-\mu)^2}{2\sigma^2} \hspace {20pt} -\infty < x < \infty $$
-en la ecuación anterior $\pi$ y $e$ son los múneros irracionales iguales a $3.141516 \dots$ y $2.71828 \dots$.  Los dos parámetros de la distribución son $\mu$, el promedio y $\sigma$ la desviación estándar.  
+en la ecuación anterior $\pi$ y $e$ son los números irracionales iguales a $3.141516 \dots$ y $2.71828 \dots$.  Los dos parámetros de la distribución son $\mu$, el promedio y $\sigma$ la desviación estándar.  
 
 ## Propiedades de la distribución normal  
 1. Es simétrica al rededor de la media $\mu$, la curva a cada lado del valor $x=\mu$ es una imagen de espejo de la otra mitad.  
