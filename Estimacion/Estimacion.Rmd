@@ -81,7 +81,6 @@ La cantidad $1-\alpha$ en el caso más común $.95$ es llamado el *coeficiente d
 ( 84.3 - qnorm(.005, lower.tail = FALSE)*sqrt(144/15) )
 ```
 
-
 2. En el archivo `EXA_C06_S02_04.csv` se listan los valores de actividad (micromoles por minuto por gramo de tejido) de cierta enzima medida en tejido normal gástrico de 35 pacientes con carcinoma gástrico. Se quiere estimar el intervalo de confianza a 95 por ciento de confianza del promedio de la población.  Suponga que conocemos la varianza de la población es .36. No es necesario suponer que los valores de muestreo siguen una distribución normal, ya que el número de muestras es suficientemente grande 
 
 ```{r}
