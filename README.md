@@ -26,3 +26,5 @@ Tarea 3 [Tarea 03 Distribución Normal](https://fabarrios.github.io/ProbEstad202
 
 Tema 4 [Teoría del Muestreo](https://fabarrios.github.io/ProbEstad2021/DistribMuestra/DistribMuestra.html).  
 Tarea 4 [Tarea 04 Teoría del Muestreo](https://fabarrios.github.io/ProbEstad2021/HW/HW_04/HW_04.html).
+
+Tema 5 [Estimación](https://fabarrios.github.io/ProbEstad2021/Estimacion/Estimacion.html).
