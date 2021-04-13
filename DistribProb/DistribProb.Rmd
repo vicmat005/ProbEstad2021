@@ -1,5 +1,5 @@
 ---
-title: "Distribuciones de Probabilidad"
+title: "3 Distribuciones de Probabilidad"
 author: "F. A. Barrios<br>ENES Juriquilla, UNAM<br>"
 date: "`r Sys.Date()`"
 output:
