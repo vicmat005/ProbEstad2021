@@ -206,6 +206,7 @@
       <li><a href="#propiedades-de-la-distribución-t">Propiedades de la distribución t</a></li>
       <li><a href="#intervalo-de-confianza-usando-t">Intervalo de confianza usando <span class="math inline">\(t\)</span></a></li>
       <li><a href="#ejemplos-1">Ejemplos</a></li>
+      <li><a href="#intervalo-de-confianza-pra-la-diferencia-entre-dos-poblaciones">Intervalo de confianza pra la diferencia entre dos poblaciones</a></li>
       </ul></li>
       </ul>
     </div>
@@ -256,11 +257,11 @@ Estas poblaciones pueden o no, ser la misma población. La estadística nos perm
 </div>
 <div id="componentes-para-estimar-el-intervalo" class="section level2">
 <h2>Componentes para estimar el intervalo</h2>
-<p>Cuando se estima un intervalo de confianza de una estadística que describe a un parámetro de la población se tiene, el valor central, el valor puntual de <span class="math inline">\(\mu\)</span> estimado, el valor al que el ancho del intervalo está canlulado, por lo general un factor de 2 errores estándar. Un valor <span class="math inline">\(z\)</span> conocido como el coeficiente de fiabilidad<br />
-<span class="math display">\[ \verb+estimador+ \pm (\verb+coeficiente de fiabilidad+) \times (\verb+error estándar+)\]</span><br />
-En particular cuando el muestreo se hace de una población distribuida normalmente un estimado para el intervalo de <span class="math inline">\(\mu\)</span> es<br />
-<span class="math display">\[ \bar{x} \pm z_{(1 - \alpha/2)}\sigma_{\bar{x}} \]</span><br />
-en donde <span class="math inline">\(z_{(1 - \alpha/2)}\)</span> es el valor,a la izquierda, de <span class="math inline">\(z\)</span> en donde queda <span class="math inline">\(1-\alpha/2\)</span> y a la derecha <span class="math inline">\(\alpha/2\)</span> de la curva bajo la gráfica.</p>
+<p>Cuando se estima un intervalo de confianza de una estadística que describe a un parámetro de la población se tiene, el valor central, el valor puntual de <span class="math inline">\(\mu\)</span> estimado, el valor al que el ancho del intervalo está canlulado, por lo general un factor de 2 errores estándar. Un valor <span class="math inline">\(z\)</span> conocido como el coeficiente de fiabilidad</p>
+<p><span class="math display">\[ \verb+estimador+ \pm (\verb+coeficiente de fiabilidad+) \times (\verb+error estándar+)\]</span></p>
+<p>En particular cuando el muestreo se hace de una población distribuida normalmente un estimado para el intervalo de <span class="math inline">\(\mu\)</span> es</p>
+<p><span class="math display">\[ \bar{x} \pm z_{(1 - \alpha/2)}\sigma_{\bar{x}} \]</span></p>
+<p>en donde <span class="math inline">\(z_{(1 - \alpha/2)}\)</span> es el valor,a la izquierda, de <span class="math inline">\(z\)</span> en donde queda <span class="math inline">\(1-\alpha/2\)</span> y a la derecha <span class="math inline">\(\alpha/2\)</span> de la curva bajo la gráfica.</p>
 </div>
 <div id="interpretación-del-intervalo-de-confianza" class="section level2">
 <h2>Interpretación del Intervalo de Confianza</h2>
@@ -402,6 +403,44 @@ La diferencia es el origen para el coeficiente de fiabilidad, que en este caso s
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>grados.lib <span class="ot">=</span> muestra.n <span class="sc">-</span> <span class="dv">1</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>(<span class="at">t.score =</span> <span class="fu">qt</span>(<span class="at">p =</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> grados.lib, <span class="at">lower.tail=</span><span class="cn">FALSE</span>))</span></code></pre></div>
 <pre><code>[1] 2.04523</code></pre>
+</div>
+<div id="intervalo-de-confianza-pra-la-diferencia-entre-dos-poblaciones" class="section level2">
+<h2>Intervalo de confianza pra la diferencia entre dos poblaciones</h2>
+<p>Frecuentemente es necesario estimar el intervalo de confianza de la diferencia del promedio de dos poblaciones. De cada una de las poblaciones se extrae una muestra aleatoria, y de estas muestras se estima la madia <span class="math inline">\(\bar{x}_1\)</span> y <span class="math inline">\(\bar{x}_2\)</span> y que la diferencia <span class="math inline">\(\bar{x}_1-\bar{x}_2\)</span> es el estimador para <span class="math inline">\(\mu_1 - \mu_2\)</span>. La varianza del estimador es estimada por <span class="math inline">\((\sigma_1^2/n_1)+(\sigma_2^2/n_2)\)</span>. Cuando las varianzas de las poblaciones se conocen el intervalo de confianza al <span class="math inline">\(100(1-\alpha)\)</span> por ciento de la diferencia <span class="math inline">\(\mu_1-\mu_2\)</span> es</p>
+<p><span class="math display">\[ (\bar{x}_1 - \bar{x}_2) \pm z_{1-\alpha/2} \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } \]</span></p>
+<p><strong>La distribución t y la diferencia entre promedios</strong> Cuando se quiere estimar la diferencia entre los promedios de dos poblaciones y no se conoce la varianza de las poblaciones, es necesario estimar la varianza de las poblaciones a partir de las varianzas de las muestras y se puede usar la distribución t para estimar el valor de confiabilidad. En lo general se tendrán dos posibilidades, que las varianzas de las poblaciones que se estudian tengan igual o diferentes varianzas.</p>
+<p><em>Para varianzas iguales</em> Si se puede suponer que la varianza de las poblaciones es igual y se quiere estimar la diferencia del promedio de las poblaciones se puede usar lo que se conoce como un <em>valor combinado</em> de las varinazas (pooled estimte).<br />
+El valor combinado se estima por la siguiente equación<br />
+<span class="math display">\[ s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 -2} \]</span><br />
+El error estándar del valor combinado es<br />
+<span class="math display">\[ s_{\bar{x}_1 - \bar{x}_2} = \sqrt{ \frac{s_p^2}{n_1} + \frac{s_p^2}{n_2} } \]</span> y el intervalo de confianza al <span class="math inline">\(100(1-\alpha)\)</span> por ciento para <span class="math inline">\(\mu_1 - \mu_2\)</span> está dado por<br />
+<span class="math display">\[ (\bar{x}_1 - \bar{x}_2) \pm t_{(1-\alpha/2)} \sqrt{ \frac{s_p^2}{n_1} + \frac{s_p^2}{n_2} }  \]</span></p>
+<p>El número de grados de libertad para estimar el valor de t para usar en la estimación del intervalos esta dado por <span class="math inline">\(df = n_1 + n_2 -2\)</span>.<br />
+<em>ejemplo</em> El propócito del estudio de Granholm et al. fue determinar la efectividad del tratamiento integrado por el programa ambulatorio integrado de doble diagnóstico para pacientes de salud mental. Los investigadores estaban evaluando problemas de abuso de sustancias entre pacientes con desorden mental severo. Una tabla retrospectiva de revisión se llevó a cabo en 50 pacientes consecutivos referidos a un programa. Una de las variables usadas en dicho programa fue el número de días de internamiento por el desorden psiquiátrico durante el año que siguió al programa. Entre 18 pacientes con esquizofrenia, el promedio el numero promedio de días de tratamiento fue de 4.7 con una desviación estándar de 9.3. Para 10 pacientes con desorden bipolar el promedio de días de tratamiento psiquiátrico fue de 8.8 con desviación estándar de 11.5. Queremos construir un intervalo de confianza del 95 por ciento de la diferencia entre los promedios de estas poblaciones.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalo conf. con t</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># población 1</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>muestra.n1 <span class="ot">&lt;-</span> <span class="dv">18</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>muestra.sd1 <span class="ot">&lt;-</span> <span class="fl">9.3</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># población 2</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>muestra.n2 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>muestra.sd2 <span class="ot">&lt;-</span> <span class="fl">11.5</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co"># desviación combinada</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>sd_p <span class="ot">&lt;-</span> ( (muestra.n1 <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>muestra.sd1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (muestra.n2 <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>muestra.sd2<span class="sc">^</span><span class="dv">2</span> )<span class="sc">/</span>(muestra.n1 <span class="sc">+</span> muestra.n2 <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># error estándar</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>serr_p <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( sd_p<span class="sc">/</span>muestra.n1 <span class="sc">+</span> sd_p<span class="sc">/</span>muestra.n2)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co"># coef. conf.</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> <span class="fl">0.05</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>grados.lib <span class="ot">=</span> muestra.n1 <span class="sc">+</span> muestra.n2 <span class="sc">-</span> <span class="dv">2</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>(<span class="at">t.score =</span> <span class="fu">qt</span>(<span class="at">p=</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> grados.lib, <span class="at">lower.tail=</span><span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>[1] 2.055529</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalo</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>marg.error <span class="ot">&lt;-</span> t.score <span class="sc">*</span> serr_p</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>lim.bajo <span class="ot">&lt;-</span> (<span class="fl">4.7</span> <span class="sc">-</span> <span class="fl">8.8</span>) <span class="sc">-</span> marg.error</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>lim.alto <span class="ot">&lt;-</span> (<span class="fl">4.7</span> <span class="sc">-</span> <span class="fl">8.8</span>) <span class="sc">+</span> marg.error</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(lim.bajo, lim.alto))</span></code></pre></div>
+<pre><code>[1] -12.301022   4.101022</code></pre>
 </div>
 </div>
 </div>

@@ -60,9 +60,13 @@ abline(v= 2, lty = 2, col = 2)
 
 ## Componentes para estimar el intervalo  
 Cuando se estima un intervalo de confianza de una estadística que describe a un parámetro de la población se tiene, el valor central, el valor puntual de $\mu$ estimado, el valor al que el ancho del intervalo está canlulado, por lo general un factor de 2 errores estándar. Un valor $z$ conocido como el coeficiente de fiabilidad  
+
 $$ \verb+estimador+ \pm (\verb+coeficiente de fiabilidad+) \times (\verb+error estándar+)$$  
-En particular cuando el muestreo se hace de una población distribuida normalmente un estimado para el intervalo de $\mu$ es    
+
+En particular cuando el muestreo se hace de una población distribuida normalmente un estimado para el intervalo de $\mu$ es  
+
 $$ \bar{x} \pm z_{(1 - \alpha/2)}\sigma_{\bar{x}} $$  
+
 en donde $z_{(1 - \alpha/2)}$ es el valor,a la izquierda, de $z$ en donde queda $1-\alpha/2$ y a la derecha $\alpha/2$ de la curva bajo la gráfica.  
 
 ## Interpretación del Intervalo de Confianza  
@@ -189,3 +193,46 @@ grados.lib = muestra.n - 1
 (t.score = qt(p = alpha/2, df = grados.lib, lower.tail=FALSE))
 ```
 
+## Intervalo de confianza pra la diferencia entre dos poblaciones  
+
+Frecuentemente es necesario estimar el intervalo de confianza de la diferencia del promedio de dos poblaciones.  De cada una de las poblaciones se extrae una muestra aleatoria, y de estas muestras se estima la madia $\bar{x}_1$ y $\bar{x}_2$ y que la diferencia $\bar{x}_1-\bar{x}_2$ es el estimador para $\mu_1 - \mu_2$. La varianza del estimador es estimada por $(\sigma_1^2/n_1)+(\sigma_2^2/n_2)$. Cuando las varianzas de las poblaciones se conocen el intervalo de confianza al $100(1-\alpha)$ por ciento de la diferencia $\mu_1-\mu_2$ es  
+
+$$ (\bar{x}_1 - \bar{x}_2) \pm z_{1-\alpha/2} \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } $$
+
+**La distribución t y la diferencia entre promedios** Cuando se quiere estimar la diferencia entre los promedios de dos poblaciones y no se conoce la varianza de las poblaciones, es necesario estimar la varianza de las poblaciones a partir de las varianzas de las muestras y se puede usar la distribución t para estimar el valor de confiabilidad. En lo general se tendrán dos posibilidades, que las varianzas de las poblaciones que se estudian tengan igual o diferentes varianzas.
+
+*Para varianzas iguales* Si se puede suponer que la varianza de las poblaciones es igual y se quiere estimar la diferencia del promedio de las poblaciones se puede usar lo que se conoce como un *valor combinado* de las varinazas (pooled estimte).  
+El valor combinado se estima por la siguiente equación  
+$$ s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 -2} $$  
+El error estándar del valor combinado es  
+$$ s_{\bar{x}_1 - \bar{x}_2} = \sqrt{ \frac{s_p^2}{n_1} + \frac{s_p^2}{n_2} } $$
+y el intervalo de confianza al $100(1-\alpha)$ por ciento para $\mu_1 - \mu_2$ está dado por  
+$$ (\bar{x}_1 - \bar{x}_2) \pm t_{(1-\alpha/2)} \sqrt{ \frac{s_p^2}{n_1} + \frac{s_p^2}{n_2} }  $$
+
+El número de grados de libertad para estimar el valor de t para usar en la estimación del intervalos esta dado por $df = n_1 + n_2 -2$.  
+*ejemplo* El propócito del estudio de Granholm et al. fue determinar la efectividad del tratamiento integrado por el programa ambulatorio integrado de doble diagnóstico para pacientes de salud mental. Los investigadores estaban evaluando problemas de abuso de sustancias entre pacientes con desorden mental severo.  Una tabla retrospectiva de revisión se llevó a cabo en 50 pacientes consecutivos referidos a un programa. Una de las variables usadas en dicho programa fue el número de días de internamiento por el desorden psiquiátrico durante el año que siguió al programa.  Entre 18 pacientes con esquizofrenia, el promedio el numero promedio de días de tratamiento fue de 4.7 con una desviación estándar de 9.3. Para 10 pacientes con desorden bipolar el promedio de días de tratamiento psiquiátrico fue de 8.8 con desviación estándar de 11.5. Queremos construir un intervalo de confianza del 95 por ciento de la diferencia entre los promedios de estas poblaciones.  
+
+```{r}
+# Intervalo conf. con t
+# población 1
+muestra.n1 <- 18
+muestra.sd1 <- 9.3
+# población 2
+muestra.n2 <- 10
+muestra.sd2 <- 11.5
+# desviación combinada
+sd_p <- ( (muestra.n1 - 1)*muestra.sd1^2 + (muestra.n2 - 1)*muestra.sd2^2 )/(muestra.n1 + muestra.n2 - 2)
+# error estándar
+serr_p <- sqrt( sd_p/muestra.n1 + sd_p/muestra.n2)
+# coef. conf.
+alpha = 0.05
+grados.lib = muestra.n1 + muestra.n2 - 2
+(t.score = qt(p=alpha/2, df = grados.lib, lower.tail=FALSE))
+# Intervalo
+marg.error <- t.score * serr_p
+#
+lim.bajo <- (4.7 - 8.8) - marg.error
+lim.alto <- (4.7 - 8.8) + marg.error
+#
+print(c(lim.bajo, lim.alto))
+```
