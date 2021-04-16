@@ -48,5 +48,5 @@ $$\begin{array}{lcc}
 (c) $P(.56 \leq \bar{p} \leq .63)$  
 
 5. De acuerdo al Censo de los Estados Unidos 2000, $9.5$ por ciento de los niños en el estado de Ohio no estaban cubiertos por seguro médico 
-(privado o público).  En el estado vecino de Pennsylvania, $4.9$ por ciento de los niños no estaban cubiertos con seguro médico.  Suponga que estas son las proporciones de las poblaciones de cada estado.  Si una muestra aleatoria de $100$ niños es tomada del estado de Ohio, y una muestra aleatoria independiente de $120$ niños es tomada del estado de Pennsylvania, cuál es la probabilidad de que las muestras tomadas den como resultado una diferencia de la proporción, $\hat{p_1} - \hat{p_2}$ de $.9$ o más?  
+(privado o público).  En el estado vecino de Pennsylvania, $4.9$ por ciento de los niños no estaban cubiertos con seguro médico.  Suponga que estas son las proporciones de las poblaciones de cada estado.  Si una muestra aleatoria de $100$ niños es tomada del estado de Ohio, y una muestra aleatoria independiente de $120$ niños es tomada del estado de Pennsylvania, cuál es la probabilidad de que las muestras tomadas den como resultado una diferencia de la proporción, $\hat{p_1} - \hat{p_2}$ de $.09$ o más?  
 
