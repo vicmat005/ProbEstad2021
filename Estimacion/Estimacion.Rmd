@@ -42,7 +42,7 @@ Se encontrará que de cada parámetro que se discuta, se pueden estimar dos tipo
 ## Estimador  
 Nos hemos referido a un valor único estimado como un estimado único, a esto nos referiremos como un estimador,  una fórmula para estimar un valor puntual de una variable aleatoria.  
 **Estimador** Un estimador, digamos, T, de un parámetro $\theta$ se dice que no está sesgado cuando $E(T)=\theta$.    
-El símbolo $E(T)$ se conoce como el *valor esperado de T*, para una población finita, $E(T)$ se obtienetomendo el valor promedio de $T$ de todas las muestras posíbles de un tamaño dado que se puedan extraer de la población de interés. Es decir $E(T) = \mu_T$.  Como ya lo comentamos, el promedio de la distribución muestral de una variable $\bar{x}$ es igual a $\mu$, sabemos que $\bar{x}$ es un estimador no-sesgado de $\mu$.  
+El símbolo $E(T)$ se conoce como el *valor esperado de T*, para una población finita, $E(T)$ se obtienetomendo el valor promedio de $T$ de todas las muestras posibles de un tamaño dado que se puedan extraer de la población de interés. Es decir $E(T) = \mu_T$.  Como ya lo comentamos, el promedio de la distribución muestral de una variable $\bar{x}$ es igual a $\mu$, sabemos que $\bar{x}$ es un estimador no-sesgado de $\mu$.  
 
 ## Población muestral y población blanco  
 **Definición** La población muestral es aquella de donde de extraen las muestras.  
@@ -236,3 +236,68 @@ lim.alto <- (4.7 - 8.8) + marg.error
 #
 print(c(lim.bajo, lim.alto))
 ```
+
+
+## Estimación del tamaño de muestra para el cálculo de la media  
+
+La estimación del tamaño de la muestra a obtener para resolver una medida, es desde el inicio del proyecto un tema fundamental de suma importancia. Una muestra muy grande resulta en un uso excesivo de recursos y una muestra muy pequeña puede no tener el poder estadístico necesario para determinar un resultado fiable.
+
+El objetivo de la estimación en estadística es obtener intervalos estrechos que resulten en estimaciones más precisas. una forma de darnos cuenta lo los elementos necesarios es analizar los componentes usados para estimar el intervalo de confianza.  
+$$ (\verb+coeficiente de fiabilidad+) \times (\verb+error estándar+) $$  
+
+
+la extensión total del intervalo de confianza es dos veces este factor, y este parámetro se puede entender como el estimador del margen de error. Para un error estándar, incrementar la fiabilidad, implica un coeficiente de fiabilidad mayor, pero esto resulta en un intervalo más ancho.  Cómo el margen de error está dado por $\sigma/\sqrt{n}$ y $\sigma$ es constante para una población, esto implica y la única forma de reducir el error estándar es adquiriendo una muestra mayor $n$ más grande.  
+Supongamos que queremos un intervalo que se extienda $d$ unidades a cada lado del estimador  
+$$ d = (\verb+coeficiente de fiabilidad+) \times (\verb+error estándar+) $$
+Si el muestreo se toma con sustitución de una población infinita, o de una población suficientemente grande, que permita ignorar la corrección de población finita, la ecuación para $d$ es  
+$$ d = z\frac{\sigma}{\sqrt{n}} $$  
+
+Que si la resolvemos para la variable $n$ resulta en  
+
+$$ n = \frac{z^2\sigma^2}{d^2} $$
+Si el muestreo se toma sin sustitución de una población infinita, o de una población suficientemente grande, la ecuación que incluye la corrección de población finita es  
+
+$$ d = z\frac{\sigma}{\sqrt{n}}\sqrt{\frac{N-n}{N-1}}  $$
+que al resolver para $n$ es igual a  
+$$ n = \frac{Nz^2\sigma^2}{d^2(N-1) + z^2\sigma^2} $$
+Cuando la corrección para población finita puede ser ignorada está última ecuación se reduce a al anterior para $n$.  
+
+**Estimación de** $\sigma^2$ estas fórmulas para la estimación de el tamaño de la muestra, requieren del valor de $\sigma$ que como ya se dijo antes es una variable que por los general es desconocida.  Por lo tanto la varianza poblacional $\sigma^2$ se tiene que estimar de alguna forma.   
+1. Por medio de alguna estudio *piloto*  
+2. Estimados de $\sigma^2$ se pueden tener de otros estudios similares.  
+3. Si la población de donde se esta tomando la muestra es normal o aproximadamente normal y se conoce el rango de la población la desviación estándar se puede estimar a partir del rango $R$ que es aproximadamente 6 veces la desviación estándar $\sigma \approx R/6 $.  
+
+## Estimación del tamaño de muestra para estimaciones de proporciones  
+Cuando se está trabajando con estimación de proporciones de una población y el muestreo se toma sin sustitución de una población infinita, o de una población suficientemente grande, y no es necesario incluir la corrección de población finita el tamaño de muestra para un intervalo de una proporción es  
+$$ n = \frac{z^2pq}{d^2}  $$  
+
+con $q = (1-p) $
+Y si la correción de población finita no se puede ignorar  
+$$ n = \frac{Nz^2pq}{d^2(N-1) + z^2pq} $$
+Ambas fórmulas hacen uso de $p$ que representa la proporción de la población, y es una variable que es desconocida. Como en el caso de $\sigma$ Se puede hacer un estudio piloto para hacer una estimación de este parámetro. Y en ocasiones se tiene una idea de la proporción máxima de la población, y en eses caso se puede usar como el valor de $p$. O en un caso dado se puede tener un valor de $p$ blanco  que se quiere estudiar.
+
+## El intervalo de confianza para la varianza de una distribución distribuida normalmente  
+
+**Estimación puntual de la varianza** Como ya hemos comentado, para tner un bune estimador del valor central de un parámetro poblacional, este debe estar estimado libre de tendencias. Proponemos que un buen estimador de la varianza es el valor esperado para la varianza de la muestra $E(s^2) = \sigma^2$. Los dos valos de disperción que conocemos son
+
+$$ \sigma^2 = \frac{\sum(x_i - \mu)^2}{N} \; y \; S^2 = \frac{\sum(x_i - \mu)^2}{N-1} $$  
+Si se estima el rpmedio de las varianzas de todas las posibles muestras de tamaño $n$ tomadas de una población se llega a la estimación de $s^2 = \sum(x_i - \bar{x})^2/(n-1)$.  
+
+
+## La distribución Chi-cuadrada
+
+Se tiene que para una distribución normal para una serie de muestras la cantidad $(n-1)s^2/\sigma^2$ sigue una distribución llamada *chi-cuadrada* $\chi^2$, con $n-1$ grados de libertad.  
+Para estimad un intervalo de confianza de la varianza poblacional, se puede usar esta distribución, y un intervalo $100(1-\alpha)$ pos ciento de la varianza se puede estimar a partir de 
+$$ \chi_{\alpha/2}^2 < \frac{(n-1)s^2}{\sigma^2} <\chi_{1-(\alpha/2)}^2 $$  
+que resulta en  
+$$ \frac{(n-1)s^2}{\chi_{1- (\alpha/2)}^2} < \sigma^2 < \frac{(n-1)s^2}{\chi_{\alpha/12}^2} $$  
+
+```{r}
+curve(dchisq(x, df = 1), from = 0, to = 20, main = "Distribución chi-2")
+curve(dchisq(x, df = 2), from = 0, to = 20, col = 2, add = TRUE)
+curve(dchisq(x, df = 3), from = 0, to = 20, col = 3, add = TRUE)
+curve(dchisq(x, df = 4), from = 0, to = 20, col = 4, add = TRUE)
+curve(dchisq(x, df = 5), from = 0, to = 20, col = 5, add = TRUE)
+```
+
+
