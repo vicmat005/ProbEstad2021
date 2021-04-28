@@ -300,4 +300,31 @@ curve(dchisq(x, df = 4), from = 0, to = 20, col = 4, add = TRUE)
 curve(dchisq(x, df = 5), from = 0, to = 20, col = 5, add = TRUE)
 ```
 
+**Ejemplo** En un ejemplor de la efectividad de la dieta libre de gluten en parientes directos de pacientes con diabetes tipo-I, Hummel et al. pusieron a 7 sujetos a una dieta libre de gluten por 12 meses. Antes de la dieta, tomaron medidas de base de varios anticuerpos y autoanticuerpos, uno de ellos relacionado con diabetes el autoanticuerpo relacionado a insulina (IAA). Los niveles de IAA se midieron por medio de ensayos de radiobinding. Los niveles base de IAA de los siete sujetos en unidades base de IAA son:  
+$$ 9.7, 12.3, 11.2, 5.1, 24.8, 14.8, 17.7 $$
+Queremos con estos datos estimar la varianza de IAA en unidades de IAA de la población de donde se tomó esta muestra y construir el intervalo de confinanza al 95 por ciento de dicha estimación.  
+Vamos a escribir una función para estimar intervalos de confianza usando la función $qchisq(z, df)$ y la expresión para el intervalo:    
+$$ \frac{(n-1)s^2}{\chi_{1- (\alpha/2)}^2} < \sigma^2 < \frac{(n-1)s^2}{\chi_{\alpha/12}^2} $$
+*Respuesta*
+```{r}
+# Función "CI_sig" para estimar el intervalo de conviaza para la Varianza, a partir de una 
+# muestra tomada de una población que se asume está distribuída normalmente.
+#
+CI_sig <- function(x,alpha) {
+  sd_x <- sd(x)
+  n_x <- length(x)
+  lbs <- sqrt((n_x-1)*sd_x^2/qchisq((1-alpha/2), (n_x-1)))
+  las <- sqrt((n_x-1)*sd_x^2/qchisq(alpha/2, (n_x-1)))
+  print(c(lbs, las))
+}
+
+# Ejemplo de Hummel
+IAA <- c(9.7,12.3,11.2,5.1,24.8,14.8,17.7)
+CI_sig(IAA, .05)
+```
+
+## Intervalo de confinaza para la proporción de las varianzas de dos poblaciones  
+Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $\sigma_1/\sigma_2$, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
+
+**La distribución F** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mensional que al igual que la distribución $\chi^2$ no es una distribución simétrica.  
 
