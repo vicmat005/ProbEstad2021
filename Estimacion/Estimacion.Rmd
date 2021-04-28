@@ -13,7 +13,7 @@ library(knitr)
 library(rmdformats)
 
 ## Global options
-options(max.print="75")
+options(max.print="85")
 opts_chunk$set(echo=TRUE,
 	             cache=TRUE,
                prompt=FALSE,
@@ -21,7 +21,7 @@ opts_chunk$set(echo=TRUE,
                comment=NA,
                message=FALSE,
                warning=FALSE)
-opts_knit$set(width=75)
+opts_knit$set(width=85)
 ```
 
 ```{r}
@@ -265,7 +265,7 @@ Cuando la corrección para población finita puede ser ignorada está última ec
 **Estimación de** $\sigma^2$ estas fórmulas para la estimación de el tamaño de la muestra, requieren del valor de $\sigma$ que como ya se dijo antes es una variable que por los general es desconocida.  Por lo tanto la varianza poblacional $\sigma^2$ se tiene que estimar de alguna forma.   
 1. Por medio de alguna estudio *piloto*  
 2. Estimados de $\sigma^2$ se pueden tener de otros estudios similares.  
-3. Si la población de donde se esta tomando la muestra es normal o aproximadamente normal y se conoce el rango de la población la desviación estándar se puede estimar a partir del rango $R$ que es aproximadamente 6 veces la desviación estándar $\sigma \approx R/6 $.  
+3. Si la población de donde se esta tomando la muestra es normal o aproximadamente normal y se conoce el rango de la población la desviación estándar se puede estimar a partir del rango $R$ que es aproximadamente 6 veces la desviación estándar $\sigma \approx R/6$.  
 
 ## Estimación del tamaño de muestra para estimaciones de proporciones  
 Cuando se está trabajando con estimación de proporciones de una población y el muestreo se toma sin sustitución de una población infinita, o de una población suficientemente grande, y no es necesario incluir la corrección de población finita el tamaño de muestra para un intervalo de una proporción es  
@@ -315,6 +315,9 @@ CI_sig <- function(x,alpha) {
   n_x <- length(x)
   lbs <- sqrt((n_x-1)*sd_x^2/qchisq((1-alpha/2), (n_x-1)))
   las <- sqrt((n_x-1)*sd_x^2/qchisq(alpha/2, (n_x-1)))
+  print(c("Desviación estandar estimada"))
+  print(c(sd_x))
+  print(c("Intervalo de confianza de la desviación estándar"))
   print(c(lbs, las))
 }
 
@@ -327,4 +330,31 @@ CI_sig(IAA, .05)
 Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $\sigma_1/\sigma_2$, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
 
 **La distribución F** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mensional que al igual que la distribución $\chi^2$ no es una distribución simétrica.  
+
+El tema de la varianza es un tema muy importante cuando se quieren sacar conclusiones de medidas de valor central por medio de muestreo. Un conclusión muy importante es que cuando las varinazas de dos poblaciones son distintas no se deben comparar los promedios de las poblaciones, ya que se puede llegar a conclusiones erróneas.  
+
+Para el caso de la estimación de la proporción de la desviación estandar de muestras de dos poblaciones se puede usar la función en R `var.test()` que además de hacer una estimación del intervalo de confianza hace una medida de la probabilidad por $F$.
+
+**Ejemplo** Allen y Gross examinaron la fuerza del flexor del dedo gordo del pie de pacientes con fascitis plantar, una condición común en pacientes con problemas musculoesqueléticos. EL tratamiento de la fascia plantar es un tratamiento costoso y muchas veces poco efectivo.  Una de las medidas de base de los paciente fue su índice de masa corporal (BMI, por sus siglas en inglés). Para 16 de las mujeres del estudio, la desviación estándar para BMI fue de 8.1 y para los cuatro hombres en el estudio, la desviación estándar fue de 5.9. Queremos considerar un intervalo de confianza al 95% para la proporción de las desviaciones estándar de las poblaciones en el estudio.  
+*Respuesta* Los datos que tenemos son, $n_1 = 16$, y $n_2 =4$ con $s_1 = 8.1$ y $s_2 = 5.9$, para los grados de libertad de la funcion $\chi^2$ tenemos $df_1 = n_1 -1 = 15$ y $df_2 = n_2 -1 = 3$ y usando la ecuación para la proporción de las vatianzas $\sigma_1^2/\sigma_2^2$  
+```{r}
+# Para s_1/s_2, df2 = 15, df1 = 3
+s_prop <- (8.1)^2/(5.9)^2
+# s_prop/F(.975) < sigmas < s_prop/F(.025)
+LBI <- s_prop/qf(.975, 15, 3) 
+LAI <- s_prop/qf(.025, 15, 3)
+
+print(c(LBI, LAI))
+```
+
+Para obtener los valores críticos de $F_{(1-\alpha/2), df_1, df_2}$ o $F_{\alpha/2, df_1, df_2}$ se puede usar `qf(.975, df1, df2)` o `qf(.025, df1, df2)`.  
+
+```{r}
+com_am <- c(4.67, 10.5, 2.0, 3.18, 4.00, 3.5, 3.33, 5.32, 2.0, 4.25, 6.0)
+inc_am <- c(3.0, 10.25, 1.5, 5.22, 5.0)
+
+var.test(inc_am, com_am, conf.level = .95)
+```
+
+
 
