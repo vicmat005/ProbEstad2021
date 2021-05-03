@@ -1,5 +1,7 @@
 # Proportion of Variance for two proportions confidence interval
-# This small function 
+# This small function estimates the confidence interval for the 
+# proportion of the variances estimated form two populations.
+# 
 
 PropVar_CI <- function(x, y, alpha = 0.05) {
   v_x <- var(x)
