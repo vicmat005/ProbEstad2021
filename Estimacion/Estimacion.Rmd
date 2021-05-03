@@ -278,10 +278,10 @@ Ambas fórmulas hacen uso de $p$ que representa la proporción de la población,
 
 ## El intervalo de confianza para la varianza de una distribución distribuida normalmente  
 
-**Estimación puntual de la varianza** Como ya hemos comentado, para tner un bune estimador del valor central de un parámetro poblacional, este debe estar estimado libre de tendencias. Proponemos que un buen estimador de la varianza es el valor esperado para la varianza de la muestra $E(s^2) = \sigma^2$. Los dos valos de disperción que conocemos son
+**Estimación puntual de la varianza** Como ya hemos comentado, para tner un bune estimador del valor central de un parámetro poblacional, este debe estar estimado libre de tendencias. Proponemos que un buen estimador de la varianza es el valor esperado para la varianza de la muestra $E(s^2) = \sigma^2$. Los dos valores de dispersión que conocemos son
 
 $$ \sigma^2 = \frac{\sum(x_i - \mu)^2}{N} \; y \; S^2 = \frac{\sum(x_i - \mu)^2}{N-1} $$  
-Si se estima el rpmedio de las varianzas de todas las posibles muestras de tamaño $n$ tomadas de una población se llega a la estimación de $s^2 = \sum(x_i - \bar{x})^2/(n-1)$.  
+Si se estima el promedio de las varianzas de todas las posibles muestras de tamaño $n$ tomadas de una población se llega a la estimación de $s^2 = \sum(x_i - \bar{x})^2/(n-1)$.  
 
 
 ## La distribución Chi-cuadrada
@@ -335,7 +335,7 @@ CI_sig(ParSus, .05)
 ```
 
 ## Intervalo de confinaza para la proporción de las varianzas de dos poblaciones  
-Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $ \sigma_1/\sigma_2 $, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
+Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $\sigma_1/\sigma_2$, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
 
 **La distribución F** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mencionar que al igual que la distribución $\chi^2$, la distribución $F_{\alpha, df_1, df_2}$ no es una distribución simétrica.  
 
