@@ -302,8 +302,8 @@ curve(dchisq(x, df = 5), from = 0, to = 20, col = 5, add = TRUE)
 
 **Ejemplo** En un ejemplor de la efectividad de la dieta libre de gluten en parientes directos de pacientes con diabetes tipo-I, Hummel et al. pusieron a 7 sujetos a una dieta libre de gluten por 12 meses. Antes de la dieta, tomaron medidas de base de varios anticuerpos y autoanticuerpos, uno de ellos relacionado con diabetes el autoanticuerpo relacionado a insulina (IAA). Los niveles de IAA se midieron por medio de ensayos de radiobinding. Los niveles base de IAA de los siete sujetos en unidades base de IAA son:  
 $$ 9.7, 12.3, 11.2, 5.1, 24.8, 14.8, 17.7 $$
-Queremos con estos datos estimar la varianza de IAA en unidades de IAA de la población de donde se tomó esta muestra y construir el intervalo de confinanza al 95 por ciento de dicha estimación.  
-Vamos a escribir una función para estimar intervalos de confianza usando la función $qchisq(z, df)$ y la expresión para el intervalo:    
+Con estos datos queremos estimar la varianza de IAA en unidades de IAA de la población de donde se tomó esta muestra y construir el intervalo de confiannza al $95$ por ciento $(\alpha = .05)$ de dicha estimación.  
+Vamos a escribir una función para estimar intervalos de confianza usando la función `qchisq(z, df)` de R, que estima la distribución $\chi^2$, y la expresión para el intervalo:    
 $$ \frac{(n-1)s^2}{\chi_{1- (\alpha/2)}^2} < \sigma^2 < \frac{(n-1)s^2}{\chi_{\alpha/12}^2} $$
 *Respuesta*
 ```{r}
@@ -325,11 +325,20 @@ CI_sig <- function(x,alpha) {
 IAA <- c(9.7,12.3,11.2,5.1,24.8,14.8,17.7)
 CI_sig(IAA, .05)
 ```
+**Ejemplo** Veinte muestras de aire tomadas en el mismo lugar a lo largo de 6 meses mostraron las siguientes cantidades de partículas materiales suspendidas (microgramos por metro cubico de aire):
+68 22 36 32 42 24 28 38 30 44 28 27 28 43 45 50 79 74 57 21  
+Considere estas medidas como una muestra aleatoria normalmente distribuida, y construya un intervalo de confianza al 95 por ciento de la varianza de esta población de partículas suspendidas.  
+*Respuesta*  Vamos a usar la función `CI_sig(x, alpha = 0.05)` para estimar el intervalo de confianza.  
+```{r}
+ParSus <- c(68, 22, 36, 32, 42, 24, 28, 38, 30, 44, 28, 27, 28, 43, 45, 50, 79, 74, 57, 21)
+CI_sig(ParSus, .05)
+```
 
 ## Intervalo de confinaza para la proporción de las varianzas de dos poblaciones  
-Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $\sigma_1/\sigma_2$, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
+Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $ \sigma_1/\sigma_2 $, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
 
-**La distribución F** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mensional que al igual que la distribución $\chi^2$, no es una distribución simétrica.  
+**La distribución F** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mencionar que al igual que la distribución $\chi^2$, la distribución $F_{\alpha, df_1, df_2}$ no es una distribución simétrica.  
+
 ```{r}
 curve(df(x, 10, 50), from = 0, to = 10, main = "Distribución F")
 curve(df(x, 10, 10), from = 0, to = 10, col = 2, add = TRUE)
@@ -340,10 +349,15 @@ curve(df(x, 10, 1), from = 0, to = 10, col = 5, add = TRUE)
 
 El tema de la varianza es un tema muy importante cuando se quieren sacar conclusiones de medidas de valor central por medio de muestreo. Un conclusión muy importante es que cuando las varinazas de dos poblaciones son distintas no se deben comparar los promedios de las poblaciones, ya que se puede llegar a conclusiones erróneas.  
 
+Para estimar el intervalo de confianza de la proporción de las varianzas de dos poblaciones $\sigma_1^2/\sigma_2^2$ se usa la relación  
+$$ F_{\alpha/2} < \frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2} < F_{1-(\alpha/2)} $$  
+que después de despejar la relación para la proporcion de las varinzas de las poblaciones resulta en  
+$$ \frac{s_1^2/s_2^2}{F_{1-(\alpha/2)}} < \frac{\sigma_1^2}{\sigma_2^2} < \frac{s_1^2/s_2^2}{F_{\alpha/2}} $$
+
 Para el caso de la estimación de la proporción de la desviación estándar de muestras de dos poblaciones se puede usar la función en R `var.test()` que además de hacer una estimación del intervalo de confianza hace una medida de la probabilidad por $F$.
 
 **Ejemplo** Allen y Gross examinaron la fuerza del flexor del dedo gordo del pie de pacientes con fascitis plantar, una condición común en pacientes con problemas musculoesqueléticos. EL tratamiento de la fascia plantar es un tratamiento costoso y muchas veces poco efectivo.  Una de las medidas de base de los paciente fue su índice de masa corporal (BMI, por sus siglas en inglés). Para 16 de las mujeres del estudio, la desviación estándar para BMI fue de 8.1 y para los cuatro hombres en el estudio, la desviación estándar fue de 5.9. Queremos considerar un intervalo de confianza al 95% para la proporción de las desviaciones estándar de las poblaciones en el estudio.  
-*Respuesta* Los datos que tenemos son, $n_1 = 16$, y $n_2 =4$ con $s_1 = 8.1$ y $s_2 = 5.9$, para los grados de libertad de la funcion $\chi^2$ tenemos $df_1 = n_1 -1 = 15$ y $df_2 = n_2 -1 = 3$ y usando la ecuación para la proporción de las vatianzas $\sigma_1^2/\sigma_2^2$  
+*Respuesta* Los datos que tenemos son, $n_1 = 16$, y $n_2 =4$ con $s_1 = 8.1$ y $s_2 = 5.9$, para los grados de libertad de la función $\chi^2$ tenemos $df_1 = n_1 -1 = 15$ y $df_2 = n_2 -1 = 3$ y usando la ecuación para la proporción de las vatianzas $\sigma_1^2/\sigma_2^2$  
 ```{r}
 # Para s_1/s_2, df2 = 15, df1 = 3
 s_prop <- (8.1)^2/(5.9)^2
@@ -356,6 +370,13 @@ print(c(LBI, LAI))
 
 Para obtener los valores críticos de $F_{(1-\alpha/2), df_1, df_2}$ o $F_{\alpha/2, df_1, df_2}$ se puede usar `qf(.975, df1, df2)` o `qf(.025, df1, df2)`.  
 
+**Ejemplo** El propósito del estudio de Moneim et al. fue examinar amputaciones del dedo índice por accidentes durante competencias de laso en rodeos. Los investigadores revisaron 16 casos de amputaciones de índice. De estás, 11 fueron amputaciones totales mientras 5 fueron parciales. El tiempo de isquemia es la longitud de tiempo de suministro de oxígeno insuficiente al índice amputado.  El tiempo de isquemia (en horas) para los sujetos que experimentaron amputación completa fueron:  
+`4.67, 10.5, 2.0, 3.18, 4.00, 3.5, 3.33, 5.32, 2.0, 4.25, 6.0`  
+Para las víctimas de amputación parcial, los tiempos de isquemia fueron:  
+`3.0, 10.25, 1.5, 5.22, 5.0`  
+Considere los dos grupos de datos como normalmente distribuidos y que representan a dos poblaciones independientes y construya el intervalo de confianza al 95% de la proporcion de las varianzas de las dos poblaciones.  
+*Respuesta* Se puede usar la fincion `var.test` de la librería de R o la pequeña función `PropVar_CI`
+
 ```{r}
 com_am <- c(4.67, 10.5, 2.0, 3.18, 4.00, 3.5, 3.33, 5.32, 2.0, 4.25, 6.0)
 inc_am <- c(3.0, 10.25, 1.5, 5.22, 5.0)
@@ -363,5 +384,36 @@ inc_am <- c(3.0, 10.25, 1.5, 5.22, 5.0)
 var.test(inc_am, com_am, conf.level = .95)
 ```
 
+O equivalentemente usando la función `PropVar_CI` descrita a continuación:  
+```{r}
+# Proportion of Variance for two populations confidence interval
+# This small function estimates the confidence interval for the 
+# proportion of the variances estimated form two samples
+# 
+
+PropVar_CI <- function(x, y, alpha = 0.05) {
+  v_x <- var(x)
+  n_x <- length(x)
+  v_y <-var(y)
+  n_y <- length(y)
+  if (v_x > v_y) {
+    pro_v <- v_x/v_y
+    in_lim <- pro_v/qf((1-alpha/2), (n_x - 1), (n_y - 1))
+    su_lim <- pro_v/qf((alpha/2), (n_x - 1), (n_y - 1))
+  } else {
+    pro_v <- v_y/v_x
+    in_lim <- pro_v/qf((1-alpha/2), (n_y - 1), (n_x - 1))
+    su_lim <- pro_v/qf((alpha/2), (n_y - 1), (n_x - 1))
+  }
+  result <- c(in_lim, su_lim)
+  return(result)
+}
+
+com_am <- c(4.67, 10.5, 2.0, 3.18, 4.00, 3.5, 3.33, 5.32, 2.0, 4.25, 6.0)
+inc_am <- c(3.0, 10.25, 1.5, 5.22, 5.0)
+res <- PropVar_CI(com_am, inc_am, alpha = 0.05)
+print(c("Límite inferior", "Límite superior"))
+print(res)
+```
 
 
