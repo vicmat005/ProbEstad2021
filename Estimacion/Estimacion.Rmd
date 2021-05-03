@@ -193,9 +193,9 @@ grados.lib = muestra.n - 1
 (t.score = qt(p = alpha/2, df = grados.lib, lower.tail=FALSE))
 ```
 
-## Intervalo de confianza pra la diferencia entre dos poblaciones  
+## Intervalo de confianza para la diferencia entre el promedio de dos poblaciones  
 
-Frecuentemente es necesario estimar el intervalo de confianza de la diferencia del promedio de dos poblaciones.  De cada una de las poblaciones se extrae una muestra aleatoria, y de estas muestras se estima la madia $\bar{x}_1$ y $\bar{x}_2$ y que la diferencia $\bar{x}_1-\bar{x}_2$ es el estimador para $\mu_1 - \mu_2$. La varianza del estimador es estimada por $(\sigma_1^2/n_1)+(\sigma_2^2/n_2)$. Cuando las varianzas de las poblaciones se conocen el intervalo de confianza al $100(1-\alpha)$ por ciento de la diferencia $\mu_1-\mu_2$ es  
+Frecuentemente es necesario estimar el intervalo de confianza de la diferencia del promedio de dos poblaciones.  De cada una de las poblaciones se extrae una muestra aleatoria, y de estas muestras se estima la media $\bar{x}_1$ y $\bar{x}_2$ y que la diferencia $\bar{x}_1-\bar{x}_2$ es el estimador para $\mu_1 - \mu_2$. La varianza del estimador es estimada por $(\sigma_1^2/n_1)+(\sigma_2^2/n_2)$. Cuando las varianzas de las poblaciones se conocen el intervalo de confianza al $100(1-\alpha)$ por ciento de la diferencia $\mu_1-\mu_2$ es  
 
 $$ (\bar{x}_1 - \bar{x}_2) \pm z_{1-\alpha/2} \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } $$
 
@@ -335,9 +335,9 @@ CI_sig(ParSus, .05)
 ```
 
 ## Intervalo de confinaza para la proporción de las varianzas de dos poblaciones  
-Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $\sigma_1/\sigma_2$, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
+Es muy común que se quieran comparara las varinazas de dos poblaciones, esto es posible usando la expresión para la proporción $\sigma_1 / \sigma_2$, es claro que si las varianzas de las dos poblaciones son iguales esta proporción será igual a 1.
 
-**La distribución F** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mencionar que al igual que la distribución $\chi^2$, la distribución $F_{\alpha, df_1, df_2}$ no es una distribución simétrica.  
+**La distribución F.** Bajo propiedades específicas la relación matemática $(s_1^2/\sigma_1^2)/(s_2^2/\sigma_2^2)$ sigue una distribución $F$, que depende de dos grados de libertad, uno correspondiente a $(n_1 -1)$ y el otro $(n_2 - 1)$.  Hay que mencionar que al igual que la distribución $\chi^2$, la distribución $F_{\alpha, df_1, df_2}$ no es una distribución simétrica.  
 
 ```{r}
 curve(df(x, 10, 50), from = 0, to = 10, main = "Distribución F")
