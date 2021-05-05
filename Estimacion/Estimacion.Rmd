@@ -78,7 +78,7 @@ La cantidad $1-\alpha$ en el caso más común $.95$ es llamado el *coeficiente d
 
 ## Ejemplos
 
-1. Un fisioterapista deseaba estimar, con una confianza del 99 por ciento, la fuerza máxima de un músculo en particular, en un grupo de individuos.  Está dispuesto a aceptar que los registros de fuerza muscular están aproximadamente distribuidos en forma normal con una varianza de $144$.  Una muestra de $15$ sujetos que participaron en este experimento resultaron en un promedio de fuerza de $84.3$.
+1. Un fisioterapeuta deseaba estimar, con una confianza del 99 por ciento, la fuerza máxima de un músculo en particular, en un grupo de individuos.  Está dispuesto a aceptar que los registros de fuerza muscular están aproximadamente distribuidos en forma normal con una varianza de $144$.  Una muestra de $15$ sujetos que participaron en este experimento resultaron en un promedio de fuerza de $84.3$.
 *Respuesta* Los elementos son: tenemos $\alpha=.01$, $z_{(1-.01/2)} \rightarrow \alpha/2 = .005$ si usamos R para obtener el valor de $z$ para la condición a la derecha de $\alpha/2 = .005$ usamos `qnorm(.005, lower.tail = FALSE)` y el intervalo es  
 ```{r}
 ( 84.3 + qnorm(.005, lower.tail = FALSE)*sqrt(144/15) )
@@ -405,7 +405,7 @@ PropVar_CI <- function(x, y, alpha = 0.05) {
     in_lim <- pro_v/qf((1-alpha/2), (n_y - 1), (n_x - 1))
     su_lim <- pro_v/qf((alpha/2), (n_y - 1), (n_x - 1))
   }
-  result <- c(in_lim, su_lim)
+  result <- IC_hydro
   return(result)
 }
 
