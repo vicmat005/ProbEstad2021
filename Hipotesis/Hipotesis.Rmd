@@ -93,4 +93,4 @@ abline(v=qt(0.975, 14), col = 2)
 t.test(Circ, alternative = "two.sided", mu = 34.5, paired = FALSE, conf.level = 0.95)
 ```
 
-El valor de es muy pequeño, es decir que podemos descartar la hipótesis nula, y el promedio real no es igual a 34.5 cm. Del intervalo de confianza también podemos ver que el valor 34.5 no está dentro del intervalo de confianza estimado a $\alpha = 0.05$.
+El valor de es muy pequeño, es decir que podemos descartar la hipótesis nula, y el promedio real no es igual a 34.5 cm. Del intervalo de confianza también podemos ver que el valor 34.5 no está dentro del intervalo de confianza estimado a $\alpha = 0.05$.  
