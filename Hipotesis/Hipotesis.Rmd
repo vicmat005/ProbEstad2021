@@ -70,6 +70,20 @@ Por los general la varianza de una población es desconocida, y se tiene que est
 $$ t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} $$
 *Ejemplo*
 Nakamura et al. estudiaron sujetos con desgarre de ligamento colateral medial (MCL) y ligamento  cruzado anterior (ACL). Entre febrero de 1995 y diciembre de 1997, 17 pacientes consecutivos con lesiones agudas de ACL y grado III MCL fueron tratados por el mismo médico del centro de investigación. Una de las variables de interés fue la longitud de tiempo en días entre la fecha de la lesión y la primer imagen por resonancia magnética (MRI). Los datos están listados en EXA_C07_S02_03.csv. Queremos saber si podemos concluir que el número promedio de días entre la lesión y la primer resonancia magnética **no es 15 días** en la población representada por los datos de esta muestra.  
+*Respuesta* Se propone $H_0: \mu = 15$ y se hace la prueba $t$.
 ```{r}
-time_MRI <- 
+time_MRI <- read_csv("DataSets/ch07_all/EXA_C07_S02_03.csv")
+t_MRI <- time_MRI$DAYS
 
+t.test(t_MRI, alternative = "two.sided", mu = 15, paired = FALSE, conf.level = 0.95)
+```
+En este caso estamos probando la igualdad por lo que la probabilidad $p = 0.4402$ de cometer un error al descartar la hipótesis nula es mayor al valor que estamos definiendo $p = 0.05$ para cumplir con un porcentaje del 95. Es decir no podemos descartar la hipótesis nula, es posible que el promedio si sea de 15. Además no se puede descartar que el promedio de la población sea de 15, ya que está incluído en el intervalo de confianza que la prueba $t$ estimó para el promedio $IC = [8.7250, 17.8631]$.  
+
+**Ejemplo** A continuación se listan los datos de la circunferencia de la cabeza (en centímetros) al nacer, de 15 infantes, queremos probar si el promedio es igual a 34.5 cm, $H_0: \mu = 34.5$ por lo tanto la hipótesis alternativa es $H_A: \mu \neq 34.5$ (Datos en EXA_C07_S02_05.cvs).  
+```{r}
+Circ <- read_csv("DataSets/ch07_all/EXA_C07_S02_03.csv")
+
+t.test(Circ, alternative = "two.sided", mu = 34.5, paired = FALSE, conf.level = 0.95)
+```
+
+El valor de es muy pequeño, es decir que podemos descartar la hipótesis nula, y el promedio real no es igual a 34.5 cm. Del intervalo de confianza también podemos ver que el valor 34.5 no está dentro del intervalo de confianza estimado a $\alpha = 0.05$.
