@@ -24,12 +24,22 @@ opts_chunk$set(echo=TRUE,
 opts_knit$set(width=80)
 ```
 
+```{r}
+setwd("~/Dropbox/GitHub/ProbEstad2021")
+# To set the working directory realtive to the user's dir
+
+library(tidyverse)
+library(Rmisc)
+library(rcompanion)
+```
+
+# Prueba de Hipótesis  
 La prueba de hipótesis es una ayuda al investigador para alcanzar una conclusión relacionada a una población basada en una muestra tomada de dicha población. 
 
 **Definición** Una hipótesis puede definirse como una declaración a cerca de una o más poblaciones.  
 Clases de hipótesis, se puede decir que existen dos clases de hipótesis, las hipótesis de investigación y las hipótesis estadísticas.  
 
-*Las hipótesis de investigación es una suposición qeu motiva la investigación.*  
+*Las hipótesis de investigación es una suposición que motiva la investigación.*  
 
 Generalmente las hipótesis de invesotgación en su proceso experimental y de análisis de los datos relacionados con la parte experimental dan lugar a una (o varias) hipótesis estadísticas, que son necesarias para desarrollar la estimación de parámetros relacionados con las poblaciones estudiadas.  
 *Las hipótesis estadísticas son hipótesis que están expresadas de tal forma que pueden ser evaluadas por medio de técnicas estádisticas adecuadas.*  
@@ -45,11 +55,21 @@ como ejemplo
 $$ z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} $$
 
 5. **Distribución de la estadística de prueba** el punto clave de la estadística de prueba es la distribución de la estadística.  
-6. **Regla de decisión** la región de rechazo o aceptación se determinan a partir de los valores críticos de la estadística de prueba.  Se rechaza la hipótesis nula si un valor de la prueba entra al rango de los valores de rechazo. Los valores del rango de rechazo se estiman con base en el **nivel de significancia** que se decidió usar en la prueba estadística. Se usa la definición para el nivel de significancia $\alpha$ como una probabilidad, de hecho es la probabilidad de rechazar la verdadera hipótesis nula.  
+6. **Regla de decisión** la región de rechazo o aceptación se determinan a partir de los valores críticos de la estadística de prueba.  Se rechaza la hipótesis nula si un valor de la prueba entra al rango de los valores de rechazo. Los valores del rango de rechazo se estiman con base en el **nivel de significancia** que se decidió usar en la prueba estadística. Se usa la definición para el nivel de significancia $\alpha$ como una probabilidad, de hecho es la probabilidad de rechazar la verdadera hipótesis nula.    
 7. **Estimación de la estadística de prueba**, a partir de los datos de muestreo que se tienen se estima la estadística de prueba.  
 8. **Decisión estadística**, esta decisión consiste en rechazar o aceprar la hipótesis nula.  
-9. **Conclusión** Si $H_0$ se rechaza, se concluye que $H_A$ es verdadera, y si $H_0$ no se rechaza, se concluye que $H_0$ puede ser verdadera.
+9. **Conclusión** Si $H_0$ se rechaza, se concluye que $H_A$ es verdadera, y si $H_0$ no se rechaza, se concluye que $H_0$ puede ser verdadera.  
 10. **valor $p$** el valor $p$ es el número (probabilidad) que nos indica que tan poco probables son los valores de nuestra muestra, dada la hipótesis nula.  
+Este valor $p$ es la probabilidad de que el valor estimado para la estadística de prueba sea por lo menos tan extremo como el especificado por la estadística de prueba cuando la hipótesis nula es verdadera.  
+El valor $p$ el el valor más pequeño que toma $\alpha$ cuando se puede descartar la hipótesis nula.  
 
+**Los tipos de error** El error que se comete cuando una hipótesis nula verdadera es descartada se llama *error tipo I*, El *error tipo II* se comete cuando una hipótesis nula falsa se acepta (no es rechazada). La probabilidad de cometer un *error tipo II* se expresa por $\beta$. 
 
+## Prueba de hipótesis con muestreo de una población normalemente distribuída  
+Por los general la varianza de una población es desconocida, y se tiene que estimar a partir de la muestra. Para muestras grandes se puede usar la prueba de hipótesis basada en el valor de $z$, pero para muestras pequeñas se puede usar la expresión de $t$ para la estadística de prueba con la hipótesis nula a probar $H_0: \mu = \mu_0$   
+$$ t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} $$
+*Ejemplo*
+Nakamura et al. estudiaron sujetos con desgarre de ligamento colateral medial (MCL) y ligamento  cruzado anterior (ACL). Entre febrero de 1995 y diciembre de 1997, 17 pacientes consecutivos con lesiones agudas de ACL y grado III MCL fueron tratados por el mismo médico del centro de investigación. Una de las variables de interés fue la longitud de tiempo en días entre la fecha de la lesión y la primer imagen por resonancia magnética (MRI). Los datos están listados en EXA_C07_S02_03.csv. Queremos saber si podemos concluir que el número promedio de días entre la lesión y la primer resonancia magnética **no es 15 días** en la población representada por los datos de esta muestra.  
+```{r}
+time_MRI <- 
 

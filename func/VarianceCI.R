@@ -1,6 +1,6 @@
 # Variance confidence interval
 #
-CI_sig <- function(x,alpha) {
+CI_sig <- function(x, alpha = 0.05) {
   sd_x <- sd(x)
   n_x <- length(x)
   lbs <- sqrt((n_x-1)*sd_x^2/qchisq((1-alpha/2), (n_x-1)))
