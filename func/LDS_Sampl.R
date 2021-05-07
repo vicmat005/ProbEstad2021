@@ -37,7 +37,14 @@ print(c("LowerLimit", "UpperLimit"))
 print(Chol_samp15Var_CI)
 
 Chol_225 <- (filter(LDS_cho, CHOLEST > 225))
-hist(Chol_225) # how the >225 distribution looks
-Chol_225_samp <- sample(Chol_225, 50, replace = FALSE)
+hist(Chol_225$CHOLEST) # how the >225 distribution looks
+Chol_225_samp <- sample(Chol_225$CHOLEST, 50, replace = FALSE)
 summary(Chol_225_samp)
 
+Chol_225_samp_mean <- MeanEstim_CI(Chol_225_samp)
+print(c("LowerLimit", "UpperLimit"))
+print(Chol_225_samp_mean)
+
+Chol_225_samp_varCI <- VarEstim_CI(Chol_225_samp)
+print(c("LowerLimit", "UpperLimit"))
+print(Chol_225_samp_varCI) 
