@@ -154,7 +154,7 @@ Se puede ver que el valor de $p$ está por debajo del valor de alfa propuesto, p
 ## Comparaciones pareadas (t-pareada).  
 
 **Ejemplo** Morton et al. examinaron la función de la vesícula biliar, después de una cirugía que se usa para detener que el contenido del estómago fluya de regreso al esófago, en pacientes con reflujo gastroesofágico. Los autores midieron la función biliar por medio de la fracción de descarga biliar(GBEF) antes y después de la cirugía. La idea de la cirugía es incrementar la GBEF, que se mide en porcentaje. Los datos están listados en EXA_C07_S04_01, estos datos son suficientes para concluir que la GBEF se incrementa con la cirugía?  
-*Respuesta* Si la cirugía incrementa la función biliar, esto es incrementa GBEL, $\mu_{cirugia} > \mu_0$, es decir queremos demostrar que la diferencia en GBEL es positiva. Por lo tanto, la hipótesis nula es que $H_0: \mu_{diferencia} \leq 0$ y por lo tanto $H_A: \mu_{diferencia} > 0$
+*Respuesta* Si la cirugía incrementa la función biliar, esto es incrementa GBEL, $\mu_{POSTOP} > \mu_{PREOP}$, es decir queremos demostrar que la diferencia en GBEL es positiva. Por lo tanto, la hipótesis nula es que $H_0: \mu_{POSTOP - PREOP} \leq 0$ y por lo tanto $H_A: \mu_{POSTOP - PREOP} > 0$
 
 ```{r}
 GBEF <- read_csv("DataSets/ch07_all/EXA_C07_S04_01.csv")
