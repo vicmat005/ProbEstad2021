@@ -129,6 +129,7 @@ la que para $H_0$ cierta, está distribuida como una $t$ de Student con $n_1 + n
 ```{r}
 # Tam et al. data
 SCI_con <- read_csv("DataSets/ch07_all/EXA_C07_S03_02.csv")
+boxplot(SCI_con$CONTROL, SCI_con$SCI, xlab = "Grupo", ylab = "Presión medida")
 t.test(SCI_con$CONTROL, SCI_con$SCI, alternative = "less", mu = 0,  var.equal = TRUE, conf.level = .95)
 ```
 ** Varianzas poblacionales diferentes** Cuando dos muestras independientes se han extraído de dos poblaciones normalmente distribuías con varianzas desconocidas y diferentes, la prueba estadística para probar $H_0: \mu_1 = \mu_2$ es  
@@ -142,6 +143,7 @@ Para una prueba de dos lados, se rechaza $H_0$ si el valor estimato de $t'$ es m
 ```{r}
 # Edad a la que pudieron caminar solos
 Infants <- read_csv("DataSets/ch07_all/EXR_C07_S03_10.csv")
+boxplot(Age ~ factor(Group), data =  Infants, ylab = "Edad (meses)")
 # Para hacer vos vectores con muestras de población a y b
 Infants_A <- (filter(Infants, Group == 1))
 Infants_B <- (filter(Infants, Group == 2))
@@ -154,10 +156,11 @@ Se puede ver que el valor de $p$ está por debajo del valor de alfa propuesto, p
 ## Comparaciones pareadas (t-pareada).  
 
 **Ejemplo** Morton et al. examinaron la función de la vesícula biliar, después de una cirugía que se usa para detener que el contenido del estómago fluya de regreso al esófago, en pacientes con reflujo gastroesofágico. Los autores midieron la función biliar por medio de la fracción de descarga biliar(GBEF) antes y después de la cirugía. La idea de la cirugía es incrementar la GBEF, que se mide en porcentaje. Los datos están listados en EXA_C07_S04_01, estos datos son suficientes para concluir que la GBEF se incrementa con la cirugía?  
-*Respuesta* Si la cirugía incrementa la función biliar, esto es incrementa GBEL, $\mu_{POSTOP} > \mu_{PREOP}$, es decir queremos demostrar que la diferencia en GBEL es positiva. Por lo tanto, la hipótesis nula es que $H_0: \mu_{POSTOP - PREOP} \leq 0$ y por lo tanto $H_A: \mu_{POSTOP - PREOP} > 0$
+*Respuesta* Si la cirugía incrementa la función biliar, esto es incrementa GBEF, $\mu_{POSTOP} > \mu_{PREOP}$, es decir queremos demostrar que la diferencia en GBEL es positiva. Por lo tanto, la hipótesis nula es que $H_0: \mu_{POSTOP - PREOP} \leq 0$ y por lo tanto $H_A: \mu_{POSTOP - PREOP} > 0$
 
 ```{r}
 GBEF <- read_csv("DataSets/ch07_all/EXA_C07_S04_01.csv")
+boxplot(GBEF$POSTOP, GBEF$PREOP, xlab = "POSTOP, PREOP", ylab = "Función biliar")
 t.test(GBEF$POSTOP, GBEF$PREOP, alternative = "greater", mu=0, paired = TRUE, var.equal = TRUE, conf.level = 0.95)
 ```
 
