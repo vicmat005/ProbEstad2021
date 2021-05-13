@@ -1,5 +1,5 @@
 # Proyecto final 1  
-## Órtesis y Prótesis ENES Juriquilla, febrero 2021  
+## Órtesis y Prótesis ENES Juriquilla.  
 ## F.A. Barrios  
 ## Uso de archivos de datos grandes BABY WGTS, capítulo 6  
 
