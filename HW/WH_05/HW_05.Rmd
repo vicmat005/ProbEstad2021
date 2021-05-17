@@ -7,7 +7,6 @@ output:
     highlight: kate
 ---
 
-
 ```{r setup, include=FALSE}
 library(knitr)
 library(rmdformats)
