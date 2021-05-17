@@ -28,7 +28,7 @@ Tema 4 [Teoría del Muestreo](https://fabarrios.github.io/ProbEstad2021/DistribM
 Tarea 4 [Tarea 04 Teoría del Muestreo](https://fabarrios.github.io/ProbEstad2021/HW/HW_04/HW_04.html).
 
 Tema 5 [Estimación](https://fabarrios.github.io/ProbEstad2021/Estimacion/Estimacion.html).  
-Tarea 5 [Tarea 04 Teoría de Estimacíon](https://fabarrios.github.io/ProbEstad2021/HW/HW_05/HW_05.html).
+Tarea 5 [Tarea 04 Teoría de Estimacíon](https://fabarrios.github.io/ProbEstad2021/HW/WH_05/HW_05.html).
 
 Tema 6 [Prueba de Hipótesis](https://fabarrios.github.io/ProbEstad2021/Hipotesis/Hipotesis.html).
 
