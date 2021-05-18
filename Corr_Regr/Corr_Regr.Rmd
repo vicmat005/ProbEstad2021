@@ -1,0 +1,50 @@
+---
+title: "Correlación y Regresión"
+author: "F.A. Barrios"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="80")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=80)
+```
+
+## Introducción  
+Uno de los temas más utilizados en el análisis de datos en la actualidad se deriva de dos procesos, el de *Correlación* y el de *Regresión Lineal*.  Estas dos metodologías aunque están relacionadas son diferentes y se usan para propósitos distintos.  
+**Regresión** La regresión es un análisis útil para estimar y analizar la relación entre variables y establecer modelos que permitan hacer predicciones o estimar valores de variables en valores correspondientes de otra variable. Las ideas de regresión fueron introducidas originalmente por el científico ingles Sir Francis Galton (1822-1911).  
+**Correlación** El análisis de correlación es aquel que nos permite medir la fuerza de relación entre variables.  Cuando se estima la correlación de una serie de variables, estamos interesados en calcular el grado de *correlación* entre variables. Este análisis y el termino que lo describe también fue introducido por Galton en 1888.  
+
+## Modelo de Regresión Lineal Simple  
+El modelo más típico de regresión es el que relaciona dos variables a una linea recta, por eso se llama regresión lineal.  Supuestos que se usan en el modelo simple de regresión lineal.  En este modelo por lo general se tienen solo dos variables $Y$ y $X$.  La variable $X$ por lo general se usa para referirse a la *variable independiente*,  ya que generalmente los valores de esta variable están controlados por el investigador.  Para cada valor de $X$ hay uno o varios valores de $Y$, que por lo general son obtenidos a partir de medidas experimentales. La variable $Y$ es llamada la variable dependiente.  Por lo general nos referimos a una regresión de $Y$ por $X$. En el el caso de la regresión lineal se hacen las siguientes suposiciones:  
+
+1. Los valores de la variable independiente $X$ se suponen fijos, son valores predeterminados considerados no aleatorios.  
+2. La variable $X$ se considera medida sin error.
+3. Para cada valor de $X$ hay una subpoblación de valores $Y$, en los que se puede hacer procesos de inferencia con medidas de estimación de hipótesis.  
+4. Las varianzas de las diferentes subpoblaciones de $Y$ se consideran iguales $\sigma^2$.  
+5. Todos los promedios de cada subpoblación de $Y$ se localizan sobre la misma linea recta. Esto es lo que se conoce como la *suposición de linealidad*, que puede ser expresada como $\mu_{y|x} = \beta_0 + \beta_1 x$, donde $\mu_{y|x}$ es le promedio de la subpoblación de $Y$ para un valor particular de $X$ y $\beta_0$ y $\beta_1$ son los coeficientes de regresión de la población.  La interpretación geométrica de $\beta_0$ y $\beta_1$ es la intersección de la recta con el eje de las $y$ y la pendiente del modelo, respectivamente.  
+6. Los valores de $Y$ son estadísticamente independientes. Esto significa que cada muestra de valores de $Y$ que se toman en un punto $X$ son independientes de la muestra que se tome en cualquier otro valor de $X$.  
+
+## La linea de mínimos cuadrados  
+El método más usado para estimar el modelo lineal (la línea que mejor describe los puntos ajustados) es llamado *mínimos cuadrados*, para este punto recordemos que la ecuación de la línea recta es: $y = m x + b_0$.  
+
+## Expresiones para estimar la línea recta de mínimos cuadrados  
+Las equaciones para estimar la línea recta por mínios cuadrados ara un conunto de datos $Y = y_1, y_2, \dots, y_n$ y $X = x_1, x_2, \dots, x_n$, con promedios $\bar{y}$ y $\bar{x}$, respectivamente y $\hat{\beta}_0$ y $\hat{\beta}_1$ son los valores estimados para la intersección con el eje $y$, $\beta_0$ y la pendiente de la recta $\beta_1$.  
+$$ \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} $$
+
+$$ \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} $$
+
