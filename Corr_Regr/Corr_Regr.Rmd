@@ -53,11 +53,44 @@ El método más usado para estimar el modelo lineal (la línea que mejor describ
 
 ## Expresiones para estimar la línea recta de mínimos cuadrados  
 Las equaciones para estimar la línea recta por mínios cuadrados ara un conunto de datos $Y = y_1, y_2, \dots, y_n$ y $X = x_1, x_2, \dots, x_n$, con promedios $\bar{y}$ y $\bar{x}$, respectivamente y $\hat{\beta}_0$ y $\hat{\beta}_1$ son los valores estimados para la intersección con el eje $y$, $\beta_0$ y la pendiente de la recta $\beta_1$.  
-$$ \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} $$
+$$ \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} $$  
 
 $$ \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} $$  
-**Ejemplo** Deprés et al. establecieron que la topografía del tejido adiposo (AT) está asociada con complicaciones metabólicas consideradas como un riesgo par la enfermedad cardiovascular.
+**Ejemplo** Deprès et al. establecieron que la topografía del tejido adiposo (AT) está asociada con complicaciones metabólicas consideradas como un riesgo par la enfermedad cardiovascular. Es importante, establecieron en dicho trabajo, medir la cantidad de tejido adiposo itraabdominal como parte de la evaluación de riesgo idividual de enfermedad cardiovascular. Tomografía computarizada (CT), la única técnica que puede medir de forma precisa y confiable la cantidad de AT intraabdominal profunda, sin embargo, es costosa y expone al sujeto a radiación ionizante (rayos X), además es una técnica que no es accesible a todos los médicos.  Deprès y sus colegas condujeron su estudio para desarrollar ecuaciones que predigan la cantidad de AT intraabdominal profunda a partir de medidas antropométricas simples.  Sus sujetos de estudio fueron hombres adultos de entre 18 y 42 años de edad, sin enfermedad de desorden metabólico que requiriera medicación.  Entre las medidas tomadas a cada sujeto estuvieron la de TA intraabdominal profunda por CT y la circunferencia de la cintura, listadas en el archivo `EXA_C09_S-03_01.csv`.  La pregunta es; que tan bien se puede estimar la cantidad de TA intraabdominal profunda partir se la medida de la circunferencia de la cintura.  Como la medida de AT intraabdominal profunda es la variable a evaluar y hacer predicciones, se considera la variable dependiente.  La variable de la circunferencia de la cintura se tomará como la medida independiente.  
 
 ```{r}
-setwd("~/Dropbox/GitHub/ProbEstad2021")
-library(tidyverse)
+Waist <- read_csv("DataSets/ch09_all/EXA_C09_S03_01.csv")
+
+plot(Y ~ X, data = Waist, pch = 20, xlab = "Circunferencia de cintura (cm)", ylab = "área de TA intraabdominal profunda")
+# mean lines for y and x.
+abline(v = mean(Waist$X), col = 2, lty = 2)
+abline(h = mean(Waist$Y), col = 2, lty = 2)
+# Estimation of the linear model
+Waist_lm <- lm(Y ~ X, data = Waist)
+summary(Waist_lm)
+# plot of the estimated linear model
+abline(a = -215.98, b = 3.4589, col = 6)
+```
+
+## Estimación del Coeficiente de Determinación de la Población  
+Siempre es importante preguntarnos si la recta ajustada es una buena representación de los datos, es decir que tan buen trabajo hizo el ajuste al modelo lineal. Para es to evaluamos la ecuación de la regresión basada en los datos de la muestra ($\tilde{y}_i$), el resultado es llamado el **coeficiente de determinación** de la muestra, $r^2$.  
+$$ r^2 = \frac{\sum(\hat{y}_i - \bar{y})^2}{\sum(y_i - \bar{y})^2}  $$  
+Esta R-cuadrada es calculada directamente de los cuadrados de la diferencias de la $y_i$ estimadas por el modelo en cada punto $x_i$ comparados con los cuadrados de los datos originales $y_i$ (en R es llamada Miltiple R-squared).  El coeficiente de determinacion de la muestra mide la "calidad" (que tan cerca) está la equación de regresión a los valores observados originales.  
+
+El coeficiente de determinación de la muestra es una estimado puntual de $\rho^2$ el Coeficiente de Determinación de la Población. El Coeficiente de determinación de la población $\rho^2$ tiene la misma función relativa a la población que $r^2$ tiene a la muestra.  Este, muestra cual proporción de la variación de la población en $Y$ es explicada por la regresión de $Y$ en $X$. Un estimador sin sesgo de $\rho^2$ está dado por  
+$$ \tilde{r}^2 = 1 - \frac{\sum(y_i - \hat{y}_i)^2/(n-2)}{\sum(y_i - \bar{y})^2/(n-1)} $$
+Esta es la cantidad llamada R-sq (en R es la llamada Adjusted R-squared).  
+
+**Ejemplo**Los escores listados en EXR_C09_S03_02.csv, muestran las evaluaciones de la enfermera (X) y del médico (Y) para la condición de 10 pacientes al momento de admisión de un centro de trauma. Muestra una gráfica de los puntos y estime la regresión lineal.  
+```{r}
+Scores <- read_csv("DataSets/ch09_all/EXR_C09_S03_02.csv")
+# X enfermera, Y médico
+plot(Y ~ X, data = Scores, pch = 20, xlab = "Eval. enfermera", ylab = "Eval. médico")
+abline(v = mean(Scores$X), col = 2, lty = 2)
+abline(h = mean(Scores$Y), col = 2, lty = 2)
+# MinSqr 
+Scores_lm <- lm(Y ~ X, data = Scores)
+summary(Scores_lm)
+# plot of the linear model for Scores
+abline(a = Scores_lm$coefficients[1], b = Scores_lm$coefficients[2], col = 6)
+```
