@@ -94,3 +94,30 @@ summary(Scores_lm)
 # plot of the linear model for Scores
 abline(a = Scores_lm$coefficients[1], b = Scores_lm$coefficients[2], col = 6)
 ```
+
+## Correlación  
+Comentamos que el problema de regresión, se tiene una variable respuesta (variable dependiente) $Y$, aleatoria (posiblemente distribuida de forma normal) que generalmente representa la medida experimental y los datos de estudio que serán ajustados, a un modelo lineal que responde a una variable independiente $X$.  Para el caso de dos variables aleatorias (con distribuciones normales) $Y$ y $X$, surge la pregunta; ¿Cual es la relación entre las dos variables, como es la variación de ellas, están relacionadas en cuanto a su variación?.  Cuando las dos variables son aleatorias se dice que se tiene un *modelo de correlación*, se tienen dos variables que varían conjuntamente en lo que se conoce como una distribución conjunta, si esta distribución es normal se dice que es una distribución normal bivariada. E inferencias se pueden hacer basados en muestreo de cada variable.  
+# Suposiciónes del modelo de correlación  
+A continuación listamos las suposiciones necesarias para hacer inferencias de una población a partir de muestreo de una distribución bivariada:  
+1. Para cada valor de $X$ hay una subpoblación normalmente distribuida de valores de $Y$.  
+2. Para cada valor de $Y$ hay una subpoblación normalmente distribuida de valores de $X$.  
+3. La distribución conjunta de $X$ y $Y$ es una distribución normal bivariada.  
+4. Las subpoblaciones de valores de $Y$ tienen la misma varianza.  
+5. Las subpoblaciones de valores de $X$ tienen la misma varianza.  
+
+# El coeficiente de correlación  
+La distribución bivariada normal tiene cinco parámetros, $\sigma_x, \sigma_y, \mu_x, \mu_y, $ y $\rho$. Los cuatro primeros son las varianza de $X$ y $Y$ y sus respectivas medias respectivas y $\rho$ es el coeficiente de correlación de la población, que mide la fuerza de la relación lineal entre las variables $Y$ y $X$.  Por lo general estamos interesados en determinar si $\rho \neq 0$, esto es. si $Y$ y $X$ están linealmente correlacionadas.  Como $\rho$ es por o general desconocido, es necesario extraer muestras de las poblaciones para estimas el valor de $r$ y determinar el valor de $\rho$. Una hipótesis nula muy utilizada es $H_0: \rho = 0 | H_A: \rho \neq 0$.  
+El valor de r se puede estimar por:  
+$$ r = \frac{n \sum x_i y_i - (\sum x_i)(\sum y_i)}{\sqrt{n \sum x_i^2 - (\sum x_i)^2} \sqrt{n \sum y_i^2 - ( \sum y_i)^2}} $$  
+**Ejemplo** El propósito del estudio de Kwast-Rabben y colaboradores, fue analizar los potenciales somatosensoriales evocados (SEPs) y su interrelación seguida de la estimulación de los dígitos I, III y V de la mano. Los investigadores querían establecer un antecedente para criterio de referencia en una población control. Por lo tanto se reclutaron sujetos control sanos para el estudio. Para un futuro este estudio podría ser importante ya que los SEPs se podrían usar para establecer disturbios funcionales en pacientes con sospecha de lesión en la raíz cervical que presentan dolor, y sintomas sensoriales.  En el estudio se estimularon los dedos con una intensidad por debajo del punto de dolor.  Las respuestas medulares se registraron con electrodos fijos adheridos con crema adherente a la piel del sujeto. Una de las relaciones de interés fue la correlación entre la estatura del sujeto (cm) y la latencia medular pico (Cv) del SEP. Los datos obtenidos se muestran en `EXA_C09_S07_01.csv`.  
+
+```{r}
+SEP <- read_csv("DataSets/ch09_all/EXA_C09_S07_01.csv")
+plot(CV ~ HEIGHT, data = SEP, pch = 20, xlab = "Estatura (cm)", ylab = "Latencia pico (Cv)")
+# cor.test(HEIGHT, CV, alternative = c("two.sided"), method = c("pearson"), conf.level = 0.95)
+cor.test(~ HEIGHT + CV, data = SEP, alternative = c("two.sided"), method = c("pearson"), conf.level = 0.95)
+
+```
+
+
+
