@@ -119,5 +119,15 @@ cor.test(~ HEIGHT + CV, data = SEP, alternative = c("two.sided"), method = c("pe
 
 ```
 
+El propósito del estudio de Brown y Presley fue caracterizar la hepatitis A aguda, en pacientes mayores de 40 años.  Revisaron en forma retrospectiva los registros de 20 pacientes que fueron diagnosticados con hepatitis A aguda, que no fueron hospitalizados. De interés fue el hecho que se usó la edad (en años) para predecir los niveles de bilirrubina (mg/dl). Los datos colectados están en `EXR_C09_S07_01.csv`.  
+
+```{r}
+Hepa <- read_csv("DataSets/ch09_all/EXR_C09_S07_01.csv")
+plot(BILI ~ AGE, data = Hepa, pch = 20, xlab = "Edad (años)", ylab = "Nivel de Bilirrubina (mg/dl)")
+cor.test(~ AGE + BILI, data = Hepa, alternative = c("two.sided"), method = c("pearson"), conf.level = 0.95)
+# Linear model
+Hepa_lm <- lm(BILI ~ AGE, data = Hepa)
+abline(a = Hepa_lm$coefficients[1], b = Hepa_lm$coefficients[2], col = 2)
+```
 
 
