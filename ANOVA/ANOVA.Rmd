@@ -1,0 +1,76 @@
+---
+title: "ANOVA "
+author: "F.A. Barrios"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="80")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=80)
+```
+
+```{r}
+# Set working directory
+setwd("~/Dropbox/GitHub/ProbEstad2021")
+
+library(tidyverse)
+library(rcompanion)
+```
+
+
+## Introducción ANOVA  
+Uno de los procesos más usados para comparar diferentes "tratamientos" sobre un grupo experimental es sin duda el Análisis de Varianza (ANOVA).  Desarrollado originalmente por R.A. Fisher y ha tenido una gran influencia en la estadística.  El análisis de varianza se usa principalmente para dos propósitos: 1) para estimar y probar prueba de hipótesis de varianzas de una población. 2) Estimad y probar medias poblacionales.  En esta introducción resolveremos ejemplos para la estimación de medias poblacionales.   
+
+## ANOVA Modelos de una via  (Noe-Way ANOVA)  
+
+Carne proveniente de caza, entre otras aquellas del venado de cola-blanca, y ardilla gris, son usadas como alimento or familias, cazadores y otros individuos por razones culturales, personales, o de salud. EN un estudio de Holben et al. estimó el contenido de selenio de carne de venado cola-blanca libre (venison), y ardilla gris (squirrel) obtenidos de una región de baja concentración de selenio en EEUU.  Estos contenidos de selenio fueron también comparados con concentraciones de carne de ganado producido en la misma región (RRB) y en una región externa (NRRB). Nos interesa saber si la concentración de selenio $(\mu g/100g)$ es distinta en los grupos de carne. (EXA_C08_S02_01.csv).
+
+```{r}
+Exa8.2.1 <- read_csv(file="EXR_C08_S02_01.csv")
+
+```
+
+**Más ejemplos**
+```{r}
+# Exer. 8.2.3 Daniel
+# Patients suffering from rheumatic diseases or osteoporosis often suffer critical loss in bone
+# mineral density (BMD).
+#
+Exr8.2.2 <- read_csv(file="EXR_C08_S02_02.csv")
+ggplot(data = Exr8.2.2, aes(group = GROUP, y = BMD)) + geom_boxplot()
+Exr8.2.2_M <- Exr8.2.2 %>%
+  + mutate(GROUP = case_when(
+    + GROUP == 1 ~ "RA",
+    + GROUP == 2 ~ "LUPUS",
+    + GROUP == 3 ~ "PMRTA",
+    + GROUP == 4 ~ "OA",
+    + GROUP == 5 ~ "O" ))
+#
+ggplot(data = Exr8.2.2_M, aes(x = GROUP, y = BMD)) + geom_boxplot()
+Exr2_2.aov <- aov(BMD ~ GROUP, data=Exr8.2.2_M)
+summary(Exr2_2.aov)
+
+#
+# Exer 8.2.3
+#
+Exr8.2.3 <- read_csv(file="EXR_C08_S02_03.csv")
+ggplot(data = Exr8.2.3, aes(x = Group, y = calcium)) + geom_boxplot()
+Exr3.aov <- aov(calcium ~ Group, data=Er8.2.3)
+summary(Exr3.aov)
+TukeyHSD(Exr3.aov)
+plot(TukeyHSD(Exr3.aov), las = 2)
+```
