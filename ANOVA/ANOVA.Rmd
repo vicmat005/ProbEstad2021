@@ -54,6 +54,10 @@ Exa8.2.1_lm <- lm(Selenium ~ Group, data = Exa8.2.1)
 #
 Exa8.2.1_aov <- aov(Selenium ~ Group, data = Exa8.2.1)
 #
+summary(Exa8.2.1_aov)
+model.tables(Exa8.2.1_aov, type="means")
+model.tables(Exa8.2.1_aov, type="effects")
+#
 TukeyHSD(Exa8.2.1_aov)
 plot(TukeyHSD(Exa8.2.1_aov))
 ```
