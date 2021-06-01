@@ -1,5 +1,5 @@
 ---
-title: "ANOVA "
+title: "ANOVA VIII"
 author: "F.A. Barrios"
 date: "`r Sys.Date()`"
 output:
