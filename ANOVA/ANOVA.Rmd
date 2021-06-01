@@ -9,6 +9,7 @@ output:
 
 ```{r setup, include=FALSE}
 library(knitr)
+library(tidyverse)
 library(rmdformats)
 
 ## Global options
@@ -70,12 +71,25 @@ Exr2_2.aov <- aov(BMD ~ factor(GROUP), data=Exr8.2.2)
 summary(Exr2_2.aov)
 #
 # Exr 8.2.3
-#
 Exr8.2.3 <- read_csv(file="DataSets/ch08_all/EXR_C08_S02_03.csv")
 ggplot(data = Exr8.2.3, aes(x = Group, y = calcium)) + geom_boxplot()
 Exr3.aov <- aov(calcium ~ Group, data=Exr8.2.3)
 summary(Exr3.aov)
 TukeyHSD(Exr3.aov)
 plot(TukeyHSD(Exr3.aov), las = 2)
+```
+
+**Ejemplos two-way ANOVA**
+```{r}
+Rev8.16 <- read_csv("DataSets/ch08_all/REV_C08_16.csv")
+boxplot(Count ~ factor(Treat) + factor(Sens), data = Rev8.16)
+boxplot(Count ~ factor(Sens) + factor(Treat), data = Rev8.16)
+#
+Rev8.16_aov <- aov(Count ~ factor(Sens) + factor(Treat), data = Rev8.16)
+summary(Rev8.16_aov)
+#
+# With car Anova
+Rev8.16_lm <- lm(Count ~ factor(Sens) + factor(Treat), data = Rev8.16)
+Anova(Rev8.16_lm)
 ```
 
