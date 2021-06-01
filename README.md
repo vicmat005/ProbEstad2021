@@ -34,3 +34,6 @@ Tema 6 [Prueba de Hipótesis](https://fabarrios.github.io/ProbEstad2021/Hipotesi
 Tarea 6 [Tarea 06 Prueba de Hipótesis](https://fabarrios.github.io/ProbEstad2021/HW/HW_06/HW_06.html).  
 
 Tema 7 [Correlación y Regresión](https://fabarrios.github.io/ProbEstad2021/Corr_Regr/Corr_Regr.html).  
+
+Tema 8 [ANOVA](https://fabarrios.github.io/ProbEstad2021/ANOVA/ANOVA.html).  
+
