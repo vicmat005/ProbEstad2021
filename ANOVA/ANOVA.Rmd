@@ -31,6 +31,7 @@ setwd("~/Dropbox/GitHub/ProbEstad2021")
 library(tidyverse)
 library(rcompanion)
 library(car)
+library(emmeans)
 ```
 
 
@@ -70,20 +71,24 @@ plot(TukeyHSD(Exa8.2.1_aov))
 #
 EXR8.2.2 <- read_csv(file="DataSets/ch08_all/EXR_C08_S02_02.csv")
 boxplot(BMD ~ factor(GROUP), data = EXR8.2.2)
+Exr2_2.aov <- aov(BMD ~ factor(GROUP), data=EXR8.2.2)
+summary(Exr2_2.aov)
 #
 EXR8.2.2_M <- EXR8.2.2 %>% mutate(GROUP = case_when(GROUP == 1 ~ "RA", GROUP == 2 ~ "LUPUS", GROUP == 3 ~ "PMRTA", GROUP == 4 ~ "OA", GROUP == 5 ~ "O"))
 ggplot(data = EXR8.2.2_M, aes(x = GROUP, y = BMD)) + geom_boxplot()
 #
-Exr2_2.aov <- aov(BMD ~ factor(GROUP), data=EXR8.2.2_M)
-summary(Exr2_2.aov)
-#
+Exr2_2_lm <- lm(BMD ~ factor(GROUP), data=EXR8.2.2_M)
+S(Exr2_2_lm)
+emmeans(Exr2_2_lm, pairwise ~ GROUP)
+emmeans(Exr2_2_lm, trt.vs.ctrl ~ GROUP)
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Exr 8.2.3
 Exr8.2.3 <- read_csv(file="DataSets/ch08_all/EXR_C08_S02_03.csv")
 ggplot(data = Exr8.2.3, aes(x = Group, y = calcium)) + geom_boxplot()
 Exr3.aov <- aov(calcium ~ Group, data=Exr8.2.3)
 summary(Exr3.aov)
 TukeyHSD(Exr3.aov)
-plot(TukeyHSD(Exr3.aov), las = 2)
+
 ```
 
 **Ejemplos two-way ANOVA**
