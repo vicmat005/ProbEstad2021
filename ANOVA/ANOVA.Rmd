@@ -105,16 +105,22 @@ Rev8.16 <- read_csv("DataSets/ch08_all/REV_C08_16.csv")
 boxplot(Count ~ factor(Treat) + factor(Sens), data = Rev8.16)
 boxplot(Count ~ factor(Sens) + factor(Treat), data = Rev8.16)
 #
+Rev8.16_M <- Rev8.16 %>% mutate( Treat = case_when( Treat == "Air" ~ "1Air", Treat == "Act" ~ "2Act", Treat == "Benz" ~ "3Benz"))
 Rev8.16_aov <- aov(Count ~ factor(Sens) + factor(Treat), data = Rev8.16)
 summary(Rev8.16_aov)
 #
 # With car Anova
-Rev8.16_lm <- lm(Count ~ factor(Sens) + factor(Treat), data = Rev8.16)
+Rev8.16_lm <- lm(Count ~ factor(Sens) + factor(Treat), data = Rev8.16_M)
 Anova(Rev8.16_lm)
 #
 S(Rev8.16_lm)
 emmeans(Rev8.16_lm, pairwise ~ Sens + Treat)
 emmeans(Rev8.16_lm, trt.vs.ctrl ~ Sens + Treat)
+#
+Rev8.16_lm_int <- lm(Count ~ factor(Sens) * factor(Treat), data = Rev8.16_M)
+S(Rev8.16_lm_int)
+emmeans(Rev8.16_lm_int, pairwise ~ Sens + Treat)
+emmeans(Rev8.16_lm_int, trt.vs.ctrl ~ Sens + Treat)
 ```
 
 **Ejemplo** El interés del estudio de Hartman-Maeir et al. fue estimar los perfiles del déficit de concienciación entre pacientes con infarto cerebral que están en rehabilitación. Estudió 35 pacientes con lesiones por infarto en el hemisferio derecho y 19 pacientes con lesiones en el hemisferio izquierdo.  Además agrupó las lesiones por su tamaño como: 2 = 1-3 cm, 3 =3-5cm, y 4 = 5 cm o más grandes. Una de las medidas importantes fue la calificación de la concienciación por su propia limitación. Las calificaciones tuvieron un rango de 8 a 24, con una calificación más alta significando mayor concienciación (REV_C08_22.csv). Pruebe la diferencia por tamaño de lesión y lado de hemisferio, sea $\alpha = .05$.  
