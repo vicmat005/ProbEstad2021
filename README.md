@@ -37,3 +37,5 @@ Tema 7 [Correlación y Regresión](https://fabarrios.github.io/ProbEstad2021/Cor
 
 Tema 8 [ANOVA](https://fabarrios.github.io/ProbEstad2021/ANOVA/ANOVA.html).  
 
+[Proyectos finales](https://fabarrios.github.io/ProbEstad2021/Proyectos/Proyectos.html).  
+
