@@ -136,5 +136,22 @@ S(Rev.8.22_lm)
 # contrasts
 emmeans(Rev.8.22_lm, pairwise ~ SIDE + SIZE)
 
+Rev.8.22_lm_int <- lm(SCORES ~ factor(SIZE) * factor(SIDE), data = Rev.8.22)
+S(Rev.8.22_lm_int)
+#
+emmeans(Rev.8.22_lm_int, trt.vs.ctrl ~ SIZE + SIDE)
+
 ```
+
+**Ejemplo 18** The effects of thermal pollution on Corbicula fluminea (Asiatic clams) at three different geographical locations were analyzed by John Brooker (REV_C08_18). Sample data on clam shell length, width, and height are displayed in the following table. Determine if there is a significant difference in mean length, height, or width (measured in mm) of the clam shell at the three different locations by performing three analyses. What inferences can be made from your results? What are the assumptions underlying your inferences? What are the target populations?  
+
+```{r}
+Rev.8.18 <- read.csv("DataSets/ch08_all/REV_C08_18_mod.csv")
+boxplot(Measure ~ factor(site) + factor(Geometry), data = Rev.8.18)
+Rev.8.18_lm <- lm(Measure ~ factor(site) + factor(Geometry), data = Rev.8.18)
+S(Rev.8.18_lm)
+# Paiwise
+emmeans(Rev.8.18_lm, pairwise ~ site + Geometry)
+```
+
 
