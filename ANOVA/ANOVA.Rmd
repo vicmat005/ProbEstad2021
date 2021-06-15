@@ -154,4 +154,14 @@ S(Rev.8.18_lm)
 emmeans(Rev.8.18_lm, pairwise ~ site + Geometry)
 ```
 
+**Ejemplo** Licciardone et al. examined subjects with chronic, nonspecific low back pain. In this study, 18 of the subjects completed a survey questionnaire assessing physical functioning at baseline, and after 1, 3, and 6 months. Table (EXA_C08_S04_01) shows the data for these subjects who received a sham treatment that appeared to be genuine osteopathic manipulation. Higher values indicate better physical functioning. The goal of the experiment was to determine if subjects would report improvement over time even though the treatment they received would provide minimal improvement. We wish to know if there is a difference in the mean survey values among the four points in time.  
 
+```{r}
+Exa8.4.1 <- read.csv("DataSets/ch08_all/EXA_C08_S04_01mod.csv")
+boxplot(Assessment ~ factor(Time), data = Exa8.4.1)
+Exa8.4.1_lm <- lm(Assessment ~ factor(Time), data = Exa8.4.1)
+Anova(Exa8.4.1_lm)
+#
+emmeans(Exa8.4.1_lm, pairwise ~ factor(Time))
+emmeans(Exa8.4.1_lm, trt.vs.ctrl ~ factor(Time))
+```
