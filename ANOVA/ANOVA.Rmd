@@ -180,5 +180,16 @@ Exa8.4.1_aov <- anova_test(data = Exa8.4.1, dv = Assessment, wid = Subject, with
 get_anova_table(Exa8.4.1_aov)
 # Pairwise comparisons
 emmeans_test(Exa8.4.1, Assessment ~ Time, p.adjust.method = "fdr")
+# # # # # # # # # # # # # # # # # # # 
+# Now with the R basic anova function, how to make a repeated measures
+ggplot( data = Exa8.4.1, aes(x = Time, y = Assessment) ) + geom_boxplot() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.9) +
+  geom_jitter(color="red", size=1., alpha=1.)
+
+Exa8.4.1_mod <- aov( Assessment ~ factor(Time) + Error(factor(Subject)), data = Exa8.4.1 )
+#
+summary(Exa8.4.1_mod)
+emmeans(Exa8.4.1_mod, pairwise ~ factor(Time))
+emmeans(Exa8.4.1_mod, trt.vs.crtl ~ factor(Time))
 
 ```
